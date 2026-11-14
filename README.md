@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+# pystage.org
 
-You can use the [editor on GitHub](https://github.com/pystage/pystage.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+Source of the PyStage website, https://www.pystage.org. It is plain static HTML and CSS: no build step, no framework, no JavaScript, and no third-party requests (no CDNs, fonts or trackers).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Structure
 
-### Markdown
+- `index.html`, `getting-started.html`, `convert.html`, `community.html`: the pages. Header and footer are duplicated in each file, so change them in all pages.
+- `404.html`: error page. It uses root-absolute URLs because GitHub Pages serves it from any path.
+- `style.css`: the only stylesheet. Colors are variables at the top; dark mode follows `prefers-color-scheme`.
+- `assets/`: logo, banner, demo GIF and video thumbnail. `favicon.png` is the logo.
+- `CNAME`: custom domain, keep unchanged. `.nojekyll`: tells GitHub Pages not to run Jekyll.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Code examples come from the README of https://github.com/pystage/pystage. Keep them identical to it. The syntax colors are hand-written `<span class="k|s|c|f">` elements.
 
-```markdown
-Syntax highlighted code block
+## Preview
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+python -m http.server 8000
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Then open http://localhost:8000.
 
-### Jekyll Themes
+## Publishing
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pystage/pystage.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+GitHub Pages deploys from branch `main`, folder `/` (root). Push to `main` to publish.
