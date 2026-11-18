@@ -72,6 +72,8 @@ p, li { max-width: 46rem; }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; margin: 1.5rem 0; }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: .75rem; padding: 1rem 1.1rem; }
+.card { min-width: 0; }
+.card pre { overflow-x: auto; }
 .card h3 { margin-top: 0; }
 .card p { margin: .4rem 0 .8rem; }
 .card code { font-size: .9em; }
