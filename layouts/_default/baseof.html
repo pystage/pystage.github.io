@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+{{ $desc := cond (ne .Description "") .Description site.Params.description }}
+<meta name="description" content="{{ $desc }}">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="{{ "favicon.png" | relURL }}">
+<link rel="apple-touch-icon" href="{{ "favicon.png" | relURL }}">
+{{ $css := resources.Get "css/style.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ if not .IsPage }}{{ else }}{{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+{{ end }}{{ end }}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyStage">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ "assets/pystage-banner.png" | absURL }}">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">{{ i18n "skip" }}</a>
+{{ partial "header.html" . }}
+{{ if eq site.Params.reviewed false }}<div class="review-note"><div class="wrap"><p>{{ i18n "reviewed_note" }} <a href="{{ site.Params.discord }}">{{ i18n "footer_discord" }}</a> &middot; <a href="{{ site.Params.github }}/issues">{{ i18n "footer_github" }}</a></p></div></div>{{ end }}
+<main id="main"><div class="wrap">
+{{ block "main" . }}{{ end }}
+</div></main>
+{{ partial "footer.html" . }}
+</body>
+</html>

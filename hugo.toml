@@ -1,0 +1,42 @@
+baseURL = "https://www.pystage.org/"
+title = "PyStage"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+contentDir = "content"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  noClasses = false
+  lineNos = false
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    languageCode = "en"
+    contentDir = "content/en"
+    weight = 1
+    [languages.en.params]
+      reviewed = true
+
+  # German: content and i18n/de.toml follow in a second step.
+  # Remove the next line (disabled = true) as soon as content/de/ and i18n/de.toml exist.
+  [languages.de]
+    languageName = "Deutsch"
+    languageCode = "de"
+    contentDir = "content/de"
+    weight = 2
+    disabled = true
+    [languages.de.params]
+      # false shows the "not yet reviewed by a native speaker" note on every page
+      reviewed = false
+
+[params]
+  description = "PyStage offers all Scratch blocks as Python methods and converts Scratch projects to Python. Scratch-like Python programming on PyGame."
+  discord = "https://discord.gg/MSGrs3UCCz"
+  github = "https://github.com/pystage/pystage"
+  docs = "https://pystage.readthedocs.io/"
+  converter = "https://convert.pystage.org"

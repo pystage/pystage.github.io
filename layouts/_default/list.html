@@ -1,0 +1,12 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ with .Params.lead }}<p class="lead">{{ . | markdownify }}</p>{{ end }}
+{{ .Content }}
+{{ with .Pages }}
+<h2>{{ i18n "more_pages" }}</h2>
+<ul class="pagelist">
+{{ range .ByWeight }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Params.lead }} &ndash; {{ . | markdownify }}{{ end }}</li>
+{{ end }}
+</ul>
+{{ end }}
+{{ end }}

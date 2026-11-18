@@ -1,0 +1,38 @@
+{{/* Menu: driven by front matter of the ENGLISH pages: nav = kids|teachers|developers|all, weight = order.
+     For each such page the page in the current language is used; if there is none, the English page is
+     linked and marked "(English)". Nothing else to configure. */}}
+{{ $page := . }}
+{{ $lang := site.Language.Lang }}
+{{ $src := hugo.Sites.Default }}
+{{ $items := where $src.Pages "Params.nav" "in" (slice "kids" "teachers" "developers" "all") }}
+<header class="site"><div class="wrap">
+<a class="brand" href="{{ site.Home.RelPermalink }}"><img src="{{ "assets/logo.png" | relURL }}" alt="" width="40" height="40">PyStage</a>
+<nav aria-label="{{ i18n "nav_main" }}"><ul>
+{{- $prev := "" }}
+{{- range $items.ByWeight }}
+  {{- $target := . }}
+  {{- $english := false }}
+  {{- if ne $lang $src.Language.Lang }}
+    {{- $tr := where .Translations "Language.Lang" $lang }}
+    {{- if $tr }}{{ $target = index $tr 0 }}{{ else }}{{ $english = true }}{{ end }}
+  {{- end }}
+  {{- $grp := .Params.nav }}
+  {{- $cur := or (eq $target.RelPermalink $page.RelPermalink) (and (not $page.IsHome) (ne $target.RelPermalink site.Home.RelPermalink) (hasPrefix $page.RelPermalink $target.RelPermalink) (not $english)) }}
+  <li{{ if ne $grp $prev }} class="grp"{{ end }}><a href="{{ $target.RelPermalink }}"{{ if $english }} lang="en" hreflang="en" title="{{ i18n "english_marker_title" }}"{{ end }}{{ if $cur }} aria-current="page"{{ end }}>{{ or $target.Params.menu_title $target.LinkTitle }}{{ if $english }} <span class="ext">{{ i18n "english_marker" }}</span>{{ end }}</a></li>
+  {{- $prev = $grp }}
+{{- end }}
+</ul></nav>
+{{ if gt (len site.Languages) 1 }}
+<nav class="langs" aria-label="{{ i18n "nav_lang" }}"><ul>
+{{- range site.Languages }}
+  {{- $l := . }}
+  {{- $href := "" }}
+  {{- range hugo.Sites }}{{ if eq .Language.Lang $l.Lang }}{{ $href = .Home.RelPermalink }}{{ end }}{{ end }}
+  {{- if not $page.IsNode | or $page.IsHome | or $page.IsSection }}
+    {{- range $page.AllTranslations }}{{ if eq .Language.Lang $l.Lang }}{{ $href = .RelPermalink }}{{ end }}{{ end }}
+  {{- end }}
+  <li><a lang="{{ .LanguageCode }}" hreflang="{{ .LanguageCode }}" href="{{ $href }}"{{ if eq .Lang $lang }} aria-current="true"{{ end }}>{{ .LanguageName }}</a></li>
+{{- end }}
+</ul></nav>
+{{ end }}
+</div></header>

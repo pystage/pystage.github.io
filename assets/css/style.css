@@ -70,7 +70,7 @@ p, li { max-width: 46rem; }
 .btn:hover { filter: brightness(1.1); }
 .btn.secondary { background: transparent; color: var(--accent); }
 
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr)); gap: 1rem; margin: 1.5rem 0; }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: .75rem; padding: 1rem 1.1rem; }
 .card h3 { margin-top: 0; }
 .card p { margin: .4rem 0 .8rem; }
@@ -106,3 +106,27 @@ footer.site ul { list-style: none; padding: 0; margin: 0 0 .75rem; display: flex
 footer.site p { margin: .25rem 0; }
 .scrollx { overflow-x: auto; }
 .scrollx .shot { min-width: 40rem; }
+
+/* header additions */
+.langs { margin-left: auto; }
+.langs a[aria-current="true"] { font-weight: 700; box-shadow: inset 0 -3px 0 var(--accent); border-radius: .4rem .4rem 0 0; }
+nav .grp { margin-left: .6rem; padding-left: .6rem; border-left: 1px solid var(--border); }
+nav .grp:first-child { margin-left: 0; padding-left: 0; border-left: 0; }
+.ext { color: var(--muted); font-size: .85em; }
+.card { min-width: 0; }
+.card pre { overflow-x: auto; }
+.card .btns { margin: .8rem 0 0; }
+.btn.big { font-size: 1.3rem; padding: .85rem 1.8rem; }
+.review-note { background: var(--surface); border-bottom: 1px solid var(--border); padding: .4rem 0; font-size: .95rem; color: var(--muted); }
+.review-note p { margin: 0; max-width: none; }
+.visually-hidden { position: absolute; left: -999px; }
+.pagelist { padding-left: 1.2rem; }
+
+/* syntax highlighting (Hugo/Chroma classes), same colours as before */
+.highlight { margin: 1rem 0; }
+.highlight pre { margin: 0; }
+.chroma .k, .chroma .kn, .chroma .kd, .chroma .kc, .chroma .kr, .chroma .kp, .chroma .ow { color: var(--c-kw); font-weight: 600; }
+.chroma .s, .chroma .s1, .chroma .s2, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .se, .chroma .si { color: var(--c-str); }
+.chroma .c, .chroma .c1, .chroma .cm, .chroma .cs, .chroma .ch { color: var(--c-com); font-style: italic; }
+.chroma .nf, .chroma .fm { color: var(--c-fn); }
+.chroma .nd { color: var(--c-kw); }

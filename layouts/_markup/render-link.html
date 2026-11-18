@@ -1,0 +1,6 @@
+{{- /* Root-absolute destinations ("/start/", "/de/x/#frag") are site-internal: prefix language and base path. */ -}}
+{{- $d := .Destination -}}
+{{- if and (hasPrefix $d "/") (not (hasPrefix $d "//")) -}}
+{{- $d = $d | strings.TrimPrefix "/" | relLangURL -}}
+{{- end -}}
+<a href="{{ $d | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>

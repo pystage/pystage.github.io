@@ -1,0 +1,9 @@
+{{/* HOOK for the Blocks pages (section "blocks"). The block data is generated into data/blocks/<lang>.json
+     (tools/extract-blocks.py); this layout is the entry point that renders them. Replace the placeholder
+     below. Add layouts/blocks/single.html (or a per-category list) for the category pages if needed. */}}
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ with .Params.lead }}<p class="lead">{{ . | markdownify }}</p>{{ end }}
+{{ .Content }}
+{{ with .Pages }}<ul class="pagelist">{{ range .ByWeight }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}</ul>{{ end }}
+{{ end }}

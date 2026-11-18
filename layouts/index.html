@@ -1,0 +1,11 @@
+{{ define "main" }}
+<section class="hero">
+<h1>{{ .Title }}</h1>
+<p class="lead">{{ .Params.lead | markdownify }}</p>
+<p class="btns">
+{{ with .Params.start }}<a class="btn big" href="{{ .link | strings.TrimPrefix "/" | relLangURL }}">{{ .text }}</a>{{ end }}
+{{ with .Params.teachers }}<a class="btn secondary" href="{{ .link | strings.TrimPrefix "/" | relLangURL }}">{{ .text }}</a>{{ end }}
+</p>
+</section>
+{{ .Content }}
+{{ end }}

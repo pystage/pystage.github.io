@@ -1,24 +1,27 @@
 # pystage.org
 
-Source of the PyStage website, https://www.pystage.org. It is plain static HTML and CSS: no build step, no framework, no JavaScript, and no third-party requests (no CDNs, fonts or trackers).
+Source of the PyStage website, https://www.pystage.org. It is built with [Hugo](https://gohugo.io/) (extended, v0.157 or newer) from a small custom theme in `layouts/`. No JavaScript, no third-party requests (no CDNs, fonts or trackers). The plan (audiences, pages, translations) is in `PLAN.md`.
 
 ## Structure
 
-- `index.html`, `getting-started.html`, `convert.html`, `community.html`: the pages. Header and footer are duplicated in each file, so change them in all pages.
-- `404.html`: error page. It uses root-absolute URLs because GitHub Pages serves it from any path.
-- `style.css`: the only stylesheet. Colors are variables at the top; dark mode follows `prefers-color-scheme`.
-- `assets/`: logo, banner, demo GIF and video thumbnail. `favicon.png` is the logo.
-- `CNAME`: custom domain, keep unchanged. `.nojekyll`: tells GitHub Pages not to run Jekyll.
+- `hugo.toml`: languages (`en` at the root, `de` under `/de/`; `de` stays `disabled = true` until `content/de/` and `i18n/de.toml` exist), markup and site parameters. `[languages.<lang>.params] reviewed = false` shows the "not reviewed by a native speaker" note on every page of that language.
+- `content/<lang>/`: the pages (Markdown). Front matter: `title`, `menu_title`, `description`, `lead`, and for the menu `nav: kids|teachers|developers|all` plus `weight`. Pages without `nav` are not in the menu.
+- `i18n/<lang>.toml`: all UI strings. A new language needs this file and `content/<lang>/`.
+- `layouts/`: the theme. The menu is generated from the `nav` pages of the English site; in another language each entry links to the translated page, or to the English page marked "(English)" when there is none. The language switcher in the header lists the enabled languages and links to the same page, or to the language's home. `layouts/blocks/list.html` is the hook for the generated Blocks pages (`data/blocks/<lang>.json`).
+- `assets/css/style.css`: the only stylesheet (colors are variables at the top; dark mode follows `prefers-color-scheme`).
+- `static/`: copied to the output root: `assets/` (logo, banner, demo GIF), `favicon.png`, `CNAME`, `.nojekyll`.
+- `tools/check-examples.py`: runs the code examples marked ```` ```python {run=true} ```` headless (`--python` selects the interpreter that has pystage).
+- `tools/check-translations.py`: lists outdated and missing translations (`translation_of`, `source_hash` in the front matter of translated pages; `--hash start.md` prints the hash of an English page).
 
-Code examples come from the README of https://github.com/pystage/pystage. Keep them identical to it. The syntax colors are hand-written `<span class="k|s|c|f">` elements.
+Inside Markdown use root-absolute links (`[Start](/start/)`, `/assets/x.png`); they are prefixed with the language and the base URL, so they work under `/review/<name>/` too. In raw HTML use the shortcodes `{{< rl "/start/" >}}` (page link) and `{{< asset "/assets/x.png" >}}`.
 
 ## Preview
 
 ```
-python -m http.server 8000
+hugo server
 ```
 
-Then open http://localhost:8000.
+or `hugo --minify` and `python -m http.server` in `public/`. To test a non-root location: `hugo --minify --baseURL http://localhost:8000/review/new-website/`.
 
 ## Publishing and reviews
 
