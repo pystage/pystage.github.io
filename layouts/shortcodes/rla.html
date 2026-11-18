@@ -1,0 +1,4 @@
+{{- /* Like rl, but outputs the whole attributes: href="..." (plus lang="en" hreflang="en" for a page that exists only in English).
+     Use it as <a {{< rla "/developers/" >}}>. */ -}}
+{{- $r := partial "localize.html" (.Get 0) -}}
+href="{{ $r.href }}"{{ if $r.en }} lang="en" hreflang="en"{{ end }}

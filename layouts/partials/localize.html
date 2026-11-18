@@ -1,0 +1,24 @@
+{{- /* Resolve a site-internal, root-absolute destination ("/start/", "/developers/#x") for the current language.
+     Returns {href, en}: href is the URL; en is true when the page exists only in English, so the link
+     goes to the English page (no /de/ in front) and should be marked lang="en". Anything that is not
+     a page of the site (assets, ...) gets the usual language prefix. */ -}}
+{{- $d := . -}}
+{{- $frag := "" -}}
+{{- with findRE `[?#].*$` $d 1 }}{{ $frag = index . 0 }}{{ end -}}
+{{- $path := strings.TrimSuffix $frag $d | strings.TrimPrefix "/" -}}
+{{- $href := "" -}}
+{{- $en := false -}}
+{{- $lang := site.Language.Lang -}}
+{{- $src := hugo.Sites.Default -}}
+{{- $key := printf "/%s" (strings.TrimSuffix "/" $path) -}}
+{{- $here := site.GetPage $key -}}
+{{- if and (not $here) (ne $lang $src.Language.Lang) -}}
+  {{- with $src.GetPage $key -}}
+    {{- $href = printf "%s%s" .RelPermalink $frag -}}
+    {{- $en = true -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $href -}}
+  {{- $href = printf "%s%s" ($path | relLangURL) $frag -}}
+{{- end -}}
+{{- return dict "href" $href "en" $en -}}

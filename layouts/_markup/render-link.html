@@ -1,6 +1,10 @@
-{{- /* Root-absolute destinations ("/start/", "/de/x/#frag") are site-internal: prefix language and base path. */ -}}
+{{- /* Root-absolute destinations ("/start/", "/developers/#frag") are site-internal: prefix language and base path.
+     If the page has no translation in the current language, the link goes to the English page (lang="en"). */ -}}
 {{- $d := .Destination -}}
+{{- $en := false -}}
 {{- if and (hasPrefix $d "/") (not (hasPrefix $d "//")) -}}
-{{- $d = $d | strings.TrimPrefix "/" | relLangURL -}}
+{{- $r := partial "localize.html" $d -}}
+{{- $d = $r.href -}}
+{{- $en = $r.en -}}
 {{- end -}}
-<a href="{{ $d | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+<a href="{{ $d | safeURL }}"{{ if $en }} lang="en" hreflang="en"{{ end }}{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
