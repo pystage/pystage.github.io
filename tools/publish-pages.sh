@@ -27,6 +27,16 @@
 #   - root-absolute links (href="/..", src="/..", as used by 404.html) are
 #     rewritten to the review directory, since they would leave it otherwise.
 #
+# A branch (main or a review) whose root holds a Hugo configuration (hugo.toml,
+# hugo.yaml, config.toml, ..., or config/_default/) is a Hugo site: it is built
+# with "hugo --minify --baseURL <url>" and the output is published instead of
+# the raw tree. <url> is the base URL (see --base-url) for main and
+# <base-url>review/<name>/ for a review. Hugo extended must be installed
+# (the workflow installs a pinned version); if it is missing or a build fails,
+# the whole run fails and nothing is committed. Themes must be in the branch
+# itself or Hugo modules (git submodules are not checked out). A CNAME in the
+# root of a Hugo main is copied to the output if Hugo did not.
+#
 # The pages branch is rebuilt from the refs on every run, so a deleted review
 # branch loses its directory. Commits, but pushes only with --push.
 #
@@ -37,6 +47,7 @@
 #   --remote NAME     remote to read and push (default origin)
 #   --branch NAME     branch to publish into (default pages)
 #   --root REF        branch served at the root (default main)
+#   --base-url URL    public URL of the root (default https://www.pystage.org/)
 #   --push            push the pages branch when it changed
 #   --dry-run         show what would be published, change nothing
 #
@@ -50,20 +61,39 @@ root_ref=main
 push=no
 dry=no
 prefix=review
+base_url=https://www.pystage.org/
 
 while [ $# -gt 0 ]; do
     case "$1" in
         --remote) remote=$2; shift 2 ;;
         --branch) pages_branch=$2; shift 2 ;;
         --root)   root_ref=$2; shift 2 ;;
+        --base-url) base_url=$2; shift 2 ;;
         --push)   push=yes; shift ;;
         --dry-run) dry=yes; push=no; shift ;;
-        -h|--help) sed -n '2,44p' "$0" | sed 's/^# \?//'; exit 0 ;;
+        -h|--help) sed -n '2,56p' "$0" | sed 's/^# \?//'; exit 0 ;;
         *) echo "unknown option $1" >&2; exit 1 ;;
     esac
 done
 
+case "$base_url" in
+    http://*|https://*) ;;
+    *) echo "--base-url must start with http:// or https://" >&2; exit 1 ;;
+esac
+base_url=${base_url%/}/
+# path part of the base URL, with leading and trailing slash
+base_path=/$(printf '%s' "${base_url#*://}" | sed -n 's#^[^/]*/##p')
+
 cd "$(git rev-parse --show-toplevel)"
+
+# is_hugo REF: does the root of REF hold a Hugo configuration?
+is_hugo() {
+    local f
+    for f in hugo.toml hugo.yaml hugo.yml hugo.json config.toml config.yaml config.yml config.json config/_default; do
+        git cat-file -e "$1:$f" 2>/dev/null && return 0
+    done
+    return 1
+}
 
 echo "fetching $remote"
 git fetch --quiet --prune "$remote"
@@ -93,8 +123,11 @@ done < <(git for-each-ref --format='%(refname:strip=3)' "refs/remotes/$remote" |
 echo "root: $remote/$root_ref"
 for entry in ${reviews+"${reviews[@]}"}; do
     read -r ref dir _ <<<"$entry"
-    echo "  $prefix/$dir  <- $ref"
+    kind=
+    is_hugo "$ref" && kind=" (Hugo)"
+    echo "  $prefix/$dir  <- $ref$kind"
 done
+is_hugo "$root" && echo "  (root is a Hugo site)"
 
 [ "$dry" = yes ] && { echo "dry run, nothing written"; exit 0; }
 
@@ -104,8 +137,39 @@ trap 'rm -rf "$build"; git worktree remove --force "$worktree" 2>/dev/null || tr
 
 escape() { sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' -e 's/"/\&quot;/g'; }
 
+# export_ref REF DEST URL: put the site of REF into DEST; a Hugo site is built
+# for URL, anything else is copied as it is
+export_ref() {
+    local ref=$1 dest=$2 url=$3 src
+    if ! is_hugo "$ref"; then
+        git archive "$ref" | tar -x -C "$dest"
+        return
+    fi
+    if ! command -v hugo >/dev/null 2>&1; then
+        echo "$ref is a Hugo site, but hugo is not installed (Hugo $(hugo_version_hint) is needed)" >&2
+        exit 1
+    fi
+    src=$(mktemp -d)
+    git archive "$ref" | tar -x -C "$src"
+    echo "building $ref with Hugo for $url"
+    if ! hugo --minify --source "$src" --destination "$dest" --baseURL "$url"; then
+        echo "Hugo build of $ref failed, nothing published" >&2
+        rm -rf "$src"
+        exit 1
+    fi
+    if [ -f "$src/CNAME" ] && [ ! -f "$dest/CNAME" ]; then
+        cp "$src/CNAME" "$dest/CNAME"
+    fi
+    rm -rf "$src"
+}
+hugo_version_hint() { echo "extended, v0.157.0 or compatible"; }
+
 # the site as it will be served
-git archive "$root" | tar -x -C "$build"
+export_ref "$root" "$build" "$base_url"
+if [ -e "$build/$prefix" ]; then
+    echo "the build of $remote/$root_ref contains $prefix; it is reserved for the reviews" >&2
+    exit 1
+fi
 mkdir -p "$build/$prefix"
 
 items=""
@@ -113,7 +177,10 @@ for entry in ${reviews+"${reviews[@]}"}; do
     read -r ref dir branch <<<"$entry"
     dest="$build/$prefix/$dir"
     mkdir -p "$dest"
-    git archive "$ref" | tar -x -C "$dest"
+    export_ref "$ref" "$dest" "$base_url$prefix/$dir/"
+    skip="@@none@@"
+    # links that Hugo already built for the review directory stay as they are
+    is_hugo "$ref" && skip="${base_path#/}$prefix/$dir/"
 
     # metadata from REVIEW.md
     title=$branch
@@ -140,16 +207,16 @@ for entry in ${reviews+"${reviews[@]}"}; do
     rm -f "$dest/REVIEW.md" "$dest/CNAME"
 
     # banner, noindex, and root-absolute links, in every HTML page
-    base="/$prefix/$dir/"
+    base="$base_path$prefix/$dir/"
     banner="<div class=\"review-banner\" style=\"background:#ffd54a;color:#000;padding:.6rem 1rem;text-align:center;font:600 15px/1.4 sans-serif;border-bottom:2px solid #b8860b\">Review version: $(printf '%s' "$title" | escape) &mdash; not the official website."
     if [ -n "$issue" ]; then
         banner="$banner Feedback: <a href=\"$(printf '%s' "$issue" | escape)\" style=\"color:#000\">$(printf '%s' "$issue" | escape)</a>."
     fi
-    banner="$banner Official site: <a href=\"https://www.pystage.org/\" style=\"color:#000\">https://www.pystage.org/</a></div>"
+    banner="$banner Official site: <a href=\"$base_url\" style=\"color:#000\">$base_url</a></div>"
     # shellcheck disable=SC2016  # perl code, not shell
     find "$dest" -type f \( -name '*.html' -o -name '*.htm' \) -print0 |
-        BANNER=$banner BASE=$base xargs -0 perl -0pi -e '
-            s{(\b(?:href|src)=")/(?!/)}{$1$ENV{BASE}}g;
+        BANNER=$banner BASE=$base SKIP=$skip xargs -0 perl -0pi -e '
+            s{(\b(?:href|src)=["\x27]?)/(?!/)(?!\Q$ENV{SKIP}\E)}{$1$ENV{BASE}}g;
             s{(</head>)}{<meta name="robots" content="noindex">\n$1}i;
             s{(<body[^>]*>)}{$1\n$ENV{BANNER}}i;'
 
