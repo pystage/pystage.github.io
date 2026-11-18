@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erste Schritte | PyStage</title>
+<meta name="description" content="Installiere PyStage mit pip, starte dein erstes Programm und lerne, wie sich Python-Code wie ein Scratch-Skript verhält.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../favicon.png">
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" hreflang="en" href="https://www.pystage.org/getting-started.html">
+<link rel="alternate" hreflang="de" href="https://www.pystage.org/de/getting-started.html">
+<link rel="alternate" hreflang="lt" href="https://www.pystage.org/lt/getting-started.html">
+<link rel="alternate" hreflang="x-default" href="https://www.pystage.org/getting-started.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyStage">
+<meta property="og:title" content="Erste Schritte | PyStage">
+<meta property="og:description" content="Installiere PyStage mit pip, starte dein erstes Programm und lerne, wie sich Python-Code wie ein Scratch-Skript verhält.">
+<meta property="og:url" content="https://www.pystage.org/de/getting-started.html">
+<meta property="og:image" content="https://www.pystage.org/assets/pystage-banner.png">
+<meta property="og:image:alt" content="Links Scratch-Blöcke, rechts der passende PyStage-Python-Code">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="review-banner" style="background:#ffd54a;color:#000;padding:.6rem 1rem;text-align:center;font:600 15px/1.4 sans-serif;border-bottom:2px solid #b8860b">Review version: Lithuanian translation &mdash; not the official website. Feedback: <a href="https://github.com/pystage/pystage/issues/133" style="color:#000">https://github.com/pystage/pystage/issues/133</a>. Official site: <a href="https://www.pystage.org/" style="color:#000">https://www.pystage.org/</a></div>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/logo.png" alt="" width="40" height="40">PyStage</a>
+<nav aria-label="Hauptmenü"><ul><li><a href="index.html">Start</a></li><li><a href="getting-started.html" aria-current="page">Erste Schritte</a></li><li><a href="convert.html">Scratch umwandeln</a></li><li><a href="community.html">Mitmachen</a></li><li><a href="docs.html">Doku</a></li></ul></nav>
+<nav class="langs" aria-label="Sprache"><ul><li><a lang="en" hreflang="en" href="../getting-started.html">English</a></li><li><a lang="de" hreflang="de" href="getting-started.html" aria-current="true">Deutsch</a></li><li><a lang="lt" hreflang="lt" href="../lt/getting-started.html">Lietuvių</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<h1>Erste Schritte</h1>
+<p class="lead">Installiere PyStage, starte dein erstes Programm und lerne, wie sich Python-Code wie ein Scratch-Skript verhält.</p>
+
+<h2>Installieren</h2>
+<pre tabindex="0" aria-label="Installationsbefehl"><code>pip install pystage</code></pre>
+<p>PyStage braucht Python 3.10 oder neuer. <a href="https://pyga.me/">pygame-ce</a> wird automatisch mitinstalliert. Falls du das klassische <code>pygame</code> installiert hast, entferne es vorher mit <code>pip uninstall pygame</code>.</p>
+
+<h2>Dein erstes Programm</h2>
+<p>Speichere den Code in einer Datei, zum Beispiel <code>erstes.py</code>, und starte sie mit Python. Es öffnet sich ein Fenster, und die Figur läuft im Quadrat.</p>
+<pre tabindex="0" aria-label="Erstes PyStage-Programm"><code><span class="k">from</span> pystage.de <span class="k">import</span> Bühne, Figur
+
+bühne = Bühne()
+zombie = bühne.<span class="f">füge_eine_figur_hinzu</span>()
+
+<span class="k">def</span> los(zombie: Figur):
+    <span class="k">for</span> i <span class="k">in</span> range(4):
+        zombie.<span class="f">gehe_schritte</span>(10)
+        zombie.<span class="f">drehe_dich_nach_links_um_grad</span>(90)
+        zombie.<span class="f">warte_sekunden</span>(1)
+
+zombie.<span class="f">wenn_programm_startet</span>(los)
+
+bühne.<span class="f">abspielen</span>()
+</code></pre>
+<p>Mit der Autovervollständigung deines Editors siehst du, welche Methoden es gibt. Du findest Methoden für alle Scratch-Blöcke an deiner Bühne und deinen Figuren, auch für die Erweiterung Stift, für Variablen, Listen, Klone und alle Ereignisse. Nur die Blöcke, die ein Mikrofon brauchen (Lautstärke), tun nichts.</p>
+<p>Die vollständige Liste steht in der <a href="https://pystage.readthedocs.io/en/latest/pystage.de.html">Dokumentation</a>.</p>
+
+<h2>Dein Code verhält sich wie ein Scratch-Skript</h2>
+<p>Manches funktioniert anders als in normalen Python-Programmen, weil sich dein Code wie ein Scratch-Skript verhält.</p>
+<h3>Schleifen aktualisieren den Bildschirm</h3>
+<p>Der Bildschirm wird nach jedem Durchlauf einer Schleife und nach Blöcken, die Zeit brauchen, aktualisiert, zum Beispiel nach <code>warte_sekunden</code>. Um eine Spielschleife musst du dich nicht kümmern.</p>
+<h3>Funktionen sind eigene Blöcke</h3>
+<p>Funktionen aus derselben Datei, die du in deinem Code aufrufst, verhalten sich wie eigene Blöcke in Scratch. Sie dürfen deshalb auch Schleifen und <code>warte_sekunden</code> enthalten.</p>
+<h3>Ohne Bildschirmaktualisierung ausführen</h3>
+<p>Markiere eine Funktion mit <code>@ohne_bildschirmaktualisierung</code>, dann läuft sie auf einmal ab, wie &bdquo;Wiederhole ohne Bildschirmaktualisierung&ldquo; in Scratch. Im Beispiel unten ist das Quadrat sofort gezeichnet.</p>
+<pre tabindex="0" aria-label="Eigene Blöcke und ohne Bildschirmaktualisierung"><code><span class="k">from</span> pystage.de <span class="k">import</span> Bühne, Figur, ohne_bildschirmaktualisierung
+
+bühne = Bühne()
+zombie = bühne.<span class="f">füge_eine_figur_hinzu</span>()
+
+<span class="k">def</span> springe(zombie: Figur, höhe):
+    <span class="k">for</span> i <span class="k">in</span> range(10):
+        zombie.<span class="f">ändere_y_um</span>(höhe / 10)
+    <span class="k">for</span> i <span class="k">in</span> range(10):
+        zombie.<span class="f">ändere_y_um</span>(-höhe / 10)
+
+@ohne_bildschirmaktualisierung
+<span class="k">def</span> zeichne_quadrat(zombie: Figur):
+    <span class="c"># Wie "Wiederhole ohne Bildschirmaktualisierung" in Scratch:</span>
+    <span class="c"># Das Quadrat ist sofort da.</span>
+    zombie.<span class="f">schalte_stift_ein</span>()
+    <span class="k">for</span> i <span class="k">in</span> range(4):
+        zombie.<span class="f">gehe_schritte</span>(50)
+        zombie.<span class="f">drehe_dich_nach_links_um_grad</span>(90)
+    zombie.<span class="f">schalte_stift_aus</span>()
+
+<span class="k">def</span> los(zombie: Figur):
+    zeichne_quadrat(zombie)
+    <span class="k">while</span> <span class="k">True</span>:
+        springe(zombie, 80)
+        zombie.<span class="f">warte_sekunden</span>(1)
+
+zombie.<span class="f">wenn_programm_startet</span>(los)
+
+bühne.<span class="f">abspielen</span>()
+</code></pre>
+<h3>Fehler werden angezeigt</h3>
+<p>Wenn dein Code einen Fehler enthält, erscheint die Meldung im Fenster und im Terminal, auf Deutsch.</p>
+
+<h2>Andere Sprachen</h2>
+<p>Die Beispiele benutzen die deutsche API: <code>from pystage.de import Bühne, Figur</code>. Es gibt auch Englisch (<code>pystage.en</code>) und Litauisch (<code>pystage.lt</code>).</p>
+<div class="note">Englisch, Deutsch und Litauisch sind verfügbar. Auf der <a href="docs.html">Doku-Seite</a> findest du die Beschreibung der deutschen API. Hilf mit, wenn du eine Übersetzung pflegen oder eine neue Sprache hinzufügen möchtest, <a href="community.html">melde dich einfach</a>.</div>
+
+<h2>Wie geht es weiter?</h2>
+<ul>
+<li><a href="convert.html">Wandle eines deiner Scratch-Projekte um</a> und lies den Python-Code, der dabei entsteht.</li>
+<li><a href="docs.html">Lies die Doku.</a> Die Block-API ist noch größtenteils unbeschrieben, die Doku ist deshalb eher ein Nachschlagewerk als eine Anleitung.</li>
+<li>Stelle deine Fragen auf <a href="https://discord.gg/MSGrs3UCCz">Discord</a>.</li>
+</ul>
+</div></main>
+<footer class="site"><div class="wrap">
+<ul>
+<li><a href="https://github.com/pystage/pystage">GitHub</a></li>
+<li><a href="https://pypi.org/project/pystage/">PyPI</a></li>
+<li><a href="docs.html">Dokumentation</a></li>
+<li><a href="https://convert.pystage.org">Online-Umwandler</a></li>
+<li><a href="https://discord.gg/MSGrs3UCCz">Discord</a></li>
+</ul>
+<p>PyStage ist Open Source unter der MIT-Lizenz. Es gehört nicht zum Scratch-Team und nicht zur Scratch Foundation.</p>
+<p>Diese Seite lädt nichts von anderen Webseiten. Die Links oben führen zu anderen Seiten.</p>
+</div></footer>
+</body>
+</html>

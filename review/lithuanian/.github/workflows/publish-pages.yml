@@ -1,0 +1,39 @@
+name: Publish pages
+
+# Rebuilds the pages branch (main at the root, review/<name> branches under
+# review/<name>/) with tools/publish-pages.sh.
+#
+# A push to a review branch runs the workflow file of that branch, so review
+# branches must be created from a main that already has this file. Otherwise
+# the maintainer starts the workflow by hand (Actions > Publish pages > Run
+# workflow).
+on:
+  push:
+    branches:
+      - main
+      - 'review/**'
+  delete:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    # a deleted branch triggers this too; other deleted refs (tags) are not reviews
+    if: github.event_name != 'delete' || github.event.ref_type == 'branch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Publish
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          tools/publish-pages.sh --push

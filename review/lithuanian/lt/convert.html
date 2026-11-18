@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scratch projektų konvertavimas | PyStage</title>
+<meta name="description" content="Konvertuok Scratch 3 projektą (.sb3) į Python su PyStage konverteriu internete arba komandinėje eilutėje ir sužinok, kas palaikoma.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../favicon.png">
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" hreflang="en" href="https://www.pystage.org/convert.html">
+<link rel="alternate" hreflang="de" href="https://www.pystage.org/de/convert.html">
+<link rel="alternate" hreflang="lt" href="https://www.pystage.org/lt/convert.html">
+<link rel="alternate" hreflang="x-default" href="https://www.pystage.org/convert.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyStage">
+<meta property="og:title" content="Scratch projektų konvertavimas | PyStage">
+<meta property="og:description" content="Konvertuok Scratch 3 projektą (.sb3) į Python su PyStage konverteriu internete arba komandinėje eilutėje ir sužinok, kas palaikoma.">
+<meta property="og:url" content="https://www.pystage.org/lt/convert.html">
+<meta property="og:image" content="https://www.pystage.org/assets/pystage-banner.png">
+<meta property="og:image:alt" content="Kairėje Scratch blokai, dešinėje atitinkamas PyStage Python kodas">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="review-banner" style="background:#ffd54a;color:#000;padding:.6rem 1rem;text-align:center;font:600 15px/1.4 sans-serif;border-bottom:2px solid #b8860b">Review version: Lithuanian translation &mdash; not the official website. Feedback: <a href="https://github.com/pystage/pystage/issues/133" style="color:#000">https://github.com/pystage/pystage/issues/133</a>. Official site: <a href="https://www.pystage.org/" style="color:#000">https://www.pystage.org/</a></div>
+<a class="skip" href="#main">Pereiti prie turinio</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/logo.png" alt="" width="40" height="40">PyStage</a>
+<nav aria-label="Pagrindinis meniu"><ul><li><a href="index.html">Pradžia</a></li><li><a href="getting-started.html">Pirmi žingsniai</a></li><li><a href="convert.html" aria-current="page">Konvertuoti Scratch</a></li><li><a href="community.html">Bendruomenė</a></li><li><a href="docs.html">Dokumentacija</a></li></ul></nav>
+<nav class="langs" aria-label="Kalba"><ul><li><a lang="en" hreflang="en" href="../convert.html">English</a></li><li><a lang="de" hreflang="de" href="../de/convert.html">Deutsch</a></li><li><a lang="lt" hreflang="lt" href="convert.html" aria-current="true">Lietuvių</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<div class="note"><strong>Vertimas dar nepatikrintas.</strong> Šio lietuviško vertimo dar nepatikrino gimtakalbiai. Pastabų laukiame: žr. <a href="community.html">bendruomenės puslapį</a> ir <a href="https://github.com/pystage/pystage/issues/133">peržiūros užduotį GitHub</a>.</div>
+<h1>Konvertuok savo Scratch projektą</h1>
+<p class="lead">Paversk Scratch 3 projektą Python kodu, kuris veikia su PyStage.</p>
+
+<h2>Naudok konverterį internete</h2>
+<ol>
+<li>Paskelbk savo Scratch projektą <strong>arba</strong> atsisiųsk jį kaip .sb3 failą.</li>
+<li>Eik į <a href="https://convert.pystage.org">convert.pystage.org</a> ir konvertuok projektą.</li>
+<li>Atsisiųsk gautą zip failą. Jame yra tavo naujas Python projektas, paruoštas paleisti.</li>
+</ol>
+<p><a class="btn" href="https://convert.pystage.org">Atidaryti konverterį</a></p>
+
+<h2>Konvertuok savo kompiuteryje</h2>
+<ol>
+<li>Eksportuok savo Scratch projektą Scratch puslapyje. Gausi .sb3 failą.</li>
+<li>Naudok PyStage komandinės eilutės konverterį. Taip, jis nepatogus, ir mes dirbame, kad jį būtų lengviau naudoti.</li>
+</ol>
+<p>Pagrindinė komanda:</p>
+<pre tabindex="0" aria-label="Konverterio komanda"><code>python -m pystage.convert.sb3 &lt;SB3 failas&gt; -l lt -d &lt;KATALOGAS&gt;
+</code></pre>
+<div class="tablewrap"><table>
+<thead><tr><th scope="col">Parinktis</th><th scope="col">Reikšmė</th></tr></thead>
+<tbody>
+<tr><td><code>-l</code></td><td>Sugeneruotų Python „Scratch blokų“ kalba. Šiuo metu galimos <code>en</code>, <code>de</code> ir <code>lt</code>. Jei nenurodyta, naudojama nuo kalbos nepriklausoma pagrindinė API.</td></tr>
+<tr><td><code>-d</code></td><td>Išvesties katalogas, pagal nutylėjimą dabartinis katalogas.</td></tr>
+<tr><td><code>-i</code></td><td>Spausdinti tarpinį kodo vaizdą.</td></tr>
+<tr><td><code>-s</code></td><td>Spausdinti sb3 failo project.json.</td></tr>
+<tr><td><code>-p</code></td><td>Spausdinti Python kodą.</td></tr>
+<tr><td><code>-v</code></td><td>Išsami išvestis.</td></tr>
+<tr><td><code>-vv</code></td><td>Derinimo režimas.</td></tr>
+</tbody></table></div>
+<p>Pirmiausia turi būti įdiegtas PyStage, žr. <a href="getting-started.html">Pirmi žingsniai</a>. Lietuviškam kodui (<code>-l lt</code>) reikia išankstinės versijos (<code>pip install --pre pystage</code>).</p>
+
+<h2>Kas konvertuojama</h2>
+<p>Konvertuojami tavo projekto scenarijai, savo komandos (blokai), kintamieji, sąrašai, monitoriai (scenoje rodomi kintamųjų ir sąrašų langeliai) ir komentarai.</p>
+
+<h2>Kas nepalaikoma</h2>
+<p>Blokai iš kitų plėtinių nei Pieštukas (pavyzdžiui, Muzika ar Skaityti tekstą) nepalaikomi. Python kode jie rodomi kaip tekstas, prasidedantis <code>NOT SUPPORTED</code>, todėl gali jo ieškoti ir tas dalis perrašyti rankomis.</p>
+<p>Blokai, kuriems reikia mikrofono (garsumas), yra, bet nieko neveikia.</p>
+<div class="note">PyStage yra alfa versija, todėl konvertuotam projektui gali reikėti pataisymų. Jei rasi projektą, kuris konvertuojasi prastai, <a href="https://github.com/pystage/pystage/issues">sukurk pranešimą (angl. issue)</a>.</div>
+</div></main>
+<footer class="site"><div class="wrap">
+<ul>
+<li><a href="https://github.com/pystage/pystage">GitHub</a></li>
+<li><a href="https://pypi.org/project/pystage/">PyPI</a></li>
+<li><a href="docs.html">Dokumentacija</a></li>
+<li><a href="https://convert.pystage.org">Konverteris internete</a></li>
+<li><a href="https://discord.gg/MSGrs3UCCz">Discord</a></li>
+</ul>
+<p>PyStage yra atvirojo kodo programa pagal MIT licenciją. Nesusijusi su Scratch komanda ar Scratch fondu.</p>
+<p>Ši svetainė nieko nekrauna iš trečiųjų šalių. Aukščiau esančios nuorodos veda į kitas svetaines.</p>
+</div></footer>
+</body>
+</html>

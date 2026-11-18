@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started | PyStage</title>
+<meta name="description" content="Install PyStage with pip, run your first program and learn how Python code behaves like a Scratch script.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="alternate" hreflang="en" href="https://www.pystage.org/getting-started.html">
+<link rel="alternate" hreflang="de" href="https://www.pystage.org/de/getting-started.html">
+<link rel="alternate" hreflang="lt" href="https://www.pystage.org/lt/getting-started.html">
+<link rel="alternate" hreflang="x-default" href="https://www.pystage.org/getting-started.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyStage">
+<meta property="og:title" content="Getting started | PyStage">
+<meta property="og:description" content="Install PyStage with pip, run your first program and learn how Python code behaves like a Scratch script.">
+<meta property="og:url" content="https://www.pystage.org/getting-started.html">
+<meta property="og:image" content="https://www.pystage.org/assets/pystage-banner.png">
+<meta property="og:image:alt" content="Scratch blocks on the left, the matching PyStage Python code on the right">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="review-banner" style="background:#ffd54a;color:#000;padding:.6rem 1rem;text-align:center;font:600 15px/1.4 sans-serif;border-bottom:2px solid #b8860b">Review version: Lithuanian translation &mdash; not the official website. Feedback: <a href="https://github.com/pystage/pystage/issues/133" style="color:#000">https://github.com/pystage/pystage/issues/133</a>. Official site: <a href="https://www.pystage.org/" style="color:#000">https://www.pystage.org/</a></div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="40" height="40">PyStage</a>
+<nav aria-label="Main"><ul><li><a href="index.html">Home</a></li><li><a href="getting-started.html" aria-current="page">Getting started</a></li><li><a href="convert.html">Convert Scratch</a></li><li><a href="community.html">Community</a></li><li><a href="docs.html">Docs</a></li></ul></nav>
+<nav class="langs" aria-label="Language"><ul><li><a lang="en" hreflang="en" href="getting-started.html" aria-current="true">English</a></li><li><a lang="de" hreflang="de" href="de/getting-started.html">Deutsch</a></li><li><a lang="lt" hreflang="lt" href="lt/getting-started.html">Lietuvių</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<h1>Getting started</h1>
+<p class="lead">Install PyStage, run your first program and learn how Python code behaves like a Scratch script.</p>
+
+<h2>Install</h2>
+<pre tabindex="0" aria-label="Install command"><code>pip install pystage</code></pre>
+<p>PyStage needs Python 3.10 or newer. <a href="https://pyga.me/">pygame-ce</a> is installed automatically. If you have the classic <code>pygame</code> installed, remove it first with <code>pip uninstall pygame</code>.</p>
+
+<h2>Your first program</h2>
+<p>Save this as a file, for example <code>first.py</code>, and run it with Python. A window opens and the sprite moves in a square.</p>
+<pre tabindex="0" aria-label="First PyStage program"><code><span class="k">from</span> pystage.en <span class="k">import</span> Sprite, Stage
+
+stage = Stage()
+zombie = stage.<span class="f">add_a_sprite</span>()
+
+<span class="k">def</span> doit(zombie: Sprite):
+    <span class="k">for</span> i <span class="k">in</span> range(4):
+        zombie.<span class="f">move</span>(10)
+        zombie.<span class="f">turn_left</span>(90)
+        zombie.<span class="f">wait</span>(1)
+
+zombie.<span class="f">when_program_starts</span>(doit)
+
+stage.<span class="f">play</span>()
+</code></pre>
+<p>Use the autocompletion of your editor to see what methods are available. There are methods for all Scratch blocks bound to your stage and sprite instances, including the Pen extension, variables, lists, clones and all events. The only blocks that do nothing are the ones that need a microphone (loudness).</p>
+<p>The full list is in the <a href="https://pystage.readthedocs.io/en/latest/pystage.en.html">English API reference</a>; <a href="docs.html">other languages</a> have their own.</p>
+
+<h2>Your code behaves like a Scratch script</h2>
+<p>Some things work differently than in normal Python programs, because your code behaves like a Scratch script.</p>
+<h3>Loops refresh the screen</h3>
+<p>The screen is refreshed after each iteration of a loop and after blocks that take time, like <code>wait</code>. You do not have to care about a game loop.</p>
+<h3>Functions are custom blocks</h3>
+<p>Functions in the same file that you call from your code behave like custom blocks in Scratch, so they can contain loops and <code>wait</code> as well.</p>
+<h3>Run without screen refresh</h3>
+<p>Mark a function with <code>@no_refresh</code> and it runs at once, like &ldquo;run without screen refresh&rdquo; in Scratch. In the example below, the square is drawn immediately.</p>
+<pre tabindex="0" aria-label="Custom blocks and no_refresh"><code><span class="k">from</span> pystage.en <span class="k">import</span> Sprite, Stage, no_refresh
+
+stage = Stage()
+zombie = stage.<span class="f">add_a_sprite</span>()
+
+<span class="k">def</span> jump(zombie: Sprite, height):
+    <span class="k">for</span> i <span class="k">in</span> range(10):
+        zombie.<span class="f">change_y_by</span>(height / 10)
+    <span class="k">for</span> i <span class="k">in</span> range(10):
+        zombie.<span class="f">change_y_by</span>(-height / 10)
+
+@no_refresh
+<span class="k">def</span> draw_square(zombie: Sprite):
+    <span class="c"># Like "run without screen refresh" in Scratch:</span>
+    <span class="c"># The square is there at once.</span>
+    zombie.<span class="f">pen_down</span>()
+    <span class="k">for</span> i <span class="k">in</span> range(4):
+        zombie.<span class="f">move</span>(50)
+        zombie.<span class="f">turn_left</span>(90)
+    zombie.<span class="f">pen_up</span>()
+
+<span class="k">def</span> doit(zombie: Sprite):
+    draw_square(zombie)
+    <span class="k">while</span> <span class="k">True</span>:
+        jump(zombie, 80)
+        zombie.<span class="f">wait</span>(1)
+
+zombie.<span class="f">when_program_starts</span>(doit)
+
+stage.<span class="f">play</span>()
+</code></pre>
+<h3>Errors are shown</h3>
+<p>If there is an error in your code, the message is shown in the window and in the terminal.</p>
+
+<h2>Other languages</h2>
+<p>The examples use the English API: <code>from pystage.en import Sprite, Stage</code>. German (<code>pystage.de</code>) and Lithuanian (<code>pystage.lt</code>) use the block names of Scratch in these languages.</p>
+<div class="note">English, German and Lithuanian are available. The <a href="docs.html">documentation page</a> links to the reference of each language. Lithuanian is new. <a href="community.html">Get in touch</a> if you want to help maintain a translation or add another one.</div>
+
+<h2>Next steps</h2>
+<ul>
+<li><a href="convert.html">Convert one of your Scratch projects</a> and read the Python code it produces.</li>
+<li><a href="https://pystage.readthedocs.io/en/latest/pystage.en.html">Browse the documentation.</a> The user-facing block API is still mostly undocumented, so the docs are a reference rather than a tutorial.</li>
+<li>Ask questions on <a href="https://discord.gg/MSGrs3UCCz">Discord</a>.</li>
+</ul>
+</div></main>
+<footer class="site"><div class="wrap">
+<ul>
+<li><a href="https://github.com/pystage/pystage">GitHub</a></li>
+<li><a href="https://pypi.org/project/pystage/">PyPI</a></li>
+<li><a href="docs.html">Documentation</a></li>
+<li><a href="https://convert.pystage.org">Online converter</a></li>
+<li><a href="https://discord.gg/MSGrs3UCCz">Discord</a></li>
+</ul>
+<p>PyStage is open source under the MIT license. Not affiliated with the Scratch Team or the Scratch Foundation.</p>
+<p>This site loads nothing from third parties. Links above lead to other sites.</p>
+</div></footer>
+</body>
+</html>
