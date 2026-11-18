@@ -53,8 +53,10 @@ header.site .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: .5
 .brand img { width: 40px; height: 40px; }
 nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .1rem .25rem; }
 nav a { display: block; padding: .35rem .7rem; border-radius: .4rem; color: var(--text); text-decoration: none; }
+.langs { margin-left: auto; }
+.card .btns { margin: .8rem 0 0; }
 nav a:hover { background: var(--border); }
-nav a[aria-current="page"] { font-weight: 700; box-shadow: inset 0 -3px 0 var(--accent); border-radius: .4rem .4rem 0 0; }
+nav a[aria-current="page"], nav a[aria-current="true"] { font-weight: 700; box-shadow: inset 0 -3px 0 var(--accent); border-radius: .4rem .4rem 0 0; }
 
 main { padding-bottom: 2rem; }
 h1, h2, h3 { line-height: 1.25; }

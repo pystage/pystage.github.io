@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scratch umwandeln | PyStage</title>
+<meta name="description" content="Wandle ein Scratch-3-Projekt mit dem Online-Umwandler oder auf deinem Computer in Python-Code für PyStage um.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../favicon.png">
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" hreflang="en" href="https://www.pystage.org/convert.html">
+<link rel="alternate" hreflang="de" href="https://www.pystage.org/de/convert.html">
+<link rel="alternate" hreflang="x-default" href="https://www.pystage.org/convert.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyStage">
+<meta property="og:title" content="Scratch umwandeln | PyStage">
+<meta property="og:description" content="Wandle ein Scratch-3-Projekt mit dem Online-Umwandler oder auf deinem Computer in Python-Code für PyStage um.">
+<meta property="og:url" content="https://www.pystage.org/de/convert.html">
+<meta property="og:image" content="https://www.pystage.org/assets/pystage-banner.png">
+<meta property="og:image:alt" content="Links Scratch-Blöcke, rechts der passende PyStage-Python-Code">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/logo.png" alt="" width="40" height="40">PyStage</a>
+<nav aria-label="Hauptmenü"><ul><li><a href="index.html">Start</a></li><li><a href="getting-started.html">Erste Schritte</a></li><li><a href="convert.html" aria-current="page">Scratch umwandeln</a></li><li><a href="community.html">Mitmachen</a></li><li><a href="docs.html">Doku</a></li></ul></nav>
+<nav class="langs" aria-label="Sprache"><ul><li><a lang="en" hreflang="en" href="../convert.html">English</a></li><li><a lang="de" hreflang="de" href="convert.html" aria-current="true">Deutsch</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<h1>Scratch-Projekt umwandeln</h1>
+<p class="lead">Verwandle ein Scratch-3-Projekt in Python-Code, der mit PyStage läuft.</p>
+
+<h2>Mit dem Online-Umwandler</h2>
+<ol>
+<li>Veröffentliche dein Scratch-Projekt <strong>oder</strong> lade es als .sb3-Datei herunter.</li>
+<li>Gehe zu <a href="https://convert.pystage.org">convert.pystage.org</a> und wandle dein Projekt um.</li>
+<li>Lade die entstandene Zip-Datei herunter. Sie enthält dein neues Python-Projekt, bereit zum Starten.</li>
+</ol>
+<p><a class="btn" href="https://convert.pystage.org">Zum Umwandler</a></p>
+
+<h2>Auf deinem Computer umwandeln</h2>
+<ol>
+<li>Exportiere dein Scratch-Projekt auf der Scratch-Seite. Du bekommst eine .sb3-Datei.</li>
+<li>Benutze den PyStage-Umwandler auf der Kommandozeile. Ja, das ist umständlich, und wir arbeiten daran, es einfacher zu machen.</li>
+</ol>
+<p>So sieht der Grundaufruf aus. Mit <code>-l de</code> bekommst du deutschen Code:</p>
+<pre tabindex="0" aria-label="Umwandler-Befehl"><code>python -m pystage.convert.sb3 &lt;SB3 File&gt; -l de -d &lt;DIRECTORY&gt;</code></pre>
+<div class="tablewrap"><table>
+<thead><tr><th scope="col">Option</th><th scope="col">Bedeutung</th></tr></thead>
+<tbody>
+<tr><td><code>-l</code></td><td>Sprache der erzeugten Python-&bdquo;Scratch-Blöcke&ldquo;. Im Moment gibt es <code>en</code>, <code>de</code> und <code>lt</code>. Ohne die Option wird die sprachneutrale Kern-API benutzt.</td></tr>
+<tr><td><code>-d</code></td><td>Das Ausgabeverzeichnis, standardmäßig das aktuelle Verzeichnis.</td></tr>
+<tr><td><code>-i</code></td><td>Gibt die Zwischendarstellung des Codes aus.</td></tr>
+<tr><td><code>-s</code></td><td>Gibt die project.json der sb3-Datei aus.</td></tr>
+<tr><td><code>-p</code></td><td>Gibt den Python-Code aus.</td></tr>
+<tr><td><code>-v</code></td><td>Ausführliche Ausgabe.</td></tr>
+<tr><td><code>-vv</code></td><td>Debug-Modus.</td></tr>
+</tbody></table></div>
+<p>Du musst vorher PyStage installieren, siehe <a href="getting-started.html">Erste Schritte</a>.</p>
+
+<h2>Was umgewandelt wird</h2>
+<p>Skripte, eigene Blöcke, Variablen, Listen, Monitore und Kommentare deines Projekts werden umgewandelt.</p>
+
+<h2>Was nicht unterstützt wird</h2>
+<p>Blöcke aus anderen Erweiterungen als Stift (zum Beispiel Musik oder Text zu Sprache) werden nicht unterstützt. Im Python-Code erscheinen sie als Text, der mit <code>NOT SUPPORTED</code> beginnt. Suche nach diesem Text, dann kannst du diese Stellen von Hand neu schreiben.</p>
+<p>Blöcke, die ein Mikrofon brauchen (Lautstärke), gibt es, aber sie tun nichts.</p>
+<div class="note">PyStage ist eine Alpha-Version, deshalb muss ein umgewandeltes Projekt vielleicht noch nachgebessert werden. Wenn du ein Projekt findest, das sich schlecht umwandeln lässt, <a href="https://github.com/pystage/pystage/issues">eröffne bitte ein Issue</a>.</div>
+</div></main>
+<footer class="site"><div class="wrap">
+<ul>
+<li><a href="https://github.com/pystage/pystage">GitHub</a></li>
+<li><a href="https://pypi.org/project/pystage/">PyPI</a></li>
+<li><a href="docs.html">Dokumentation</a></li>
+<li><a href="https://convert.pystage.org">Online-Umwandler</a></li>
+<li><a href="https://discord.gg/MSGrs3UCCz">Discord</a></li>
+</ul>
+<p>PyStage ist Open Source unter der MIT-Lizenz. Es gehört nicht zum Scratch-Team und nicht zur Scratch Foundation.</p>
+<p>Diese Seite lädt nichts von anderen Webseiten. Die Links oben führen zu anderen Seiten.</p>
+</div></footer>
+</body>
+</html>

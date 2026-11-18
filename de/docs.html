@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doku | PyStage</title>
+<meta name="description" content="Die Dokumentation der deutschen PyStage-API: alle Scratch-Blöcke als Methoden von Figur und Bühne, mit den Namen aus dem deutschen Scratch.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../favicon.png">
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" hreflang="en" href="https://www.pystage.org/docs.html">
+<link rel="alternate" hreflang="de" href="https://www.pystage.org/de/docs.html">
+<link rel="alternate" hreflang="x-default" href="https://www.pystage.org/docs.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyStage">
+<meta property="og:title" content="Doku | PyStage">
+<meta property="og:description" content="Die Dokumentation der deutschen PyStage-API: alle Scratch-Blöcke als Methoden von Figur und Bühne, mit den Namen aus dem deutschen Scratch.">
+<meta property="og:url" content="https://www.pystage.org/de/docs.html">
+<meta property="og:image" content="https://www.pystage.org/assets/pystage-banner.png">
+<meta property="og:image:alt" content="Links Scratch-Blöcke, rechts der passende PyStage-Python-Code">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/logo.png" alt="" width="40" height="40">PyStage</a>
+<nav aria-label="Hauptmenü"><ul><li><a href="index.html">Start</a></li><li><a href="getting-started.html">Erste Schritte</a></li><li><a href="convert.html">Scratch umwandeln</a></li><li><a href="community.html">Mitmachen</a></li><li><a href="docs.html" aria-current="page">Doku</a></li></ul></nav>
+<nav class="langs" aria-label="Sprache"><ul><li><a lang="en" hreflang="en" href="../docs.html">English</a></li><li><a lang="de" hreflang="de" href="docs.html" aria-current="true">Deutsch</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<h1>Dokumentation</h1>
+<p class="lead">Hier findest du die Beschreibung der deutschen PyStage-API.</p>
+<p><a class="btn" href="https://pystage.readthedocs.io/en/latest/pystage.de.html">Zur Dokumentation auf Read the Docs</a></p>
+
+<h2>Was steht in der Doku?</h2>
+<p>Die Doku listet alle Methoden der Klassen <code>Bühne</code> und <code>Figur</code> auf, jeweils mit einer kurzen Erklärung und den Parametern. Die Namen stammen aus dem deutschen Scratch: Aus dem Block &bdquo;gehe 10er-Schritt&ldquo; wird <code>gehe_schritte(10)</code>, aus &bdquo;sage Hallo!&ldquo; wird <code>sage("Hallo!")</code>.</p>
+<ul>
+<li><code>Bühne</code> ist die Bühne. Du legst sie an, fügst Figuren und Bühnenbilder hinzu und startest das Programm mit <code>abspielen()</code>.</li>
+<li><code>Figur</code> ist eine Figur auf der Bühne. Sie kennt die Blöcke aus Bewegung, Aussehen, Klang, Ereignisse, Fühlen, Steuerung, Variablen, Operatoren und Stift.</li>
+</ul>
+<p>Du kannst die Werte aus den Auswahlmenüs von Scratch auch auf Deutsch angeben. Groß- und Kleinschreibung ist egal, und die englischen Werte funktionieren weiterhin. Zum Beispiel <code>"Leertaste"</code> und <code>"Pfeil nach oben"</code> für Tasten, <code>"Mauszeiger"</code> oder <code>"Rand"</code> für besondere Ziele und <code>"Betrag"</code> oder <code>"Wurzel"</code> bei der mathematischen Funktion. Auch Fehlermeldungen und Hinweise erscheinen auf Deutsch.</p>
+<pre tabindex="0" aria-label="Beispiel mit deutschen Werten für Tasten"><code><span class="k">from</span> pystage.de <span class="k">import</span> Bühne, Figur
+
+bühne = Bühne(titel=<span class="s">"Mein erstes Spiel"</span>)
+zombie = bühne.<span class="f">füge_eine_figur_hinzu</span>()
+
+<span class="k">def</span> nach_oben(zombie: Figur):
+    zombie.<span class="f">ändere_y_um</span>(10)
+
+zombie.<span class="f">wenn_taste_gedrückt_wird</span>(<span class="s">"Pfeil nach oben"</span>, nach_oben)
+zombie.<span class="f">wenn_taste_gedrückt_wird</span>(<span class="s">"Leertaste"</span>, nach_oben)
+bühne.<span class="f">abspielen</span>()
+</code></pre>
+<p>Die Doku wird automatisch aus dem Code erzeugt. Die Beschreibungen der Blöcke sind noch nicht überall vollständig. Mit der Autovervollständigung deines Editors kommst du oft schneller zum Ziel.</p>
+
+<h2>Andere Sprachen</h2>
+<p>Auf der <a href="../docs.html">englischen Doku-Seite</a> findest du den Überblick über alle Sprachen: Englisch, Deutsch und Litauisch.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<ul>
+<li><a href="https://github.com/pystage/pystage">GitHub</a></li>
+<li><a href="https://pypi.org/project/pystage/">PyPI</a></li>
+<li><a href="docs.html">Dokumentation</a></li>
+<li><a href="https://convert.pystage.org">Online-Umwandler</a></li>
+<li><a href="https://discord.gg/MSGrs3UCCz">Discord</a></li>
+</ul>
+<p>PyStage ist Open Source unter der MIT-Lizenz. Es gehört nicht zum Scratch-Team und nicht zur Scratch Foundation.</p>
+<p>Diese Seite lädt nichts von anderen Webseiten. Die Links oben führen zu anderen Seiten.</p>
+</div></footer>
+</body>
+</html>

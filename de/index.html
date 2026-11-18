@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PyStage: Programmieren wie in Scratch, mit Python</title>
+<meta name="description" content="PyStage bietet alle Scratch-Blöcke als Python-Methoden an und wandelt Scratch-Projekte in Python um. Programmieren wie in Scratch, mit Python und PyGame.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../favicon.png">
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" hreflang="en" href="https://www.pystage.org/">
+<link rel="alternate" hreflang="de" href="https://www.pystage.org/de/index.html">
+<link rel="alternate" hreflang="x-default" href="https://www.pystage.org/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyStage">
+<meta property="og:title" content="PyStage: Programmieren wie in Scratch, mit Python">
+<meta property="og:description" content="PyStage bietet alle Scratch-Blöcke als Python-Methoden an und wandelt Scratch-Projekte in Python um. Programmieren wie in Scratch, mit Python und PyGame.">
+<meta property="og:url" content="https://www.pystage.org/de/index.html">
+<meta property="og:image" content="https://www.pystage.org/assets/pystage-banner.png">
+<meta property="og:image:alt" content="Links Scratch-Blöcke, rechts der passende PyStage-Python-Code">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/logo.png" alt="" width="40" height="40">PyStage</a>
+<nav aria-label="Hauptmenü"><ul><li><a href="index.html" aria-current="page">Start</a></li><li><a href="getting-started.html">Erste Schritte</a></li><li><a href="convert.html">Scratch umwandeln</a></li><li><a href="community.html">Mitmachen</a></li><li><a href="docs.html">Doku</a></li></ul></nav>
+<nav class="langs" aria-label="Sprache"><ul><li><a lang="en" hreflang="en" href="../index.html">English</a></li><li><a lang="de" hreflang="de" href="index.html" aria-current="true">Deutsch</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<section class="hero">
+<h1>Programmieren wie in Scratch, mit Python</h1>
+<p class="lead">PyStage verbindet <a href="https://scratch.mit.edu/">Scratch</a> und Python. Es ist eine Python-Bibliothek, die alle Scratch-Blöcke als Python-Methoden anbietet, und ein Umwandler, der deine Scratch-Projekte in Python-Code verwandelt. Grafik und Klang laufen auf <a href="https://www.pygame.org/news">PyGame</a>.</p>
+<div class="cards" role="list">
+<div class="card" role="listitem"><h3>1. Installieren</h3><p>Ein Befehl, Python 3.10 oder neuer.</p><p><code>pip install pystage</code></p><a class="btn" href="getting-started.html">Erste Schritte</a></div>
+<div class="card" role="listitem"><h3>2. Scratch-Projekt umwandeln</h3><p>Lade ein Projekt oder eine .sb3-Datei hoch und bekomme ein Python-Projekt, das sofort läuft.</p><a class="btn" href="convert.html">Projekt umwandeln</a></div>
+<div class="card" role="listitem"><h3>3. Doku lesen</h3><p>Alle Blöcke als Methoden für Figuren und die Bühne, mit den Namen aus dem deutschen Scratch.</p><a class="btn" href="docs.html">Zur Doku</a></div>
+</div>
+</section>
+
+<h2>Scratch-Blöcke, als Python geschrieben</h2>
+<p>Zu jedem Scratch-Block gibt es eine passende Methode. Skripte, die mit einem Hut-Block beginnen, werden zu Funktionen, die du mit demselben Ereignis verbindest. PyStage aktualisiert den Bildschirm nach jedem Durchlauf einer Schleife und nach Blöcken wie <code>warte_sekunden</code>. Dein Code verhält sich deshalb wie ein Scratch-Skript, und du musst keine Spielschleife schreiben.</p>
+<figure>
+<div class="scrollx" tabindex="0" role="group" aria-label="Abbildung von Scratch zu Python, lässt sich auf kleinen Bildschirmen zur Seite scrollen"><img class="shot" src="../assets/pystage-banner.png" width="1448" height="529" alt="Links: ein Scratch-Skript mit den Blöcken Wenn die grüne Flagge angeklickt wird, gehe zu x y, setze Größe, wiederhole 8 mal mit gehe Schritte, ändere Größe, nächstes Kostüm und warte, dann sage Hallo pyStage. Mitte: die Scratch-Katze auf der Bühne, die Hallo pyStage sagt. Rechts: dasselbe Programm als PyStage-Python-Code (mit englischen Namen)."></div>
+<figcaption>Ein Scratch-Skript (links) und der Python-Code, den der PyStage-Umwandler daraus macht (rechts). Die Abbildung zeigt die englische Version.</figcaption>
+</figure>
+
+<div class="tablewrap"><table>
+<caption class="visually-hidden" style="position:absolute;left:-999px">Scratch-Blöcke und die passenden PyStage-Methoden</caption>
+<thead><tr><th scope="col">Scratch-Block</th><th scope="col">PyStage (deutsche API)</th></tr></thead>
+<tbody>
+<tr><td>Wenn die grüne Flagge angeklickt wird</td><td><code>figur.wenn_programm_startet(funktion)</code></td></tr>
+<tr><td>Wenn Taste <em>d</em> gedrückt wird</td><td><code>figur.wenn_taste_gedrückt_wird("d", funktion)</code></td></tr>
+<tr><td>gehe 10er-Schritt</td><td><code>figur.gehe_schritte(10)</code></td></tr>
+<tr><td>drehe dich nach links um 90 Grad</td><td><code>figur.drehe_dich_nach_links_um_grad(90)</code></td></tr>
+<tr><td>ändere x um 10</td><td><code>figur.ändere_x_um(10)</code></td></tr>
+<tr><td>warte 1 Sekunden</td><td><code>figur.warte_sekunden(1)</code></td></tr>
+<tr><td>sage Hallo!</td><td><code>figur.sage("Hallo!")</code></td></tr>
+</tbody></table></div>
+
+<h2>Ein vollständiges Beispiel</h2>
+<p>Dieses Programm legt eine Bühne und eine Figur auf der Bühne an. Die Funktionen sind Code-Blöcke. Mit den passenden Methoden verbindest du sie mit Ereignissen (das sind die Hut-Blöcke in Scratch).</p>
+<pre tabindex="0" aria-label="Beispielprogramm: eine Figur, die sich bewegt, spricht und mit den Tasten W, A, S und D gesteuert werden kann"><code><span class="k">from</span> pystage.de <span class="k">import</span> Bühne
+
+bühne = Bühne()
+bühne.<span class="f">füge_bühnenbild_hinzu</span>(<span class="s">"grid"</span>)
+zombie = bühne.<span class="f">füge_eine_figur_hinzu</span>()
+
+<span class="k">def</span> los(zombie):
+    zombie.<span class="f">sage</span>(<span class="s">"Hallo pyStage!"</span>)
+    <span class="k">for</span> i <span class="k">in</span> range(4):
+        zombie.<span class="f">gehe_schritte</span>(10)
+        zombie.<span class="f">warte_sekunden</span>(1)
+        zombie.<span class="f">denke</span>(<span class="s">"Das ist toll!"</span>)
+        zombie.<span class="f">drehe_dich_nach_links_um_grad</span>(90)
+        zombie.<span class="f">warte_sekunden</span>(1)
+        zombie.<span class="f">denke</span>(<span class="s">""</span>)
+    zombie.<span class="f">sage</span>(<span class="s">"Bewege mich mit WASD."</span>)
+
+zombie.<span class="f">wenn_programm_startet</span>(los)
+
+<span class="k">def</span> rechts(zombie):
+    zombie.<span class="f">ändere_x_um</span>(10)
+
+<span class="k">def</span> links(zombie):
+    zombie.<span class="f">ändere_x_um</span>(-10)
+
+<span class="k">def</span> hoch(zombie):
+    zombie.<span class="f">ändere_y_um</span>(10)
+
+<span class="k">def</span> runter(zombie):
+    zombie.<span class="f">ändere_y_um</span>(-10)
+
+zombie.<span class="f">wenn_taste_gedrückt_wird</span>(<span class="s">"d"</span>, rechts)
+zombie.<span class="f">wenn_taste_gedrückt_wird</span>(<span class="s">"a"</span>, links)
+zombie.<span class="f">wenn_taste_gedrückt_wird</span>(<span class="s">"w"</span>, hoch)
+zombie.<span class="f">wenn_taste_gedrückt_wird</span>(<span class="s">"s"</span>, runter)
+
+bühne.<span class="f">abspielen</span>()
+</code></pre>
+<p>Und so sieht das Ergebnis aus:</p>
+<figure>
+<img class="shot" src="../assets/demo.gif" width="484" height="389" alt="Bildschirmaufnahme des Beispiels: Eine Figur auf einem Gitter sagt Hello pyStage, bewegt sich im Quadrat und lässt sich mit den Tasten W, A, S und D bewegen.">
+<figcaption>Bildschirmaufnahme des Beispielprogramms (mit englischen Texten).</figcaption>
+</figure>
+
+<h2>Warum PyStage?</h2>
+<ul>
+<li>Exportiere dein Scratch-Projekt als echten, ausführbaren Python-Code.</li>
+<li>Hilf Programmieranfängern, Python &bdquo;mit Scratch&ldquo; zu lernen.</li>
+<li>Scratch-Blöcke in mehreren Sprachen, das ist ideal für Kinder. Im Moment gibt es Englisch, Deutsch und Litauisch.</li>
+</ul>
+<div class="note"><strong>Alpha-Version.</strong> Nicht alles funktioniert schon so, wie es soll. Wenn etwas kaputt geht, <a href="community.html">melde dich bitte</a> oder eröffne ein Issue.</div>
+
+<h2>Kurzes Einführungsvideo</h2>
+<p><a class="video" href="https://www.youtube.com/watch?v=Bo3kUF9k0Vg"><img src="../assets/video-thumb.jpg" width="480" height="360" alt="Vorschaubild des Videos: Kurze Einführung in PyStage für die ScratchCon 2021"><span aria-hidden="true">&#9654;</span></a></p>
+<p><a href="https://www.youtube.com/watch?v=Bo3kUF9k0Vg">Schau dir unsere kurze Einführung in PyStage für die ScratchCon 2021 an</a> (öffnet YouTube, auf Englisch).</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<ul>
+<li><a href="https://github.com/pystage/pystage">GitHub</a></li>
+<li><a href="https://pypi.org/project/pystage/">PyPI</a></li>
+<li><a href="docs.html">Dokumentation</a></li>
+<li><a href="https://convert.pystage.org">Online-Umwandler</a></li>
+<li><a href="https://discord.gg/MSGrs3UCCz">Discord</a></li>
+</ul>
+<p>PyStage ist Open Source unter der MIT-Lizenz. Es gehört nicht zum Scratch-Team und nicht zur Scratch Foundation.</p>
+<p>Diese Seite lädt nichts von anderen Webseiten. Die Links oben führen zu anderen Seiten.</p>
+</div></footer>
+</body>
+</html>
