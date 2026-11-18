@@ -111,7 +111,7 @@ Skripte, eigene Blöcke, Variablen, Listen, Anzeigen und Kommentare eines Projek
 
 ### Was wird nicht unterstützt
 
-Blöcke aus anderen Erweiterungen als Stift (zum Beispiel Musik oder Text zu Sprache) werden nicht unterstützt. Sie erscheinen im Python-Code als Text, der mit `NOT SUPPORTED` beginnt. So können Sie nach diesem Text suchen und diese Stellen von Hand neu schreiben.
+Blöcke aus anderen Erweiterungen als Malstift (zum Beispiel Musik oder Text zu Sprache) werden nicht unterstützt. Sie erscheinen im Python-Code als Text, der mit `NOT SUPPORTED` beginnt. So können Sie nach diesem Text suchen und diese Stellen von Hand neu schreiben.
 
 Blöcke, die ein Mikrofon brauchen (Lautstärke), sind vorhanden, tun aber nichts.
 
