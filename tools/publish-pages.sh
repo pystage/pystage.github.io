@@ -150,7 +150,7 @@ for entry in ${reviews+"${reviews[@]}"}; do
     find "$dest" -type f \( -name '*.html' -o -name '*.htm' \) -print0 |
         BANNER=$banner BASE=$base xargs -0 perl -0pi -e '
             s{(\b(?:href|src)=")/(?!/)}{$1$ENV{BASE}}g;
-            s{(<head[^>]*>)}{$1\n<meta name="robots" content="noindex">}i;
+            s{(</head>)}{<meta name="robots" content="noindex">\n$1}i;
             s{(<body[^>]*>)}{$1\n$ENV{BANNER}}i;'
 
     item="<li><h2><a href=\"$dir/\">$(printf '%s' "$title" | escape)</a></h2>"
