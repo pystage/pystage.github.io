@@ -1,0 +1,45 @@
+# Alle Texte der Oberfläche der Website (Übersetzung von i18n/en.toml).
+[skip]
+other = "Zum Inhalt springen"
+[nav_main]
+other = "Hauptmenü"
+[nav_lang]
+other = "Sprache"
+[english_marker]
+other = "(Englisch)"
+[english_marker_title]
+other = "Diese Seite gibt es nur auf Englisch."
+[menu_home]
+other = "Startseite"
+[reviewed_note]
+other = "Das ist eine maschinell unterstützte Übersetzung, die noch kein Muttersprachler geprüft hat. Hilf uns, sie zu verbessern: Schreib uns auf Discord oder GitHub."
+[reviewed_note_link]
+other = "Melde dich"
+[footer_github]
+other = "GitHub"
+[footer_pypi]
+other = "PyPI"
+[footer_docs]
+other = "Dokumentation"
+[footer_converter]
+other = "Online-Umwandler"
+[footer_discord]
+other = "Discord"
+[footer_license]
+other = "PyStage ist Open Source unter der MIT-Lizenz. Es gehört nicht zum Scratch-Team und nicht zur Scratch Foundation."
+[footer_privacy]
+other = "Diese Seite lädt nichts von anderen Webseiten. Die Links oben führen zu anderen Seiten."
+[more_pages]
+other = "In diesem Bereich"
+[404_title]
+other = "Seite nicht gefunden"
+[404_text]
+other = "Diese Seite gibt es nicht, oder sie ist umgezogen."
+[404_back]
+other = "Zurück zur Startseite"
+[blocks_soon_hook]
+other = "Kommt bald"
+[watch_video]
+other = "Schau dir unser kurzes Einführungsvideo zu PyStage für die ScratchCon 2021 an (öffnet YouTube)"
+[logo_alt]
+other = ""

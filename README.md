@@ -4,16 +4,16 @@ Source of the PyStage website, https://www.pystage.org. It is built with [Hugo](
 
 ## Structure
 
-- `hugo.toml`: languages (`en` at the root, `de` under `/de/`; `de` stays `disabled = true` until `content/de/` and `i18n/de.toml` exist), markup and site parameters. `[languages.<lang>.params] reviewed = false` shows the "not reviewed by a native speaker" note on every page of that language.
+- `hugo.toml`: languages (`en` at the root, `de` under `/de/`), markup and site parameters. `[languages.<lang>.params] reviewed = false` shows the "not reviewed by a native speaker" note on every page of that language.
 - `content/<lang>/`: the pages (Markdown). Front matter: `title`, `menu_title`, `description`, `lead`, and for the menu `nav: kids|teachers|developers|all` plus `weight`. Pages without `nav` are not in the menu.
-- `i18n/<lang>.toml`: all UI strings. A new language needs this file and `content/<lang>/`.
+- `i18n/<lang>.toml`: all UI strings. A new language needs this file and `content/<lang>/` (a language without them is set `disabled = true` in `hugo.toml`).
 - `layouts/`: the theme. The menu is generated from the `nav` pages of the English site; in another language each entry links to the translated page, or to the English page marked "(English)" when there is none. The language switcher in the header lists the enabled languages and links to the same page, or to the language's home. `layouts/blocks/list.html` is the hook for the generated Blocks pages (`data/blocks/<lang>.json`).
 - `assets/css/style.css`: the only stylesheet (colors are variables at the top; dark mode follows `prefers-color-scheme`).
 - `static/`: copied to the output root: `assets/` (logo, banner, demo GIF), `favicon.png`, `CNAME`, `.nojekyll`.
 - `tools/check-examples.py`: runs the code examples marked ```` ```python {run=true} ```` headless (`--python` selects the interpreter that has pystage).
 - `tools/check-translations.py`: lists outdated and missing translations (`translation_of`, `source_hash` in the front matter of translated pages; `--hash start.md` prints the hash of an English page).
 
-Inside Markdown use root-absolute links (`[Start](/start/)`, `/assets/x.png`); they are prefixed with the language and the base URL, so they work under `/review/<name>/` too. In raw HTML use the shortcodes `{{< rl "/start/" >}}` (page link) and `{{< asset "/assets/x.png" >}}`.
+Inside Markdown use root-absolute links (`[Start](/start/)`, `/assets/x.png`); they are prefixed with the language and the base URL, so they work under `/review/<name>/` too. In raw HTML use the shortcodes `{{< rl "/start/" >}}` (page link; `<a {{< rla "/start/" >}}>` also writes the `href` itself) and `{{< asset "/assets/x.png" >}}`.
 
 ## Preview
 
@@ -38,3 +38,5 @@ Review copies carry a banner on every page with the title, the issue link and th
 A review ends by merging the branch into `main` (delete `REVIEW.md` first) and deleting the branch; its directory disappears on the next run.
 
 One-time setting for the maintainer: Settings, Pages, Source "Deploy from a branch", Branch `pages`, folder `/ (root)`. The custom domain stays www.pystage.org (its `CNAME` comes from `main`). `main` itself is no longer deployed directly; the pages branch is what is live.
+
+Links to a page that has no translation (e.g. `/developers/` from a German page) go to the English page, and the link gets `lang="en"`. This is done by `layouts/partials/localize.html`, used by the link render hook and the `rl`/`rla` shortcodes.

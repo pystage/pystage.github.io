@@ -22,14 +22,11 @@ disableKinds = ["taxonomy", "term", "RSS"]
     [languages.en.params]
       reviewed = true
 
-  # German: content and i18n/de.toml follow in a second step.
-  # Remove the next line (disabled = true) as soon as content/de/ and i18n/de.toml exist.
   [languages.de]
     languageName = "Deutsch"
     languageCode = "de"
     contentDir = "content/de"
     weight = 2
-    disabled = true
     [languages.de.params]
       # false shows the "not yet reviewed by a native speaker" note on every page
       reviewed = false
