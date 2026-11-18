@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PyStage: Scratch tipo programavimas Python kalba</title>
+<meta name="description" content="PyStage pateikia visus Scratch blokus kaip Python metodus ir paverčia Scratch projektus Python kodu. Scratch tipo programavimas Python kalba su PyGame.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../favicon.png">
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" hreflang="en" href="https://www.pystage.org/">
+<link rel="alternate" hreflang="de" href="https://www.pystage.org/de/index.html">
+<link rel="alternate" hreflang="lt" href="https://www.pystage.org/lt/index.html">
+<link rel="alternate" hreflang="x-default" href="https://www.pystage.org/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyStage">
+<meta property="og:title" content="PyStage: Scratch tipo programavimas Python kalba">
+<meta property="og:description" content="PyStage pateikia visus Scratch blokus kaip Python metodus ir paverčia Scratch projektus Python kodu. Scratch tipo programavimas Python kalba su PyGame.">
+<meta property="og:url" content="https://www.pystage.org/lt/index.html">
+<meta property="og:image" content="https://www.pystage.org/assets/pystage-banner.png">
+<meta property="og:image:alt" content="Kairėje Scratch blokai, dešinėje atitinkamas PyStage Python kodas">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Pereiti prie turinio</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/logo.png" alt="" width="40" height="40">PyStage</a>
+<nav aria-label="Pagrindinis meniu"><ul><li><a href="index.html" aria-current="page">Pradžia</a></li><li><a href="getting-started.html">Pirmi žingsniai</a></li><li><a href="convert.html">Konvertuoti Scratch</a></li><li><a href="community.html">Bendruomenė</a></li><li><a href="docs.html">Dokumentacija</a></li></ul></nav>
+<nav class="langs" aria-label="Kalba"><ul><li><a lang="en" hreflang="en" href="../index.html">English</a></li><li><a lang="de" hreflang="de" href="../de/index.html">Deutsch</a></li><li><a lang="lt" hreflang="lt" href="index.html" aria-current="true">Lietuvių</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<div class="note"><strong>Vertimas dar nepatikrintas.</strong> Šio lietuviško vertimo dar nepatikrino gimtakalbiai. Pastabų laukiame: žr. <a href="community.html">bendruomenės puslapį</a> ir <a href="REVIEW_ISSUE_URL">peržiūros užduotį GitHub</a>.</div>
+<section class="hero">
+<h1>Scratch tipo programavimas Python kalba</h1>
+<p class="lead">PyStage sujungia <a href="https://scratch.mit.edu/">Scratch</a> ir Python. Tai Python biblioteka, kuri visus Scratch blokus pateikia kaip Python metodus, ir konverteris, kuris tavo Scratch projektus paverčia Python kodu. Grafika ir garsas veikia su <a href="https://www.pygame.org/news">PyGame</a>.</p>
+<div class="cards" role="list">
+<div class="card" role="listitem"><h3>1. Įdiek</h3><p>Viena komanda, Python 3.10 ar naujesnė versija. Lietuviška API kol kas yra tik išankstinėje versijoje.</p><p><code>pip install --pre pystage</code></p><a class="btn" href="getting-started.html">Pirmi žingsniai</a></div>
+<div class="card" role="listitem"><h3>2. Konvertuok savo Scratch projektą</h3><p>Įkelk projektą arba .sb3 failą ir gauk paruoštą paleisti Python projektą.</p><a class="btn" href="convert.html">Konvertuoti projektą</a></div>
+<div class="card" role="listitem"><h3>3. Skaityk dokumentaciją</h3><p>Visi blokai kaip veikėjo ir scenos metodai, su Scratch blokų pavadinimais lietuvių kalba.</p><a class="btn" href="docs.html">Atverti dokumentaciją</a></div>
+</div>
+</section>
+
+<h2>Scratch blokai, parašyti Python kalba</h2>
+<p>Kiekvienas Scratch blokas turi atitinkamą metodą. Scenarijai, kurie prasideda įvykio bloku (pavyzdžiui, „kai spusteli žalią vėliavėlę“), tampa funkcijomis, kurias sieji su tuo pačiu įvykiu. PyStage atnaujina ekraną po kiekvienos ciklo iteracijos ir po tokių blokų kaip <code>palauk_sek</code>. Todėl tavo kodas veikia kaip Scratch scenarijus ir tau nereikia rašyti žaidimo ciklo.</p>
+<figure>
+<div class="scrollx" tabindex="0" role="group" aria-label="Iliustracija iš Scratch į Python, mažuose ekranuose slenka į šoną"><img class="shot" src="../assets/pystage-banner.png" width="1448" height="529" alt="Kairėje: Scratch scenarijus su blokais kai spusteli žalią vėliavėlę, eik į x y, dydis =, kartok 8 su eik, dydį padidink, kita kaukė ir palauk, tada sakyk Hello pyStage. Viduryje: Scratch katinas scenoje sako Hello pyStage. Dešinėje: ta pati programa kaip PyStage Python kodas (angliškais pavadinimais)."></div>
+<figcaption>Scratch scenarijus (kairėje) ir Python kodas, kurį iš jo sukuria PyStage konverteris (dešinėje). Paveikslėlyje rodoma angliška versija.</figcaption>
+</figure>
+
+<div class="tablewrap"><table>
+<caption class="visually-hidden" style="position:absolute;left:-999px">Scratch blokai ir atitinkami PyStage metodai</caption>
+<thead><tr><th scope="col">Scratch blokas</th><th scope="col">PyStage (lietuviška API)</th></tr></thead>
+<tbody>
+<tr><td>kai spusteli žalią vėliavėlę</td><td><code>veikėjas.kai_spusteli_žalią_vėliavėlę(funkcija)</code></td></tr>
+<tr><td>kai paspaudi <em>d</em></td><td><code>veikėjas.kai_paspaudi_klavišą("d", funkcija)</code></td></tr>
+<tr><td>eik 10</td><td><code>veikėjas.eik(10)</code></td></tr>
+<tr><td>pasisuk &#8634; 90 laipsnių</td><td><code>veikėjas.pasisuk_kairėn_laipsnių(90)</code></td></tr>
+<tr><td>x padidink 10</td><td><code>veikėjas.x_padidink(10)</code></td></tr>
+<tr><td>palauk 1 sek.</td><td><code>veikėjas.palauk_sek(1)</code></td></tr>
+<tr><td>sakyk Labas!</td><td><code>veikėjas.sakyk("Labas!")</code></td></tr>
+</tbody></table></div>
+
+<h2>Pilnas pavyzdys</h2>
+<p>Ši programa sukuria sceną ir joje veikėją. Funkcijos yra kodo blokai, kurie atitinkamais metodais susiejami su įvykiais (Scratch programoje tai įvykių blokai).</p>
+<pre tabindex="0" aria-label="Demonstracinė programa: veikėjas, kuris juda, kalba ir valdomas klavišais W, A, S ir D"><code><span class="k">from</span> pystage.lt <span class="k">import</span> Scena
+
+scena = Scena()
+scena.<span class="f">pridėk_foną</span>(<span class="s">"grid"</span>)
+zombis = scena.<span class="f">pridėk_veikėją</span>()
+
+<span class="k">def</span> daryk(zombis):
+    zombis.<span class="f">sakyk</span>(<span class="s">"Labas, pyStage!"</span>)
+    <span class="k">for</span> i <span class="k">in</span> range(4):
+        zombis.<span class="f">eik</span>(10)
+        zombis.<span class="f">palauk_sek</span>(1)
+        zombis.<span class="f">galvok</span>(<span class="s">"Tai nuostabu!"</span>)
+        zombis.<span class="f">pasisuk_kairėn_laipsnių</span>(90)
+        zombis.<span class="f">palauk_sek</span>(1)
+        zombis.<span class="f">galvok</span>(<span class="s">""</span>)
+    zombis.<span class="f">sakyk</span>(<span class="s">"Judink mane klavišais W, A, S ir D."</span>)
+
+zombis.<span class="f">kai_spusteli_žalią_vėliavėlę</span>(daryk)
+
+<span class="k">def</span> dešinėn(zombis):
+    zombis.<span class="f">x_padidink</span>(10)
+
+<span class="k">def</span> kairėn(zombis):
+    zombis.<span class="f">x_padidink</span>(-10)
+
+<span class="k">def</span> aukštyn(zombis):
+    zombis.<span class="f">y_padidink</span>(10)
+
+<span class="k">def</span> žemyn(zombis):
+    zombis.<span class="f">y_padidink</span>(-10)
+
+zombis.<span class="f">kai_paspaudi_klavišą</span>(<span class="s">"d"</span>, dešinėn)
+zombis.<span class="f">kai_paspaudi_klavišą</span>(<span class="s">"a"</span>, kairėn)
+zombis.<span class="f">kai_paspaudi_klavišą</span>(<span class="s">"w"</span>, aukštyn)
+zombis.<span class="f">kai_paspaudi_klavišą</span>(<span class="s">"s"</span>, žemyn)
+
+scena.<span class="f">paleisk</span>()
+</code></pre>
+<p>Ir štai rezultatas:</p>
+<figure>
+<img class="shot" src="../assets/demo.gif" width="484" height="389" alt="Demonstracijos ekrano įrašas: veikėjas tinklelio fone sako Hello pyStage, juda kvadratu ir gali būti judinamas klavišais W, A, S ir D.">
+<figcaption>Demonstracinės programos ekrano įrašas (angliškoje versijoje).</figcaption>
+</figure>
+
+<h2>Kodėl PyStage?</h2>
+<ul>
+<li>Eksportuok savo Scratch projektą į tikrą, vykdomą Python kodą.</li>
+<li>Padėk programavimo pradedantiesiems mokytis Python „per Scratch“.</li>
+<li>Scratch blokai keliomis kalbomis, o tai puikiai tinka vaikams. Šiuo metu: anglų, vokiečių ir lietuvių.</li>
+</ul>
+<div class="note"><strong>Alfa versija.</strong> Ne viskas gali veikti taip, kaip tikimasi. Jei kas nors sugenda, <a href="community.html">susisiek su mumis</a> arba sukurk pranešimą (angl. issue).</div>
+
+<h2>Trumpas pristatymo vaizdo įrašas</h2>
+<p><a class="video" href="https://www.youtube.com/watch?v=Bo3kUF9k0Vg"><img src="../assets/video-thumb.jpg" width="480" height="360" alt="Vaizdo įrašo miniatiūra: trumpas PyStage pristatymas ScratchCon 2021"><span aria-hidden="true">&#9654;</span></a></p>
+<p><a href="https://www.youtube.com/watch?v=Bo3kUF9k0Vg">Žiūrėk mūsų trumpą PyStage pristatymą ScratchCon 2021</a> (atsidaro YouTube, anglų kalba).</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<ul>
+<li><a href="https://github.com/pystage/pystage">GitHub</a></li>
+<li><a href="https://pypi.org/project/pystage/">PyPI</a></li>
+<li><a href="docs.html">Dokumentacija</a></li>
+<li><a href="https://convert.pystage.org">Konverteris internete</a></li>
+<li><a href="https://discord.gg/MSGrs3UCCz">Discord</a></li>
+</ul>
+<p>PyStage yra atvirojo kodo programa pagal MIT licenciją. Nesusijusi su Scratch komanda ar Scratch fondu.</p>
+<p>Ši svetainė nieko nekrauna iš trečiųjų šalių. Aukščiau esančios nuorodos veda į kitas svetaines.</p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dokumentacija | PyStage</title>
+<meta name="description" content="Lietuviškos PyStage API aprašymas Read the Docs: klasės Scena ir Veikėjas ir jų metodai.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../favicon.png">
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" hreflang="en" href="https://www.pystage.org/docs.html">
+<link rel="alternate" hreflang="de" href="https://www.pystage.org/de/docs.html">
+<link rel="alternate" hreflang="lt" href="https://www.pystage.org/lt/docs.html">
+<link rel="alternate" hreflang="x-default" href="https://www.pystage.org/docs.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyStage">
+<meta property="og:title" content="Dokumentacija | PyStage">
+<meta property="og:description" content="Lietuviškos PyStage API aprašymas Read the Docs: klasės Scena ir Veikėjas ir jų metodai.">
+<meta property="og:url" content="https://www.pystage.org/lt/docs.html">
+<meta property="og:image" content="https://www.pystage.org/assets/pystage-banner.png">
+<meta property="og:image:alt" content="Kairėje Scratch blokai, dešinėje atitinkamas PyStage Python kodas">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Pereiti prie turinio</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/logo.png" alt="" width="40" height="40">PyStage</a>
+<nav aria-label="Pagrindinis meniu"><ul><li><a href="index.html">Pradžia</a></li><li><a href="getting-started.html">Pirmi žingsniai</a></li><li><a href="convert.html">Konvertuoti Scratch</a></li><li><a href="community.html">Bendruomenė</a></li><li><a href="docs.html" aria-current="page">Dokumentacija</a></li></ul></nav>
+<nav class="langs" aria-label="Kalba"><ul><li><a lang="en" hreflang="en" href="../docs.html">English</a></li><li><a lang="de" hreflang="de" href="../de/docs.html">Deutsch</a></li><li><a lang="lt" hreflang="lt" href="docs.html" aria-current="true">Lietuvių</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<div class="note"><strong>Vertimas dar nepatikrintas.</strong> Šio lietuviško vertimo dar nepatikrino gimtakalbiai. Pastabų laukiame: žr. <a href="community.html">bendruomenės puslapį</a> ir <a href="REVIEW_ISSUE_URL">peržiūros užduotį GitHub</a>.</div>
+<h1>Dokumentacija</h1>
+<p class="lead">Čia rasi lietuviškos PyStage API aprašymą.</p>
+<p><a class="btn" href="https://pystage.readthedocs.io/en/latest/pystage.lt.html">Dokumentacija Read the Docs</a></p>
+
+<h2>Kas yra dokumentacijoje?</h2>
+<p>Dokumentacijoje išvardyti visi klasių <code>Scena</code> ir <code>Veikėjas</code> metodai, kiekvienas su trumpu paaiškinimu ir parametrais. Pavadinimai paimti iš lietuviško Scratch: iš bloko „eik 10“ gaunamas <code>eik(10)</code>, iš bloko „sakyk Labas!“ gaunamas <code>sakyk("Labas!")</code>.</p>
+<ul>
+<li><code>Scena</code> yra scena. Ją sukuri, pridedi veikėjų ir fonų ir paleidi programą su <code>paleisk()</code>.</li>
+<li><code>Veikėjas</code> yra scenos veikėjas. Jis žino blokus iš kategorijų Judėjimas, Išvaizda, Garsas, Įvykiai, Jutimas, Valdymas, Kintamieji, Matematika ir Pieštukas.</li>
+</ul>
+<p>Scratch išskleidžiamųjų meniu reikšmes gali nurodyti ir lietuviškai. Didžiosios ir mažosios raidės nesvarbios, o angliškos reikšmės ir toliau veikia. Pavyzdžiui, <code>"tarpas"</code> ir <code>"rodyklė aukštyn"</code> klavišams, <code>"pelės žymeklis"</code> arba <code>"kraštas"</code> ypatingiems taikiniams ir <code>"teigiama reikšmė"</code> arba <code>"kvadratinė šaknis"</code> matematinėje funkcijoje. Klaidų pranešimai ir patarimai taip pat rodomi lietuviškai.</p>
+<pre tabindex="0" aria-label="Pavyzdys su lietuviškomis klavišų reikšmėmis"><code><span class="k">from</span> pystage.lt <span class="k">import</span> Scena, Veikėjas
+
+scena = Scena(pavadinimas=<span class="s">"Mano pirmas žaidimas"</span>)
+zombis = scena.<span class="f">pridėk_veikėją</span>()
+
+<span class="k">def</span> aukštyn(zombis: Veikėjas):
+    zombis.<span class="f">y_padidink</span>(10)
+
+zombis.<span class="f">kai_paspaudi_klavišą</span>(<span class="s">"rodyklė aukštyn"</span>, aukštyn)
+zombis.<span class="f">kai_paspaudi_klavišą</span>(<span class="s">"tarpas"</span>, aukštyn)
+scena.<span class="f">paleisk</span>()
+</code></pre>
+<p>Dokumentacija generuojama automatiškai iš kodo. Ne visų blokų aprašymai dar išsamūs. Su redaktoriaus automatiniu užbaigimu dažnai greičiau pasieksi tikslą.</p>
+
+<h2>Kitos kalbos</h2>
+<p><a href="../docs.html">Angliškame dokumentacijos puslapyje</a> rasi visų kalbų apžvalgą: anglų, vokiečių ir lietuvių.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<ul>
+<li><a href="https://github.com/pystage/pystage">GitHub</a></li>
+<li><a href="https://pypi.org/project/pystage/">PyPI</a></li>
+<li><a href="docs.html">Dokumentacija</a></li>
+<li><a href="https://convert.pystage.org">Konverteris internete</a></li>
+<li><a href="https://discord.gg/MSGrs3UCCz">Discord</a></li>
+</ul>
+<p>PyStage yra atvirojo kodo programa pagal MIT licenciją. Nesusijusi su Scratch komanda ar Scratch fondu.</p>
+<p>Ši svetainė nieko nekrauna iš trečiųjų šalių. Aukščiau esančios nuorodos veda į kitas svetaines.</p>
+</div></footer>
+</body>
+</html>

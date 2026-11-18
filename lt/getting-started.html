@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pirmi žingsniai | PyStage</title>
+<meta name="description" content="Įdiek PyStage, paleisk pirmą programą ir sužinok, kaip Python kodas veikia kaip Scratch scenarijus.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../favicon.png">
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" hreflang="en" href="https://www.pystage.org/getting-started.html">
+<link rel="alternate" hreflang="de" href="https://www.pystage.org/de/getting-started.html">
+<link rel="alternate" hreflang="lt" href="https://www.pystage.org/lt/getting-started.html">
+<link rel="alternate" hreflang="x-default" href="https://www.pystage.org/getting-started.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyStage">
+<meta property="og:title" content="Pirmi žingsniai | PyStage">
+<meta property="og:description" content="Įdiek PyStage, paleisk pirmą programą ir sužinok, kaip Python kodas veikia kaip Scratch scenarijus.">
+<meta property="og:url" content="https://www.pystage.org/lt/getting-started.html">
+<meta property="og:image" content="https://www.pystage.org/assets/pystage-banner.png">
+<meta property="og:image:alt" content="Kairėje Scratch blokai, dešinėje atitinkamas PyStage Python kodas">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Pereiti prie turinio</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/logo.png" alt="" width="40" height="40">PyStage</a>
+<nav aria-label="Pagrindinis meniu"><ul><li><a href="index.html">Pradžia</a></li><li><a href="getting-started.html" aria-current="page">Pirmi žingsniai</a></li><li><a href="convert.html">Konvertuoti Scratch</a></li><li><a href="community.html">Bendruomenė</a></li><li><a href="docs.html">Dokumentacija</a></li></ul></nav>
+<nav class="langs" aria-label="Kalba"><ul><li><a lang="en" hreflang="en" href="../getting-started.html">English</a></li><li><a lang="de" hreflang="de" href="../de/getting-started.html">Deutsch</a></li><li><a lang="lt" hreflang="lt" href="getting-started.html" aria-current="true">Lietuvių</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<div class="note"><strong>Vertimas dar nepatikrintas.</strong> Šio lietuviško vertimo dar nepatikrino gimtakalbiai. Pastabų laukiame: žr. <a href="community.html">bendruomenės puslapį</a> ir <a href="REVIEW_ISSUE_URL">peržiūros užduotį GitHub</a>.</div>
+<h1>Pirmi žingsniai</h1>
+<p class="lead">Įdiek PyStage, paleisk pirmą programą ir sužinok, kaip Python kodas veikia kaip Scratch scenarijus.</p>
+
+<h2>Įdiegimas</h2>
+<pre tabindex="0" aria-label="Įdiegimo komanda"><code>pip install --pre pystage
+</code></pre>
+<p>Lietuviška API kol kas yra tik išankstinėje (angl. pre-release) versijoje, todėl reikia parametro <code>--pre</code>. Tai peržiūrinė versija: kol nėra oficialaus leidimo, kai kas gali keistis.</p>
+<p>PyStage reikia Python 3.10 ar naujesnės versijos. <a href="https://pyga.me/">pygame-ce</a> įdiegiamas automatiškai. Jei esi įdiegęs klasikinį <code>pygame</code>, pirmiausia pašalink jį komanda <code>pip uninstall pygame</code>.</p>
+
+<h2>Tavo pirma programa</h2>
+<p>Išsaugok šį kodą faile, pavyzdžiui, <code>pirma.py</code>, ir paleisk jį su Python. Atsidarys langas, o veikėjas apeis kvadratą.</p>
+<pre tabindex="0" aria-label="Pirma PyStage programa"><code><span class="k">from</span> pystage.lt <span class="k">import</span> Scena, Veikėjas
+
+scena = Scena()
+zombis = scena.<span class="f">pridėk_veikėją</span>()
+
+<span class="k">def</span> daryk(zombis: Veikėjas):
+    <span class="k">for</span> i <span class="k">in</span> range(4):
+        zombis.<span class="f">eik</span>(10)
+        zombis.<span class="f">pasisuk_kairėn_laipsnių</span>(90)
+        zombis.<span class="f">palauk_sek</span>(1)
+
+zombis.<span class="f">kai_spusteli_žalią_vėliavėlę</span>(daryk)
+
+scena.<span class="f">paleisk</span>()
+</code></pre>
+<p>Naudok redaktoriaus automatinį užbaigimą, kad pamatytum, kokie metodai yra. Yra metodai visiems Scratch blokams, prijungti prie tavo scenos ir veikėjų objektų, įskaitant Pieštuko plėtinį, kintamuosius, sąrašus, klonus ir visus įvykius. Vieninteliai blokai, kurie nieko neveikia, yra tie, kuriems reikia mikrofono (garsumas).</p>
+<p>Visas sąrašas pateiktas <a href="https://pystage.readthedocs.io/en/latest/pystage.lt.html">lietuviškame API žinyne</a>; <a href="docs.html">kitos kalbos</a> turi savo.</p>
+
+<h2>Tavo kodas veikia kaip Scratch scenarijus</h2>
+<p>Kai kas veikia kitaip nei įprastose Python programose, nes tavo kodas veikia kaip Scratch scenarijus.</p>
+<h3>Ciklai atnaujina ekraną</h3>
+<p>Ekranas atnaujinamas po kiekvienos ciklo iteracijos ir po blokų, kurie užtrunka, pavyzdžiui, <code>palauk_sek</code>. Tau nereikia rūpintis žaidimo ciklu.</p>
+<h3>Funkcijos yra savo komandos</h3>
+<p>Funkcijos tame pačiame faile, kurias iškvieči iš savo kodo, veikia kaip Scratch savo komandos (blokai), todėl jose taip pat gali būti ciklų ir <code>palauk_sek</code>.</p>
+<h3>Vykdyti be ekrano atnaujinimo</h3>
+<p>Pažymėk funkciją <code>@be_ekrano_atnaujinimo</code> ir ji bus įvykdyta iš karto, kaip „Vykdyti be ekrano atnaujinimo“ Scratch programoje. Toliau pateiktame pavyzdyje kvadratas nupiešiamas iš karto.</p>
+<pre tabindex="0" aria-label="Savo komandos ir be_ekrano_atnaujinimo"><code><span class="k">from</span> pystage.lt <span class="k">import</span> Scena, Veikėjas, be_ekrano_atnaujinimo
+
+scena = Scena()
+zombis = scena.<span class="f">pridėk_veikėją</span>()
+
+<span class="k">def</span> šuolis(zombis: Veikėjas, aukštis):
+    <span class="k">for</span> i <span class="k">in</span> range(10):
+        zombis.<span class="f">y_padidink</span>(aukštis / 10)
+    <span class="k">for</span> i <span class="k">in</span> range(10):
+        zombis.<span class="f">y_padidink</span>(-aukštis / 10)
+
+@be_ekrano_atnaujinimo
+<span class="k">def</span> piešk_kvadratą(zombis: Veikėjas):
+    <span class="c"># Kaip „Vykdyti be ekrano atnaujinimo“ Scratch programoje:</span>
+    <span class="c"># kvadratas atsiranda iš karto.</span>
+    zombis.<span class="f">pieštukas_pieš</span>()
+    <span class="k">for</span> i <span class="k">in</span> range(4):
+        zombis.<span class="f">eik</span>(50)
+        zombis.<span class="f">pasisuk_kairėn_laipsnių</span>(90)
+    zombis.<span class="f">pieštukas_nebepieš</span>()
+
+<span class="k">def</span> daryk(zombis: Veikėjas):
+    piešk_kvadratą(zombis)
+    <span class="k">while</span> <span class="k">True</span>:
+        šuolis(zombis, 80)
+        zombis.<span class="f">palauk_sek</span>(1)
+
+zombis.<span class="f">kai_spusteli_žalią_vėliavėlę</span>(daryk)
+
+scena.<span class="f">paleisk</span>()
+</code></pre>
+<h3>Klaidos rodomos</h3>
+<p>Jei tavo kode yra klaida, pranešimas rodomas lange ir terminale.</p>
+
+<h2>Kitos kalbos</h2>
+<p>Pavyzdžiuose naudojama lietuviška API: <code>from pystage.lt import Scena, Veikėjas</code>. Anglų (<code>pystage.en</code>) ir vokiečių (<code>pystage.de</code>) kalbomis naudojami Scratch blokų pavadinimai tomis kalbomis.</p>
+<div class="note">Galimos anglų, vokiečių ir lietuvių kalbos. <a href="docs.html">Dokumentacijos puslapyje</a> rasi kiekvienos kalbos žinyno nuorodą. Lietuvių kalba yra nauja. <a href="community.html">Susisiek</a>, jei nori padėti prižiūrėti vertimą arba pridėti kitą kalbą.</div>
+
+<h2>Kiti žingsniai</h2>
+<ul>
+<li><a href="convert.html">Konvertuok vieną iš savo Scratch projektų</a> ir perskaityk jo sukurtą Python kodą.</li>
+<li><a href="https://pystage.readthedocs.io/en/latest/pystage.lt.html">Naršyk dokumentaciją.</a> Vartotojui skirta blokų API dar daugiausia neaprašyta, todėl dokumentacija yra žinynas, o ne pamoka.</li>
+<li>Užduok klausimų <a href="https://discord.gg/MSGrs3UCCz">Discord</a> serveryje.</li>
+</ul>
+</div></main>
+<footer class="site"><div class="wrap">
+<ul>
+<li><a href="https://github.com/pystage/pystage">GitHub</a></li>
+<li><a href="https://pypi.org/project/pystage/">PyPI</a></li>
+<li><a href="docs.html">Dokumentacija</a></li>
+<li><a href="https://convert.pystage.org">Konverteris internete</a></li>
+<li><a href="https://discord.gg/MSGrs3UCCz">Discord</a></li>
+</ul>
+<p>PyStage yra atvirojo kodo programa pagal MIT licenciją. Nesusijusi su Scratch komanda ar Scratch fondu.</p>
+<p>Ši svetainė nieko nekrauna iš trečiųjų šalių. Aukščiau esančios nuorodos veda į kitas svetaines.</p>
+</div></footer>
+</body>
+</html>
