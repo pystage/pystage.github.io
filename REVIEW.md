@@ -1,5 +1,5 @@
 # Lithuanian translation
 
-Issue: REVIEW_ISSUE_URL
+Issue: https://github.com/pystage/pystage/issues/133
 
 This branch adds Lithuanian support to PyStage for review by native speakers. It has three parts: the Lithuanian API `pystage.lt` (classes `Scena` and `Veikėjas`, decorator `be_ekrano_atnaujinimo`, living on branch `feature-lithuanian` of the pystage repository), the translation tables behind it (method names, dropdown aliases and runtime messages in `src/pystage/l10n/data/lt/`, each row marked as taken from Scratch's official Lithuanian translation or newly made, with a status column and comments on uncertain wording), and this Lithuanian website under `lt/` (all five pages, translated from the English pages and using the official Scratch Lithuanian terms; every page carries a note that the translation is not yet reviewed). Please check that the wording is natural and correct for children and teachers, that Scratch's terms are used consistently, and that the code examples read well; comments can go to the issue above.
