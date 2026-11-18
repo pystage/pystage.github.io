@@ -1,9 +1,58 @@
-{{/* HOOK for the Blocks pages (section "blocks"). The block data is generated into data/blocks/<lang>.json
-     (tools/extract-blocks.py); this layout is the entry point that renders them. Replace the placeholder
-     below. Add layouts/blocks/single.html (or a per-category list) for the category pages if needed. */}}
+{{/* Blocks reference: all categories on one page, rendered from data/blocks/<lang>.json
+     (tools/extract-blocks.py). The block pictures are drawn in the browser by scratchblocks. */}}
 {{ define "main" }}
+{{ $lang := site.Language.Lang }}
+{{ $data := index site.Data.blocks $lang }}
 <h1>{{ .Title }}</h1>
 {{ with .Params.lead }}<p class="lead">{{ . | markdownify }}</p>{{ end }}
-{{ .Content }}
-{{ with .Pages }}<ul class="pagelist">{{ range .ByWeight }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}</ul>{{ end }}
+{{ with $data }}
+<p>{{ i18n "blocks_intro" }}</p>
+<nav class="catnav" id="categories" aria-label="{{ i18n "blocks_categories" }}">
+<ul>
+{{ range $cat := slice "motion" "looks" "sound" "events" "control" "sensing" "operators" "variables" "pen" "extras" }}
+<li><a href="#{{ $cat }}">{{ i18n (printf "blocks_cat_%s" $cat) }}</a></li>
+{{ end }}
+</ul>
+</nav>
+{{ $vs := i18n "blocks_var_sprite" }}
+{{ $vt := i18n "blocks_var_stage" }}
+{{ $blocks := .blocks }}
+{{ range $cat := slice "motion" "looks" "sound" "events" "control" "sensing" "operators" "variables" "pen" "extras" }}
+<section class="blockcat" id="{{ $cat }}">
+<h2>{{ i18n (printf "blocks_cat_%s" $cat) }} <a class="totop" href="#categories" title="{{ i18n "blocks_top" }}" aria-label="{{ i18n "blocks_top" }}">&uarr;</a></h2>
+{{ if eq $cat "extras" }}<p>{{ i18n "blocks_cat_extras_text" }}</p>{{ end }}
+{{ range $blocks }}{{ if eq .category $cat }}
+<article class="blk" id="{{ .core }}">
+{{ if .block }}<div class="pic"><pre class="blocks">{{ .block }}</pre></div>{{ end }}
+<div class="txt">
+{{ $b := . }}
+{{ $same := eq (index $b.names "sprite") (index $b.names "stage") }}
+{{ range $kind := slice "sprite" "stage" }}{{ with index $b.names $kind }}{{ if not (and $same (eq $kind "stage")) }}
+{{ $name := . }}
+{{ $var := cond (eq $kind "sprite") $vs $vt }}
+<p class="call"><code>{{ $var }}.{{ $name }}({{ range $i, $p := $b.params }}{{ if $i }}, {{ end }}{{ $p.name }}{{ with $p.default }}={{ . }}{{ end }}{{ end }})</code></p>
+{{ end }}{{ end }}{{ end }}
+<p class="avail"><span class="sr">{{ i18n "blocks_for_label" }}</span>
+{{ range .available }}<span class="badge badge-{{ . }}">{{ i18n (printf "blocks_for_%s" .) }}</span>{{ end }}</p>
+{{ with .summary }}<p class="sum">{{ . }}</p>{{ end }}
+{{ with .more }}<details><summary>{{ i18n "blocks_more" }}</summary>{{ range . }}<p>{{ . }}</p>{{ end }}</details>{{ end }}
+{{ with .params }}{{ $any := false }}{{ range . }}{{ if .description }}{{ $any = true }}{{ end }}{{ end }}
+{{ if $any }}<dl class="params">{{ range . }}<dt><code>{{ .name }}</code>{{ with .type }} <span class="ptype">{{ . }}</span>{{ end }}</dt><dd>{{ .description }}</dd>{{ end }}</dl>{{ end }}{{ end }}
+</div>
+</article>
+{{ end }}{{ end }}
+</section>
+{{ end }}
+<script src="{{ "scratchblocks/scratchblocks.min.js" | relURL }}"></script>
+{{ if ne $lang "en" }}<script src="{{ printf "scratchblocks/translations-%s.js" $lang | relURL }}"></script>{{ end }}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  scratchblocks.renderMatching("pre.blocks", {
+    style: "scratch3",
+    languages: {{ if eq $lang "en" }}["en"]{{ else }}["en", "{{ $lang }}"]{{ end }},
+    scale: 0.675,
+  });
+});
+</script>
+{{ end }}
 {{ end }}
