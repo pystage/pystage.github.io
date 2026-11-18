@@ -32,6 +32,21 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+      # Hugo extended, pinned; only needed when main or a review is a Hugo site.
+      # To update: change the version and the checksum from the release's
+      # hugo_<version>_checksums.txt.
+      - name: Install Hugo
+        env:
+          HUGO_VERSION: 0.157.0
+          HUGO_SHA256: 5b2fdfe4646a48ee98107035024fd6640299bff31c4486c259eeeb9f4c822492
+        run: |
+          file="hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          curl -fsSL -o "$RUNNER_TEMP/$file" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${file}"
+          echo "${HUGO_SHA256}  $RUNNER_TEMP/$file" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/hugo"
+          tar -xzf "$RUNNER_TEMP/$file" -C "$RUNNER_TEMP/hugo" hugo
+          echo "$RUNNER_TEMP/hugo" >> "$GITHUB_PATH"
       - name: Publish
         run: |
           git config user.name "github-actions[bot]"
