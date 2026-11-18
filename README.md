@@ -32,6 +32,8 @@ Start a review (new language, new teaching material, any change that needs feedb
 
 Review copies carry a banner on every page with the title, the issue link and the official site, and `noindex` for search engines. `REVIEW.md` and `CNAME` are not published, and root-absolute links such as those in `404.html` are rewritten to the review directory. Nothing else is changed.
 
+Hugo: if the root of `main` or of a review branch holds a Hugo configuration (`hugo.toml`, `config.toml`, ..., `config/_default/`), the script builds it with `hugo --minify --baseURL <its public URL>` and publishes the output instead of the raw tree, so a review can be a Hugo site (themes must be inside the branch, git submodules are not fetched). The banner and `noindex` are added to the built pages; a `CNAME` at the root of a Hugo `main` is copied into the output. If a build fails the whole run fails and nothing is published. The workflow installs Hugo extended v0.157.0 (version and checksum in the workflow file); locally `hugo` must be on the PATH, and `--base-url` changes the public root URL (default https://www.pystage.org/), e.g. for testing.
+
 A review ends by merging the branch into `main` (delete `REVIEW.md` first) and deleting the branch; its directory disappears on the next run.
 
 One-time setting for the maintainer: Settings, Pages, Source "Deploy from a branch", Branch `pages`, folder `/ (root)`. The custom domain stays www.pystage.org (its `CNAME` comes from `main`). `main` itself is no longer deployed directly; the pages branch is what is live.
