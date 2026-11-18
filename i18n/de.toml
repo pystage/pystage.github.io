@@ -43,3 +43,47 @@ other = "Kommt bald"
 other = "Schau dir unser kurzes Einführungsvideo zu PyStage für die ScratchCon 2021 an (öffnet YouTube)"
 [logo_alt]
 other = ""
+[blocks_cat_motion]
+other = "Bewegung"
+[blocks_cat_looks]
+other = "Aussehen"
+[blocks_cat_sound]
+other = "Klang"
+[blocks_cat_events]
+other = "Ereignisse"
+[blocks_cat_control]
+other = "Steuerung"
+[blocks_cat_sensing]
+other = "Fühlen"
+[blocks_cat_operators]
+other = "Operatoren"
+[blocks_cat_variables]
+other = "Variablen und Listen"
+[blocks_cat_pen]
+other = "Malstift"
+[blocks_cat_extras]
+other = "PyStage-Extras"
+[blocks_var_sprite]
+other = "figur"
+[blocks_var_stage]
+other = "bühne"
+[blocks_for_sprite]
+other = "Figur"
+[blocks_for_stage]
+other = "Bühne"
+[blocks_categories]
+other = "Kategorien"
+[blocks_more]
+other = "Mehr Details"
+[blocks_top]
+other = "Zurück zu den Kategorien"
+[blocks_for_label]
+other = "Funktioniert für:"
+[blocks_parameters]
+other = "Parameter"
+[blocks_intro]
+other = "Zu jedem Eintrag siehst du links den Scratch-Block und rechts den Python-Befehl. Die Befehle werden aus PyStage selbst erzeugt und sind deshalb immer aktuell."
+[blocks_cat_extras_text]
+other = "Befehle, die es in Scratch nicht als Blöcke gibt: Kostüme und Klänge laden, Variablen anlegen, das Programm starten und mehr."
+[blocks_noscript]
+other = "Die Blockbilder brauchen JavaScript. Ohne siehst du den Block als Text."

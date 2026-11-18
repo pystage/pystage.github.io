@@ -6,9 +6,5 @@ nav: kids
 weight: 3
 lead: "Jeder Scratch-Block und der Python-Befehl, der dasselbe macht."
 translation_of: "blocks/_index.md"
-source_hash: "09e4804e78e18979"
+source_hash: "56953685cee6c65c"
 ---
-
-Bald hier: alle Blöcke von Scratch (Bewegung, Aussehen, Klang, Ereignisse, Steuerung, Fühlen, Operatoren, Variablen und Malstift), jeder als Bild des Blocks neben seinem Python-Befehl.
-
-Bis dahin kannst du die [Dokumentation auf Read the Docs](https://pystage.readthedocs.io/en/latest/pystage.de.html) ansehen (auf Englisch, für Programmierer).
