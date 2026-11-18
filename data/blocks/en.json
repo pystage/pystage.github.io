@@ -1,0 +1,4550 @@
+{
+ "language": "en",
+ "classes": {
+  "sprite": "Sprite",
+  "stage": "Stage"
+ },
+ "blocks": [
+  {
+   "core": "motion_turnleft",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "turn_left"
+   },
+   "summary": "Turns the sprite to the left (counter-clockwise) by the given number of degrees.",
+   "more": [],
+   "block": "turn ↺ (15) degrees",
+   "params": [
+    {
+     "name": "deg",
+     "type": "number",
+     "default": null,
+     "description": "The number of degrees to turn. 90 is a quarter turn."
+    }
+   ]
+  },
+  {
+   "core": "motion_turnright",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "turn_right"
+   },
+   "summary": "Turns the sprite to the right (clockwise) by the given number of degrees.",
+   "more": [],
+   "block": "turn ↻ (15) degrees",
+   "params": [
+    {
+     "name": "deg",
+     "type": "number",
+     "default": null,
+     "description": "The number of degrees to turn. 90 is a quarter turn."
+    }
+   ]
+  },
+  {
+   "core": "motion_movesteps",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "move"
+   },
+   "summary": "Moves the sprite forward by the given number of steps, in the direction it is pointing.",
+   "more": [],
+   "block": "move (10) steps",
+   "params": [
+    {
+     "name": "steps",
+     "type": "number",
+     "default": null,
+     "description": "How many steps to move. Negative values move the sprite backwards."
+    }
+   ]
+  },
+  {
+   "core": "motion_goto_random",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "go_to_random_position"
+   },
+   "summary": "Moves the sprite to a random position on the stage.",
+   "more": [],
+   "block": "go to (random position v)",
+   "params": []
+  },
+  {
+   "core": "motion_goto_pointer",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "go_to_mouse_pointer"
+   },
+   "summary": "Moves the sprite to the position of the mouse pointer.",
+   "more": [],
+   "block": "go to (mouse-pointer v)",
+   "params": []
+  },
+  {
+   "core": "motion_goto_sprite",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "go_to_sprite"
+   },
+   "summary": "Moves the sprite to the position of another sprite.",
+   "more": [],
+   "block": "go to (sprite v)",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "The name of the sprite to go to. Use \"_mouse_\" for the mouse pointer or \"_random_\" for a random position."
+    }
+   ]
+  },
+  {
+   "core": "motion_gotoxy",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "go_to_x_y"
+   },
+   "summary": "Moves the sprite to the given x and y position. The center of the stage is x = 0, y = 0.",
+   "more": [],
+   "block": "go to x: (0) y: (0)",
+   "params": [
+    {
+     "name": "x",
+     "type": "number",
+     "default": null,
+     "description": "The horizontal position. On the default stage of 480 by 360 pixels, x goes from -240 (left) to 240 (right)."
+    },
+    {
+     "name": "y",
+     "type": "number",
+     "default": null,
+     "description": "The vertical position. On the default stage, y goes from -180 (bottom) to 180 (top)."
+    }
+   ]
+  },
+  {
+   "core": "motion_glideto_random",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "glide_to_random_position"
+   },
+   "summary": "Glides the sprite to a random position within the given number of seconds.",
+   "more": [
+    "The script waits until the glide is finished."
+   ],
+   "block": "glide (1) secs to (random position v)",
+   "params": [
+    {
+     "name": "secs",
+     "type": "number",
+     "default": null,
+     "description": "The duration of the glide in seconds. 0 moves the sprite at once."
+    }
+   ]
+  },
+  {
+   "core": "motion_glideto_pointer",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "glide_to_mouse_pointer"
+   },
+   "summary": "Glides the sprite to the position of the mouse pointer within the given number of seconds.",
+   "more": [
+    "The script waits until the glide is finished."
+   ],
+   "block": "glide (1) secs to (mouse-pointer v)",
+   "params": [
+    {
+     "name": "secs",
+     "type": "number",
+     "default": null,
+     "description": "The duration of the glide in seconds. 0 moves the sprite at once."
+    }
+   ]
+  },
+  {
+   "core": "motion_glideto_sprite",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "glide_to_sprite"
+   },
+   "summary": "Glides the sprite to the position of another sprite within the given number of seconds.",
+   "more": [
+    "The script waits until the glide is finished."
+   ],
+   "block": "glide (1) secs to (sprite v)",
+   "params": [
+    {
+     "name": "secs",
+     "type": "number",
+     "default": null,
+     "description": "The duration of the glide in seconds. 0 moves the sprite at once."
+    },
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "The name of the sprite to glide to. Use \"_mouse_\" for the mouse pointer or \"_random_\" for a random position."
+    }
+   ]
+  },
+  {
+   "core": "motion_glidesecstoxy",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "glide_to_x_y"
+   },
+   "summary": "Glides the sprite to the given x and y position within the given number of seconds.",
+   "more": [
+    "The script waits until the glide is finished."
+   ],
+   "block": "glide (1) secs to x: (0) y: (0)",
+   "params": [
+    {
+     "name": "secs",
+     "type": "number",
+     "default": null,
+     "description": "The duration of the glide in seconds. 0 moves the sprite at once."
+    },
+    {
+     "name": "x",
+     "type": "number",
+     "default": null,
+     "description": "The horizontal position to glide to."
+    },
+    {
+     "name": "y",
+     "type": "number",
+     "default": null,
+     "description": "The vertical position to glide to."
+    }
+   ]
+  },
+  {
+   "core": "motion_pointindirection",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "point_in_direction"
+   },
+   "summary": "Turns the sprite to face the given direction.",
+   "more": [],
+   "block": "point in direction (90)",
+   "params": [
+    {
+     "name": "direction",
+     "type": "number",
+     "default": null,
+     "description": "The direction in degrees. 0 is up, 90 is right, 180 is down and -90 is left."
+    }
+   ]
+  },
+  {
+   "core": "motion_pointtowards_pointer",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "point_towards_mouse_pointer"
+   },
+   "summary": "Turns the sprite to face the mouse pointer.",
+   "more": [],
+   "block": "point towards (mouse-pointer v)",
+   "params": []
+  },
+  {
+   "core": "motion_pointtowards_random",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "point_towards_random_direction"
+   },
+   "summary": "Turns the sprite towards a random direction.",
+   "more": [],
+   "block": "point towards (random direction v)",
+   "params": []
+  },
+  {
+   "core": "motion_pointtowards_sprite",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "point_towards_sprite"
+   },
+   "summary": "Turns the sprite to face another sprite.",
+   "more": [],
+   "block": "point towards (sprite v)",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "The name of the sprite to face. Use \"_mouse_\" for the mouse pointer or \"_random_\" for a random direction."
+    }
+   ]
+  },
+  {
+   "core": "motion_changexby",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "change_x_by"
+   },
+   "summary": "Moves the sprite horizontally by the given amount. Positive values move it to the right.",
+   "more": [],
+   "block": "change x by (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The number of steps to move horizontally."
+    }
+   ]
+  },
+  {
+   "core": "motion_setx",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_x"
+   },
+   "summary": "Sets the horizontal position of the sprite. The center of the stage is x = 0.",
+   "more": [],
+   "block": "set x to (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new x position."
+    }
+   ]
+  },
+  {
+   "core": "motion_changeyby",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "change_y_by"
+   },
+   "summary": "Moves the sprite vertically by the given amount. Positive values move it up.",
+   "more": [],
+   "block": "change y by (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The number of steps to move vertically."
+    }
+   ]
+  },
+  {
+   "core": "motion_sety",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_y"
+   },
+   "summary": "Sets the vertical position of the sprite. The center of the stage is y = 0.",
+   "more": [],
+   "block": "set y to (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new y position."
+    }
+   ]
+  },
+  {
+   "core": "motion_ifonedgebounce",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "if_on_edge_bounce"
+   },
+   "summary": "If the sprite touches the edge of the stage, it bounces back and stays on the stage.",
+   "more": [],
+   "block": "if on edge, bounce",
+   "params": []
+  },
+  {
+   "core": "motion_setrotationstyle_leftright",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_rotation_style_left_right"
+   },
+   "summary": "Sets the rotation style to left-right: the costume only turns to face left or right and is never upside down.",
+   "more": [],
+   "block": "set rotation style [left-right v]",
+   "params": []
+  },
+  {
+   "core": "motion_setrotationstyle_dontrotate",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_rotation_style_none"
+   },
+   "summary": "Sets the rotation style to \"don't rotate\": the costume always looks the same, whatever direction the sprite points in.",
+   "more": [],
+   "block": "set rotation style [don't rotate v]",
+   "params": []
+  },
+  {
+   "core": "motion_setrotationstyle_allaround",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_rotation_style_around"
+   },
+   "summary": "Sets the rotation style to \"all around\": the costume turns with the direction of the sprite.",
+   "more": [],
+   "block": "set rotation style [all around v]",
+   "params": []
+  },
+  {
+   "core": "motion_xposition",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "x_position"
+   },
+   "summary": "Returns the horizontal position of the sprite. The center of the stage is 0.",
+   "more": [],
+   "block": "(x position)",
+   "params": []
+  },
+  {
+   "core": "motion_yposition",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "y_position"
+   },
+   "summary": "Returns the vertical position of the sprite. The center of the stage is 0.",
+   "more": [],
+   "block": "(y position)",
+   "params": []
+  },
+  {
+   "core": "motion_direction",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "direction"
+   },
+   "summary": "Returns the direction the sprite is pointing in degrees. 90 is right, 0 is up, 180 is down and -90 is left.",
+   "more": [],
+   "block": "(direction)",
+   "params": []
+  },
+  {
+   "core": "looks_switchbackdropto_next",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "switch_to_next_backdrop",
+    "stage": "switch_to_next_backdrop"
+   },
+   "summary": "Switches the stage to the next backdrop. After the last backdrop, the first one is used again.",
+   "more": [],
+   "block": "switch backdrop to (next backdrop v)",
+   "params": []
+  },
+  {
+   "core": "looks_switchbackdropto_previous",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "switch_to_previous_backdrop",
+    "stage": "switch_to_previous_backdrop"
+   },
+   "summary": "Switches the stage to the previous backdrop. Before the first backdrop, the last one is used.",
+   "more": [],
+   "block": "switch backdrop to (previous backdrop v)",
+   "params": []
+  },
+  {
+   "core": "looks_switchbackdropto_random",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "switch_to_random_backdrop",
+    "stage": "switch_to_random_backdrop"
+   },
+   "summary": "Switches the stage to a random backdrop.",
+   "more": [],
+   "block": "switch backdrop to (random backdrop v)",
+   "params": []
+  },
+  {
+   "core": "looks_switchbackdropto_backdrop",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "switch_backdrop_to",
+    "stage": "switch_backdrop_to"
+   },
+   "summary": "Switches the stage to another backdrop.",
+   "more": [],
+   "block": "switch backdrop to (backdrop1 v)",
+   "params": [
+    {
+     "name": "backdrop",
+     "type": "str or int",
+     "default": null,
+     "description": "The name of the backdrop, its number (starting with 1), or one of \"next backdrop\", \"previous backdrop\" and \"random backdrop\"."
+    }
+   ]
+  },
+  {
+   "core": "looks_nextbackdrop",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "next_backdrop",
+    "stage": "next_backdrop"
+   },
+   "summary": "Switches the stage to the next backdrop. After the last backdrop, the first one is used again.",
+   "more": [],
+   "block": "next backdrop",
+   "params": []
+  },
+  {
+   "core": "looks_seteffectto_color",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_color_effect_to",
+    "stage": "set_color_effect_to"
+   },
+   "summary": "Sets the color effect of the sprite. The color effect changes the colors of the costume.",
+   "more": [],
+   "block": "set [color v] effect to (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new value of the effect, from 0 to 200. 0 means no effect."
+    }
+   ]
+  },
+  {
+   "core": "looks_seteffectto_fisheye",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_fisheye_effect_to",
+    "stage": "set_fisheye_effect_to"
+   },
+   "summary": "Sets the fisheye effect of the sprite. The fisheye effect bends the costume like a fish-eye lens.",
+   "more": [],
+   "block": "set [fisheye v] effect to (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new value of the effect. 0 means no effect."
+    }
+   ]
+  },
+  {
+   "core": "looks_seteffectto_whirl",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_whirl_effect_to",
+    "stage": "set_whirl_effect_to"
+   },
+   "summary": "Sets the whirl effect of the sprite. The whirl effect twists the costume.",
+   "more": [],
+   "block": "set [whirl v] effect to (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new value of the effect. 0 means no effect."
+    }
+   ]
+  },
+  {
+   "core": "looks_seteffectto_pixelate",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_pixelate_effect_to",
+    "stage": "set_pixelate_effect_to"
+   },
+   "summary": "Sets the pixelate effect of the sprite. The pixelate effect makes the costume look blocky.",
+   "more": [],
+   "block": "set [pixelate v] effect to (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new value of the effect. 0 means no effect."
+    }
+   ]
+  },
+  {
+   "core": "looks_seteffectto_mosaic",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_mosaic_effect_to",
+    "stage": "set_mosaic_effect_to"
+   },
+   "summary": "Sets the mosaic effect of the sprite. The mosaic effect repeats the costume as small tiles.",
+   "more": [],
+   "block": "set [mosaic v] effect to (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new value of the effect. 0 means no effect."
+    }
+   ]
+  },
+  {
+   "core": "looks_seteffectto_brightness",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_brightness_effect_to",
+    "stage": "set_brightness_effect_to"
+   },
+   "summary": "Sets the brightness effect of the sprite. Negative values make the costume darker.",
+   "more": [],
+   "block": "set [brightness v] effect to (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new value of the effect, from -100 (black) to 100 (white). 0 means no effect."
+    }
+   ]
+  },
+  {
+   "core": "looks_seteffectto_ghost",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_ghost_effect_to",
+    "stage": "set_ghost_effect_to"
+   },
+   "summary": "Sets the ghost effect of the sprite. The higher the effect, the more transparent the sprite becomes.",
+   "more": [],
+   "block": "set [ghost v] effect to (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new value of the effect. 0 means visible, 100 means invisible."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_color",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "change_color_effect_by",
+    "stage": "change_color_effect_by"
+   },
+   "summary": "Changes the color effect of the sprite by the given amount. The color effect changes the colors of the costume.",
+   "more": [],
+   "block": "change [color v] effect by (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the effect. The effect goes from 0 to 200 and starts again at 0 after 200."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_fisheye",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "change_fisheye_effect_by",
+    "stage": "change_fisheye_effect_by"
+   },
+   "summary": "Changes the fisheye effect of the sprite by the given amount. The fisheye effect bends the costume like a fish-eye lens.",
+   "more": [],
+   "block": "change [fisheye v] effect by (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the effect. 0 means no effect."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_whirl",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "change_whirl_effect_by",
+    "stage": "change_whirl_effect_by"
+   },
+   "summary": "Changes the whirl effect of the sprite by the given amount. The whirl effect twists the costume.",
+   "more": [],
+   "block": "change [whirl v] effect by (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the effect. 0 means no effect."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_pixelate",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "change_pixelate_effect_by",
+    "stage": "change_pixelate_effect_by"
+   },
+   "summary": "Changes the pixelate effect of the sprite by the given amount. The pixelate effect makes the costume look blocky.",
+   "more": [],
+   "block": "change [pixelate v] effect by (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the effect. 0 means no effect."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_mosaic",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "change_mosaic_effect_by",
+    "stage": "change_mosaic_effect_by"
+   },
+   "summary": "Changes the mosaic effect of the sprite by the given amount. The mosaic effect repeats the costume as small tiles.",
+   "more": [],
+   "block": "change [mosaic v] effect by (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the effect. 0 means no effect."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_brightness",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "change_brightness_effect_by",
+    "stage": "change_brightness_effect_by"
+   },
+   "summary": "Changes the brightness effect of the sprite by the given amount. Negative values make the costume darker.",
+   "more": [],
+   "block": "change [brightness v] effect by (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the effect. The effect goes from -100 (black) to 100 (white)."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_ghost",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "change_ghost_effect_by",
+    "stage": "change_ghost_effect_by"
+   },
+   "summary": "Changes the ghost effect of the sprite by the given amount. The higher the effect, the more transparent the sprite becomes.",
+   "more": [],
+   "block": "change [ghost v] effect by (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the effect. 0 means visible, 100 means invisible."
+    }
+   ]
+  },
+  {
+   "core": "looks_cleargraphiceffects",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "clear_graphic_effects",
+    "stage": "clear_graphic_effects"
+   },
+   "summary": "Removes all graphic effects (color, fisheye, whirl, pixelate, mosaic, brightness and ghost) of the sprite.",
+   "more": [],
+   "block": "clear graphic effects",
+   "params": []
+  },
+  {
+   "core": "looks_backdropnumbername_number",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "backdrop_number",
+    "stage": "backdrop_number"
+   },
+   "summary": "Returns the number of the current backdrop of the stage (starting with 1).",
+   "more": [],
+   "block": "(backdrop [number v])",
+   "params": []
+  },
+  {
+   "core": "looks_backdropnumbername_name",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "backdrop_name",
+    "stage": "backdrop_name"
+   },
+   "summary": "Returns the name of the current backdrop of the stage.",
+   "more": [],
+   "block": "(backdrop [name v])",
+   "params": []
+  },
+  {
+   "core": "looks_sayforsecs",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "say_for_seconds"
+   },
+   "summary": "Shows a speech bubble with the given text next to the sprite for a number of seconds.",
+   "more": [
+    "The script waits until the time is over."
+   ],
+   "block": "say (Hello!) for (2) seconds",
+   "params": [
+    {
+     "name": "text",
+     "type": "str",
+     "default": null,
+     "description": "The text to show in the bubble."
+    },
+    {
+     "name": "secs",
+     "type": "number",
+     "default": null,
+     "description": "The number of seconds the bubble is shown."
+    }
+   ]
+  },
+  {
+   "core": "looks_say",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "say"
+   },
+   "summary": "Shows a speech bubble with the given text next to the sprite.",
+   "more": [],
+   "block": "say (Hello!)",
+   "params": [
+    {
+     "name": "text",
+     "type": "str",
+     "default": null,
+     "description": "The text to show in the bubble."
+    }
+   ]
+  },
+  {
+   "core": "looks_thinkforsecs",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "think_for_seconds"
+   },
+   "summary": "Shows a thought bubble with the given text next to the sprite for a number of seconds.",
+   "more": [
+    "The script waits until the time is over."
+   ],
+   "block": "think (Hmm...) for (2) seconds",
+   "params": [
+    {
+     "name": "text",
+     "type": "str",
+     "default": null,
+     "description": "The text to show in the bubble."
+    },
+    {
+     "name": "secs",
+     "type": "number",
+     "default": null,
+     "description": "The number of seconds the bubble is shown."
+    }
+   ]
+  },
+  {
+   "core": "looks_think",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "think"
+   },
+   "summary": "Shows a thought bubble with the given text next to the sprite.",
+   "more": [],
+   "block": "think (Hmm...)",
+   "params": [
+    {
+     "name": "text",
+     "type": "str",
+     "default": null,
+     "description": "The text to show in the bubble."
+    }
+   ]
+  },
+  {
+   "core": "looks_switchcostumeto",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "switch_costume_to"
+   },
+   "summary": "Switches the sprite to another costume.",
+   "more": [],
+   "block": "switch costume to (costume2)",
+   "params": [
+    {
+     "name": "costume",
+     "type": "str or int",
+     "default": null,
+     "description": "The name of the costume, or its number (starting with 1)."
+    }
+   ]
+  },
+  {
+   "core": "looks_nextcostume",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "next_costume"
+   },
+   "summary": "Switches the sprite to the next costume. After the last costume, the first one is used again.",
+   "more": [],
+   "block": "next costume",
+   "params": []
+  },
+  {
+   "core": "looks_changesizeby",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "change_size_by"
+   },
+   "summary": "Changes the size of the sprite by the given percentage. Negative values make it smaller.",
+   "more": [],
+   "block": "change size by (10)",
+   "params": [
+    {
+     "name": "percent",
+     "type": "number",
+     "default": null,
+     "description": "The change in percent. For example, 10 makes the sprite 10 percent bigger."
+    }
+   ]
+  },
+  {
+   "core": "looks_setsizeto",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_size_to"
+   },
+   "summary": "Sets the size of the sprite in percent. 100 is the normal size.",
+   "more": [],
+   "block": "set size to (100) %",
+   "params": [
+    {
+     "name": "percent",
+     "type": "number",
+     "default": null,
+     "description": "The new size in percent. 100 is the normal size, 50 is half size."
+    }
+   ]
+  },
+  {
+   "core": "looks_show",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "show"
+   },
+   "summary": "Shows the sprite on the stage.",
+   "more": [],
+   "block": "show",
+   "params": []
+  },
+  {
+   "core": "looks_hide",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "hide"
+   },
+   "summary": "Hides the sprite. It is not shown on the stage until it is shown again.",
+   "more": [],
+   "block": "hide",
+   "params": []
+  },
+  {
+   "core": "looks_gotofrontback_front",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "go_to_front_layer"
+   },
+   "summary": "Moves the sprite in front of all other sprites.",
+   "more": [],
+   "block": "go to [front v] layer",
+   "params": []
+  },
+  {
+   "core": "looks_gotofrontback_back",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "go_to_back_layer"
+   },
+   "summary": "Moves the sprite behind all other sprites.",
+   "more": [],
+   "block": "go to [back v] layer",
+   "params": []
+  },
+  {
+   "core": "looks_goforwardbackwardlayers_forward",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "go_forward"
+   },
+   "summary": "Moves the sprite forward by the given number of layers, so that it is shown in front of other sprites.",
+   "more": [],
+   "block": "go [forward v] (1) layers",
+   "params": [
+    {
+     "name": "value",
+     "type": "int",
+     "default": null,
+     "description": "The number of layers to move forward."
+    }
+   ]
+  },
+  {
+   "core": "looks_goforwardbackwardlayers_backward",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "go_backward"
+   },
+   "summary": "Moves the sprite backward by the given number of layers, so that it is shown behind other sprites.",
+   "more": [],
+   "block": "go [backward v] (1) layers",
+   "params": [
+    {
+     "name": "value",
+     "type": "int",
+     "default": null,
+     "description": "The number of layers to move backward."
+    }
+   ]
+  },
+  {
+   "core": "looks_costumenumbername_number",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "costume_number"
+   },
+   "summary": "Returns the number of the current costume of the sprite (starting with 1).",
+   "more": [],
+   "block": "(costume [number v])",
+   "params": []
+  },
+  {
+   "core": "looks_costumenumbername_name",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "costume_name"
+   },
+   "summary": "Returns the name of the current costume of the sprite.",
+   "more": [],
+   "block": "(costume [name v])",
+   "params": []
+  },
+  {
+   "core": "looks_size",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "size"
+   },
+   "summary": "Returns the size of the sprite in percent. 100 is the normal size.",
+   "more": [],
+   "block": "(size)",
+   "params": []
+  },
+  {
+   "core": "looks_switchbackdroptoandwait",
+   "category": "looks",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "switch_backdrop_to_and_wait"
+   },
+   "summary": "Switches the stage to another backdrop and waits until all scripts started by \"when backdrop switches to\" are finished.",
+   "more": [],
+   "block": "switch backdrop to (backdrop1) and wait",
+   "params": [
+    {
+     "name": "backdrop",
+     "type": "str or int",
+     "default": null,
+     "description": "The name of the backdrop, its number (starting with 1), or one of \"next backdrop\", \"previous backdrop\" and \"random backdrop\"."
+    }
+   ]
+  },
+  {
+   "core": "sound_play",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "start_sound",
+    "stage": "start_sound"
+   },
+   "summary": "Starts playing a sound. The script does not wait until the sound is finished.",
+   "more": [],
+   "block": "start sound (pop v)",
+   "params": [
+    {
+     "name": "name",
+     "type": "str or int",
+     "default": null,
+     "description": "The name of the sound file, e.g. \"pop.wav\", or the number of the sound (starting with 1)."
+    },
+    {
+     "name": "loop",
+     "type": "int",
+     "default": "0",
+     "description": "How often the sound is repeated after the first time. 0 plays it once, -1 repeats it forever."
+    }
+   ]
+  },
+  {
+   "core": "sound_playuntildone",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "play_sound_until_done",
+    "stage": "play_sound_until_done"
+   },
+   "summary": "Plays a sound and waits until it is finished.",
+   "more": [],
+   "block": "play sound (pop v) until done",
+   "params": [
+    {
+     "name": "name",
+     "type": "str or int",
+     "default": null,
+     "description": "The name of the sound file, e.g. \"pop.wav\", or the number of the sound (starting with 1)."
+    }
+   ]
+  },
+  {
+   "core": "sound_stopallsounds",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "stop_all_sounds",
+    "stage": "stop_all_sounds"
+   },
+   "summary": "Stops all sounds that are playing, of all sprites and the stage.",
+   "more": [],
+   "block": "stop all sounds",
+   "params": []
+  },
+  {
+   "core": "sound_changeeffectby_pitch",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "change_pitch_effect_by",
+    "stage": "change_pitch_effect_by"
+   },
+   "summary": "Changes the pitch effect of the sound by the given amount. Positive values make the sound higher.",
+   "more": [],
+   "block": "change [pitch v] effect by (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the pitch effect. The effect goes from -360 to 360, and 0 is the normal pitch."
+    }
+   ]
+  },
+  {
+   "core": "sound_changeeffectby_pan",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "change_pan_left_right_effect_by",
+    "stage": "change_pan_left_right_effect_by"
+   },
+   "summary": "Changes the pan effect of the sound by the given amount. The pan effect moves the sound between the left and the right speaker.",
+   "more": [],
+   "block": "change [pan left/right v] effect by (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the pan effect. -100 is all left, 0 is the middle and 100 is all right."
+    }
+   ]
+  },
+  {
+   "core": "sound_seteffectto_pitch",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_pitch_effect_to",
+    "stage": "set_pitch_effect_to"
+   },
+   "summary": "Sets the pitch effect of the sound. Higher values make the sound higher.",
+   "more": [],
+   "block": "set [pitch v] effect to (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new pitch effect, from -360 to 360. 0 is the normal pitch."
+    }
+   ]
+  },
+  {
+   "core": "sound_seteffectto_pan",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_pan_left_right_effect_to",
+    "stage": "set_pan_left_right_effect_to"
+   },
+   "summary": "Sets the pan effect of the sound. The pan effect moves the sound between the left and the right speaker.",
+   "more": [],
+   "block": "set [pan left/right v] effect to (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new pan effect. -100 is all left, 0 is the middle and 100 is all right."
+    }
+   ]
+  },
+  {
+   "core": "sound_cleareffects",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "clear_sound_effects",
+    "stage": "clear_sound_effects"
+   },
+   "summary": "Removes all sound effects (pitch and pan) of the sprite.",
+   "more": [],
+   "block": "clear sound effects",
+   "params": []
+  },
+  {
+   "core": "sound_changevolumeby",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "change_volume_by",
+    "stage": "change_volume_by"
+   },
+   "summary": "Changes the volume of the sprite's sounds by the given amount. Negative values make the sound quieter.",
+   "more": [],
+   "block": "change volume by (-10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the volume. The volume goes from 0 to 100."
+    }
+   ]
+  },
+  {
+   "core": "sound_setvolumeto",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_volume_to",
+    "stage": "set_volume_to"
+   },
+   "summary": "Sets the volume of the sprite's sounds. 100 is the loudest and 0 is silent.",
+   "more": [],
+   "block": "set volume to (100) %",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new volume, from 0 to 100 percent. Values outside this range are limited to it."
+    }
+   ]
+  },
+  {
+   "core": "sound_volume",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "volume",
+    "stage": "volume"
+   },
+   "summary": "Returns the volume of the sprite's sounds, from 0 to 100.",
+   "more": [],
+   "block": "(volume)",
+   "params": []
+  },
+  {
+   "core": "event_whenflagclicked",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "when_program_starts",
+    "stage": "when_program_starts"
+   },
+   "summary": "Runs the code when the green flag is clicked, i.e. when the program starts.",
+   "more": [],
+   "block": "when flag clicked",
+   "params": [
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "The function with the code to be executed."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "A name to distinguish code blocks using the same function."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "If True, the code is executed in one go without screen refresh."
+    }
+   ]
+  },
+  {
+   "core": "event_whenkeypressed",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "when_key_pressed",
+    "stage": "when_key_pressed"
+   },
+   "summary": "Runs the code when a key is pressed.",
+   "more": [],
+   "block": "when [space v] key pressed",
+   "params": [
+    {
+     "name": "key",
+     "type": "str",
+     "default": null,
+     "description": "The key, e.g. \"a\", \"1\", \"space\", \"left arrow\", \"right arrow\", \"up arrow\", \"down arrow\" or \"any\" (any key). Upper and lower case do not matter."
+    },
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "The function with the code to be executed."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "A name to distinguish code blocks using the same function."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "If True, the code is executed in one go without screen refresh."
+    }
+   ]
+  },
+  {
+   "core": "event_whenthisspriteclicked",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "when_this_sprite_clicked",
+    "stage": "when_this_sprite_clicked"
+   },
+   "summary": "Runs the code when the sprite is clicked with the mouse.",
+   "more": [],
+   "block": "when this sprite clicked",
+   "params": [
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "The function with the code to be executed."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "A name to distinguish code blocks using the same function."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "If True, the code is executed in one go without screen refresh."
+    }
+   ]
+  },
+  {
+   "core": "event_whenbackdropswitchesto",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "when_backdrop_switches_to",
+    "stage": "when_backdrop_switches_to"
+   },
+   "summary": "Runs the code when the stage switches to the given backdrop.",
+   "more": [],
+   "block": "when backdrop switches to [backdrop1 v]",
+   "params": [
+    {
+     "name": "backdrop",
+     "type": "str",
+     "default": null,
+     "description": "The name of the backdrop. Upper and lower case do not matter."
+    },
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "The function with the code to be executed."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "A name to distinguish code blocks using the same function."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "If True, the code is executed in one go without screen refresh."
+    }
+   ]
+  },
+  {
+   "core": "event_whengreaterthan_loudness",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "when_loudness_greater_than",
+    "stage": "when_loudness_greater_than"
+   },
+   "summary": "Runs the code when the loudness of the microphone is greater than the given value.",
+   "more": [
+    "This is only a stub: the microphone is not supported, the loudness is always -1 and the code never runs."
+   ],
+   "block": "when [loudness v] > (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The loudness value that must be exceeded."
+    },
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "The function with the code to be executed."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "A name to distinguish code blocks using the same function."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "If True, the code is executed in one go without screen refresh."
+    }
+   ]
+  },
+  {
+   "core": "event_whengreaterthan_timer",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "when_timer_greater_than",
+    "stage": "when_timer_greater_than"
+   },
+   "summary": "Runs the code when the timer is greater than the given value.",
+   "more": [
+    "The code runs once each time the timer becomes greater than the value. It runs again after the timer has been reset."
+   ],
+   "block": "when [timer v] > (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The number of seconds the timer must exceed."
+    },
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "The function with the code to be executed."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "A name to distinguish code blocks using the same function."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "If True, the code is executed in one go without screen refresh."
+    }
+   ]
+  },
+  {
+   "core": "event_whenbroadcastreceived",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "when_i_receive_message",
+    "stage": "when_i_receive_message"
+   },
+   "summary": "Runs the code when the given message is broadcast.",
+   "more": [],
+   "block": "when I receive (message1)",
+   "params": [
+    {
+     "name": "message",
+     "type": "str",
+     "default": null,
+     "description": "The name of the message. Upper and lower case do not matter."
+    },
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "The function with the code to be executed."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "A name to distinguish code blocks using the same function."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "If True, the code is executed in one go without screen refresh."
+    }
+   ]
+  },
+  {
+   "core": "event_broadcast",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "broadcast",
+    "stage": "broadcast"
+   },
+   "summary": "Sends a message to all sprites and the stage. Every \"when I receive\" block with this message starts running. The script does not wait for them.",
+   "more": [],
+   "block": "broadcast (message1)",
+   "params": [
+    {
+     "name": "message",
+     "type": "str",
+     "default": null,
+     "description": "The name of the message. Upper and lower case do not matter."
+    }
+   ]
+  },
+  {
+   "core": "event_broadcastandwait",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "broadcast_and_wait",
+    "stage": "broadcast_and_wait"
+   },
+   "summary": "Sends a message to all sprites and the stage and waits until all scripts that receive it are finished.",
+   "more": [],
+   "block": "broadcast (message1) and wait",
+   "params": [
+    {
+     "name": "message",
+     "type": "str",
+     "default": null,
+     "description": "The name of the message. Upper and lower case do not matter."
+    }
+   ]
+  },
+  {
+   "core": "event_whenstageclicked",
+   "category": "events",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "when_stage_clicked"
+   },
+   "summary": "Runs the code each time the stage is clicked.",
+   "more": [],
+   "block": "when stage clicked",
+   "params": [
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "The function with the code to be executed."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "A name to distinguish code blocks using the same function."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "If True, the code is executed in one go without screen refresh."
+    }
+   ]
+  },
+  {
+   "core": "control_wait",
+   "category": "control",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wait",
+    "stage": "wait"
+   },
+   "summary": "Waits the given number of seconds before the script continues. Other scripts keep running meanwhile.",
+   "more": [],
+   "block": "wait (1) seconds",
+   "params": [
+    {
+     "name": "secs",
+     "type": "number",
+     "default": null,
+     "description": "The number of seconds to wait. Negative values are treated as 0."
+    }
+   ]
+  },
+  {
+   "core": "control_stop_all",
+   "category": "control",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "stop_all",
+    "stage": "stop_all"
+   },
+   "summary": "Stops all scripts of all sprites and the stage, removes all clones, and stops all sounds.",
+   "more": [],
+   "block": "stop [all v]",
+   "params": []
+  },
+  {
+   "core": "control_stop_this",
+   "category": "control",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "stop_this_script",
+    "stage": "stop_this_script"
+   },
+   "summary": "Stops the script that runs this block. The other scripts keep running.",
+   "more": [],
+   "block": "stop [this script v]",
+   "params": []
+  },
+  {
+   "core": "control_create_clone_of_sprite",
+   "category": "control",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "create_clone_of_sprite",
+    "stage": "create_clone_of_sprite"
+   },
+   "summary": "Creates a clone of a sprite. A clone is a copy that starts at the same position, with the same costume and variables.",
+   "more": [
+    "At most 300 clones can exist at the same time. Further clones are not created."
+   ],
+   "block": "create clone of (sprite v)",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": "'_myself_'",
+     "description": "The name of the sprite to clone. Use \"_myself_\" to clone the sprite that runs this block."
+    }
+   ]
+  },
+  {
+   "core": "control_stop_other",
+   "category": "control",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "stop_other_scripts_in_sprite",
+    "stage": "stop_other_scripts_in_stage"
+   },
+   "summary": "Stops all other scripts of this sprite. The script that runs this block keeps running.",
+   "more": [],
+   "block": "stop [other scripts in sprite v]",
+   "params": []
+  },
+  {
+   "core": "control_create_clone_of_myself",
+   "category": "control",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "create_clone_of_myself"
+   },
+   "summary": "Creates a clone of this sprite. A clone is a copy that starts at the same position, with the same costume and variables.",
+   "more": [
+    "At most 300 clones can exist at the same time. Further clones are not created."
+   ],
+   "block": "create clone of (myself v)",
+   "params": []
+  },
+  {
+   "core": "control_delete_this_clone",
+   "category": "control",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "delete_this_clone"
+   },
+   "summary": "Deletes the clone that runs this block. A sprite that is not a clone is not deleted.",
+   "more": [],
+   "block": "delete this clone",
+   "params": []
+  },
+  {
+   "core": "control_start_as_clone",
+   "category": "control",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "when_i_start_as_a_clone"
+   },
+   "summary": "Runs the code each time a clone of this sprite is created.",
+   "more": [],
+   "block": "when I start as a clone",
+   "params": [
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "The function with the code to be executed."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "A name to distinguish code blocks using the same function."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "If True, the code is executed in one go without screen refresh."
+    }
+   ]
+  },
+  {
+   "core": "sensing_askandwait",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ask_and_wait",
+    "stage": "ask_and_wait"
+   },
+   "summary": "Shows a question on the stage in a text box and waits until the user has answered it.",
+   "more": [
+    "The answer can be read with the answer block."
+   ],
+   "block": "ask (What's your name?) and wait",
+   "params": [
+    {
+     "name": "question",
+     "type": "str",
+     "default": null,
+     "description": "The question to show to the user."
+    }
+   ]
+  },
+  {
+   "core": "sensing_answer",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "answer",
+    "stage": "answer"
+   },
+   "summary": "Returns the last answer that the user typed for an ask block.",
+   "more": [],
+   "block": "(answer)",
+   "params": []
+  },
+  {
+   "core": "sensing_keypressed",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "key_pressed",
+    "stage": "key_pressed"
+   },
+   "summary": "Checks whether a key is pressed at this moment.",
+   "more": [],
+   "block": "key (space v) pressed?",
+   "params": [
+    {
+     "name": "key",
+     "type": "str",
+     "default": null,
+     "description": "The key, e.g. \"a\", \"1\", \"space\", \"left arrow\", \"right arrow\", \"up arrow\", \"down arrow\" or \"any\" (any key). Upper and lower case do not matter."
+    }
+   ]
+  },
+  {
+   "core": "sensing_mousedown",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "mouse_down",
+    "stage": "mouse_down"
+   },
+   "summary": "Checks whether a mouse button is pressed at this moment.",
+   "more": [],
+   "block": "mouse down?",
+   "params": []
+  },
+  {
+   "core": "sensing_mousex",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "mouse_x",
+    "stage": "mouse_x"
+   },
+   "summary": "Returns the horizontal position of the mouse pointer on the stage. The center of the stage is 0.",
+   "more": [],
+   "block": "(mouse x)",
+   "params": []
+  },
+  {
+   "core": "sensing_mousey",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "mouse_y",
+    "stage": "mouse_y"
+   },
+   "summary": "Returns the vertical position of the mouse pointer on the stage. The center of the stage is 0.",
+   "more": [],
+   "block": "(mouse y)",
+   "params": []
+  },
+  {
+   "core": "sensing_loudness",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "loudness",
+    "stage": "loudness"
+   },
+   "summary": "Returns the loudness of the microphone.",
+   "more": [
+    "This is only a stub: the microphone is not supported, so the value is always -1."
+   ],
+   "block": "(loudness)",
+   "params": []
+  },
+  {
+   "core": "sensing_timer",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "timer",
+    "stage": "timer"
+   },
+   "summary": "Returns the time in seconds since the program started or since the timer was last reset.",
+   "more": [],
+   "block": "(timer)",
+   "params": []
+  },
+  {
+   "core": "sensing_resettimer",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "reset_timer",
+    "stage": "reset_timer"
+   },
+   "summary": "Resets the timer to 0.",
+   "more": [],
+   "block": "reset timer",
+   "params": []
+  },
+  {
+   "core": "sensing_setdragmode_draggable",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_drag_mode_draggable",
+    "stage": "set_drag_mode_draggable"
+   },
+   "summary": "Makes the sprite draggable: the user can move it with the mouse while the program runs.",
+   "more": [],
+   "block": "set drag mode [draggable v]",
+   "params": []
+  },
+  {
+   "core": "sensing_setdragmode_notdraggable",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_drag_mode_not_draggable",
+    "stage": "set_drag_mode_not_draggable"
+   },
+   "summary": "Makes the sprite not draggable: the user cannot move it with the mouse.",
+   "more": [],
+   "block": "set drag mode [not draggable v]",
+   "params": []
+  },
+  {
+   "core": "sensing_of_xposition",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "x_position_of",
+    "stage": "x_position_of"
+   },
+   "summary": "Returns the x position of another sprite.",
+   "more": [],
+   "block": "([x position v] of (sprite v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "The name of the sprite. If there is no such sprite, 0 is returned."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_yposition",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "y_position_of",
+    "stage": "y_position_of"
+   },
+   "summary": "Returns the y position of another sprite.",
+   "more": [],
+   "block": "([y position v] of (sprite v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "The name of the sprite. If there is no such sprite, 0 is returned."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_direction",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "direction_of",
+    "stage": "direction_of"
+   },
+   "summary": "Returns the direction of another sprite in degrees. 90 is right, 0 is up.",
+   "more": [],
+   "block": "([direction v] of (sprite v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "The name of the sprite. If there is no such sprite, 0 is returned."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_costumenumber",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "costume_of",
+    "stage": "costume_of"
+   },
+   "summary": "Returns the number of the current costume of another sprite (starting with 1).",
+   "more": [],
+   "block": "([costume # v] of (sprite v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "The name of the sprite. If there is no such sprite, 0 is returned."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_costumename",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "costume_name_of",
+    "stage": "costume_name_of"
+   },
+   "summary": "Returns the name of the current costume of another sprite.",
+   "more": [],
+   "block": "([costume name v] of (sprite v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "The name of the sprite. If there is no such sprite, 0 is returned."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_size",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "size_of",
+    "stage": "size_of"
+   },
+   "summary": "Returns the size of another sprite in percent. 100 is the normal size.",
+   "more": [],
+   "block": "([size v] of (sprite v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "The name of the sprite. If there is no such sprite, 0 is returned."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_volume",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "volume_of",
+    "stage": "volume_of"
+   },
+   "summary": "Returns the volume of the sounds of a sprite or of the stage, from 0 to 100.",
+   "more": [],
+   "block": "([volume v] of (sprite v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": "'_stage_'",
+     "description": "The name of the sprite, or \"_stage_\" for the stage. Defaults to the stage."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_variable",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "get_variable_of",
+    "stage": "get_variable_of"
+   },
+   "summary": "Returns the value of a variable of a sprite or of the stage.",
+   "more": [],
+   "block": "([variable v] of (sprite v))",
+   "params": [
+    {
+     "name": "variable",
+     "type": "str",
+     "default": null,
+     "description": "The name of the variable."
+    },
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": "'_stage_'",
+     "description": "The name of the sprite, or \"_stage_\" for the stage. Defaults to the stage."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_backdropnumber",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "backdrop_of",
+    "stage": "backdrop_of"
+   },
+   "summary": "Returns the number of the current backdrop (starting with 1). Only the stage has backdrops.",
+   "more": [],
+   "block": "([backdrop # v] of (Stage v))",
+   "params": [
+    {
+     "name": "stage",
+     "type": "str",
+     "default": "'_stage_'",
+     "description": "The name of the stage, \"_stage_\" by default. For a sprite, 0 is returned."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_backdropname",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "backdrop_name_of",
+    "stage": "backdrop_name_of"
+   },
+   "summary": "Returns the name of the current backdrop. Only the stage has backdrops.",
+   "more": [],
+   "block": "([backdrop name v] of (Stage v))",
+   "params": [
+    {
+     "name": "stage",
+     "type": "str",
+     "default": "'_stage_'",
+     "description": "The name of the stage, \"_stage_\" by default. For a sprite, 0 is returned."
+    }
+   ]
+  },
+  {
+   "core": "sensing_current_year",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "current_year",
+    "stage": "current_year"
+   },
+   "summary": "Returns the current year.",
+   "more": [],
+   "block": "(current [year v])",
+   "params": []
+  },
+  {
+   "core": "sensing_current_month",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "current_month",
+    "stage": "current_month"
+   },
+   "summary": "Returns the current month as a number, from 1 (January) to 12 (December).",
+   "more": [],
+   "block": "(current [month v])",
+   "params": []
+  },
+  {
+   "core": "sensing_current_date",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "current_date",
+    "stage": "current_date"
+   },
+   "summary": "Returns the current day of the month, from 1 to 31.",
+   "more": [],
+   "block": "(current [date v])",
+   "params": []
+  },
+  {
+   "core": "sensing_current_dayofweek",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "current_day_of_week",
+    "stage": "current_day_of_week"
+   },
+   "summary": "Returns the current day of the week as a number. 1 is Sunday, 2 is Monday and 7 is Saturday.",
+   "more": [],
+   "block": "(current [day of week v])",
+   "params": []
+  },
+  {
+   "core": "sensing_current_hour",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "current_hour",
+    "stage": "current_hour"
+   },
+   "summary": "Returns the current hour, from 0 to 23.",
+   "more": [],
+   "block": "(current [hour v])",
+   "params": []
+  },
+  {
+   "core": "sensing_current_minute",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "current_minute",
+    "stage": "current_minute"
+   },
+   "summary": "Returns the current minute, from 0 to 59.",
+   "more": [],
+   "block": "(current [minute v])",
+   "params": []
+  },
+  {
+   "core": "sensing_current_second",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "current_second",
+    "stage": "current_second"
+   },
+   "summary": "Returns the current second, from 0 to 59.",
+   "more": [],
+   "block": "(current [second v])",
+   "params": []
+  },
+  {
+   "core": "sensing_dayssince2000",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "days_since",
+    "stage": "days_since"
+   },
+   "summary": "Returns the number of days since 1 January 2000 (in UTC), including the fraction of the current day.",
+   "more": [],
+   "block": "(days since 2000)",
+   "params": []
+  },
+  {
+   "core": "sensing_username",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "username",
+    "stage": "username"
+   },
+   "summary": "Returns the user name. pystage does not know the user name, so the result is always an empty text.",
+   "more": [],
+   "block": "(username)",
+   "params": []
+  },
+  {
+   "core": "sensing_touchingobject_pointer",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "touching_mouse_pointer"
+   },
+   "summary": "Checks whether the sprite touches the mouse pointer.",
+   "more": [],
+   "block": "touching (mouse-pointer v)?",
+   "params": []
+  },
+  {
+   "core": "sensing_touchingobject_edge",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "touching_edge"
+   },
+   "summary": "Checks whether the sprite touches the edge of the stage.",
+   "more": [],
+   "block": "touching (edge v)?",
+   "params": []
+  },
+  {
+   "core": "sensing_touchingobject_sprite",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "touching"
+   },
+   "summary": "Checks whether the sprite touches another sprite, the mouse pointer or the edge.",
+   "more": [],
+   "block": "touching (sprite v)?",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "The name of the sprite. Use \"_mouse_\" for the mouse pointer or \"_edge_\" for the edge of the stage."
+    }
+   ]
+  },
+  {
+   "core": "sensing_touchingcolor",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "touching_color"
+   },
+   "summary": "Checks whether the sprite touches a color on the stage.",
+   "more": [],
+   "block": "touching color (color)?",
+   "params": [
+    {
+     "name": "color",
+     "type": "str or tuple",
+     "default": null,
+     "description": "The color, e.g. \"#ff0000\" for red, or a tuple of red, green and blue values from 0 to 255."
+    }
+   ]
+  },
+  {
+   "core": "sensing_coloristouchingcolor",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "color_is_touching"
+   },
+   "summary": "Checks whether a color of the sprite touches another color on the stage.",
+   "more": [],
+   "block": "color (color) is touching (color)?",
+   "params": [
+    {
+     "name": "sprite_color",
+     "type": "str or tuple",
+     "default": null,
+     "description": "The color of the sprite, e.g. \"#ff0000\" for red, or a tuple of red, green and blue values from 0 to 255."
+    },
+    {
+     "name": "color",
+     "type": "str or tuple",
+     "default": null,
+     "description": "The color on the stage that is searched for, in the same format."
+    }
+   ]
+  },
+  {
+   "core": "sensing_distanceto_pointer",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "distance_to_mouse_pointer"
+   },
+   "summary": "Returns the distance between the sprite and the mouse pointer in pixels.",
+   "more": [],
+   "block": "(distance to (mouse-pointer v))",
+   "params": []
+  },
+  {
+   "core": "sensing_distanceto_sprite",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "distance_to_sprite"
+   },
+   "summary": "Returns the distance between the sprite and another sprite in pixels.",
+   "more": [],
+   "block": "(distance to (sprite v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "The name of the sprite. Use \"_mouse_\" for the mouse pointer. If there is no such sprite, 10000 is returned."
+    }
+   ]
+  },
+  {
+   "core": "operator_random",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "pick_random",
+    "stage": "pick_random"
+   },
+   "summary": "Returns a random number between two numbers, both ends included. If both numbers are whole numbers, the result is a whole number too.",
+   "more": [],
+   "block": "pick random (1) to (10)",
+   "params": [
+    {
+     "name": "start",
+     "type": "number",
+     "default": null,
+     "description": "The lowest possible number."
+    },
+    {
+     "name": "end",
+     "type": "number",
+     "default": null,
+     "description": "The highest possible number. If it is lower than start, the two are swapped."
+    }
+   ]
+  },
+  {
+   "core": "operator_divide",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "divide",
+    "stage": "divide"
+   },
+   "summary": "Divides a by b.",
+   "more": [
+    "Like in Scratch, dividing by 0 gives Infinity, -Infinity or NaN instead of an error."
+   ],
+   "block": "((10) / (2))",
+   "params": [
+    {
+     "name": "a",
+     "type": "float",
+     "default": null,
+     "description": ""
+    },
+    {
+     "name": "b",
+     "type": "float",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "operator_mod",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "modulo",
+    "stage": "modulo"
+   },
+   "summary": "Gives the remainder of dividing a by b.",
+   "more": [
+    "The remainder of a division, with the sign of the divisor like in Scratch. The modulo of 0 is NaN."
+   ],
+   "block": "((10) mod (3))",
+   "params": [
+    {
+     "name": "a",
+     "type": "float",
+     "default": null,
+     "description": ""
+    },
+    {
+     "name": "b",
+     "type": "float",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "operator_join",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "join",
+    "stage": "join"
+   },
+   "summary": "Joins two texts into one.",
+   "more": [],
+   "block": "(join [apple] [banana])",
+   "params": [
+    {
+     "name": "string1",
+     "type": "",
+     "default": null,
+     "description": ""
+    },
+    {
+     "name": "string2",
+     "type": "",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "operator_letter_of",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "letter_of",
+    "stage": "letter_of"
+   },
+   "summary": "Gives one letter of a text.",
+   "more": [],
+   "block": "(letter (1) of [world])",
+   "params": [
+    {
+     "name": "letter",
+     "type": "int",
+     "default": null,
+     "description": "The position of the letter, starting with 1."
+    },
+    {
+     "name": "string",
+     "type": "str",
+     "default": null,
+     "description": "The text."
+    }
+   ]
+  },
+  {
+   "core": "operator_length",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "length_of",
+    "stage": "length_of"
+   },
+   "summary": "Gives the number of letters of a text.",
+   "more": [],
+   "block": "(length of [world])",
+   "params": [
+    {
+     "name": "string",
+     "type": "str",
+     "default": null,
+     "description": "The text."
+    }
+   ]
+  },
+  {
+   "core": "operator_gt",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "greater_than",
+    "stage": "greater_than"
+   },
+   "summary": "Checks whether the first value is greater than the second. Numbers are compared as numbers, texts alphabetically without regard to upper and lower case.",
+   "more": [],
+   "block": "<(a) > (b)>",
+   "params": [
+    {
+     "name": "operand1",
+     "type": "number or str",
+     "default": null,
+     "description": "The first value."
+    },
+    {
+     "name": "operand2",
+     "type": "number or str",
+     "default": null,
+     "description": "The second value."
+    }
+   ]
+  },
+  {
+   "core": "operator_lt",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "less_than",
+    "stage": "less_than"
+   },
+   "summary": "Checks whether the first value is less than the second. Numbers are compared as numbers, texts alphabetically without regard to upper and lower case.",
+   "more": [],
+   "block": "<(a) < (b)>",
+   "params": [
+    {
+     "name": "operand1",
+     "type": "number or str",
+     "default": null,
+     "description": "The first value."
+    },
+    {
+     "name": "operand2",
+     "type": "number or str",
+     "default": null,
+     "description": "The second value."
+    }
+   ]
+  },
+  {
+   "core": "operator_equals",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "equals",
+    "stage": "equals"
+   },
+   "summary": "Checks whether two values are equal. Numbers are compared as numbers, texts without regard to upper and lower case.",
+   "more": [],
+   "block": "<(a) = (b)>",
+   "params": [
+    {
+     "name": "operand1",
+     "type": "number or str",
+     "default": null,
+     "description": "The first value."
+    },
+    {
+     "name": "operand2",
+     "type": "number or str",
+     "default": null,
+     "description": "The second value."
+    }
+   ]
+  },
+  {
+   "core": "operator_contains",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "contains",
+    "stage": "contains"
+   },
+   "summary": "Tells whether a text contains another text.",
+   "more": [
+    "Upper and lower case is ignored."
+   ],
+   "block": "<[apple] contains [a]?>",
+   "params": [
+    {
+     "name": "string1",
+     "type": "str",
+     "default": null,
+     "description": "The text to search in."
+    },
+    {
+     "name": "string2",
+     "type": "str",
+     "default": null,
+     "description": "The text to search for."
+    }
+   ]
+  },
+  {
+   "core": "operator_round",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "round",
+    "stage": "round"
+   },
+   "summary": "Rounds a number to the nearest whole number.",
+   "more": [
+    "Like in Scratch, .5 is always rounded up."
+   ],
+   "block": "(round (3.5))",
+   "params": [
+    {
+     "name": "number",
+     "type": "float",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "operator_mathop",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "math_function",
+    "stage": "math_function"
+   },
+   "summary": "Calculates a mathematical function of a number.",
+   "more": [],
+   "block": "([abs v] of (-1))",
+   "params": [
+    {
+     "name": "operator",
+     "type": "str",
+     "default": null,
+     "description": "The function: \"abs\", \"floor\", \"ceiling\", \"sqrt\", \"sin\", \"cos\", \"tan\", \"asin\", \"acos\", \"atan\", \"ln\", \"log\", \"e ^\" or \"10 ^\". The sine, cosine and tangent use degrees."
+    },
+    {
+     "name": "number",
+     "type": "number",
+     "default": null,
+     "description": "The number to calculate the function of."
+    }
+   ]
+  },
+  {
+   "core": "data_setvariableto",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_variable",
+    "stage": "set_variable"
+   },
+   "summary": "Sets a variable to a new value.",
+   "more": [],
+   "block": "set (my variable) to (0)",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the variable."
+    },
+    {
+     "name": "value",
+     "type": "object",
+     "default": null,
+     "description": "The new value, a number or a text."
+    }
+   ]
+  },
+  {
+   "core": "data_variable",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "get_variable",
+    "stage": "get_variable"
+   },
+   "summary": "Returns the value of a variable.",
+   "more": [],
+   "block": "(my variable)",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the variable."
+    }
+   ]
+  },
+  {
+   "core": "data_changevariableby",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "change_variable_by",
+    "stage": "change_variable_by"
+   },
+   "summary": "Changes the value of a variable by the given number. The variable must contain a number.",
+   "more": [],
+   "block": "change (my variable) by (1)",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the variable."
+    },
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The number to add. Negative values make the variable smaller."
+    }
+   ]
+  },
+  {
+   "core": "data_showvariable",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "show_variable",
+    "stage": "show_variable"
+   },
+   "summary": "Shows the monitor of a variable on the stage, so that its value can be seen.",
+   "more": [],
+   "block": "show variable (my variable)",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the variable."
+    }
+   ]
+  },
+  {
+   "core": "data_hidevariable",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "hide_variable",
+    "stage": "hide_variable"
+   },
+   "summary": "Hides the monitor of a variable on the stage.",
+   "more": [],
+   "block": "hide variable (my variable)",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the variable."
+    }
+   ]
+  },
+  {
+   "core": "data_listvariable",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "get_list",
+    "stage": "get_list"
+   },
+   "summary": "The list itself.",
+   "more": [
+    "This is the real Python list, you can use it like any other list."
+   ],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list."
+    }
+   ]
+  },
+  {
+   "core": "data_addtolist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "add_to_list",
+    "stage": "add_to_list"
+   },
+   "summary": "Adds an item to the end of a list.",
+   "more": [],
+   "block": "add [thing] to [my list v]",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list. item The item, a number or a text."
+    },
+    {
+     "name": "item",
+     "type": "",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "data_deleteoflist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "delete_item_of_list",
+    "stage": "delete_item_of_list"
+   },
+   "summary": "Deletes one item of a list.",
+   "more": [],
+   "block": "delete (1) of [my list v]",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list."
+    },
+    {
+     "name": "index",
+     "type": "int or str",
+     "default": null,
+     "description": "The position, starting with 1. Also possible: \"last\" and \"random\". With \"all\", all items are deleted."
+    }
+   ]
+  },
+  {
+   "core": "data_deletealloflist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "delete_all_of_list",
+    "stage": "delete_all_of_list"
+   },
+   "summary": "Deletes all items of a list.",
+   "more": [],
+   "block": "delete all of [my list v]",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list."
+    }
+   ]
+  },
+  {
+   "core": "data_insertatlist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "insert_at_list",
+    "stage": "insert_at_list"
+   },
+   "summary": "Inserts an item into a list at a position.",
+   "more": [],
+   "block": "insert [thing] at (1) of [my list v]",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list. item The item, a number or a text."
+    },
+    {
+     "name": "item",
+     "type": "",
+     "default": null,
+     "description": ""
+    },
+    {
+     "name": "index",
+     "type": "int or str",
+     "default": null,
+     "description": "The position, starting with 1. Also possible: \"last\" and \"random\"."
+    }
+   ]
+  },
+  {
+   "core": "data_replaceitemoflist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "replace_item_of_list",
+    "stage": "replace_item_of_list"
+   },
+   "summary": "Replaces an item of a list by another one.",
+   "more": [],
+   "block": "replace item (1) of [my list v] with [thing]",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list."
+    },
+    {
+     "name": "index",
+     "type": "int or str",
+     "default": null,
+     "description": "The position, starting with 1. Also possible: \"last\" and \"random\". item The item, a number or a text."
+    },
+    {
+     "name": "item",
+     "type": "",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "data_itemoflist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "item_of_list",
+    "stage": "item_of_list"
+   },
+   "summary": "Gives one item of a list.",
+   "more": [],
+   "block": "(item (1) of [my list v])",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list."
+    },
+    {
+     "name": "index",
+     "type": "int or str",
+     "default": null,
+     "description": "The position, starting with 1. Also possible: \"last\" and \"random\"."
+    }
+   ]
+  },
+  {
+   "core": "data_itemnumoflist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "item_number_in_list",
+    "stage": "item_number_in_list"
+   },
+   "summary": "Gives the position of an item in a list.",
+   "more": [],
+   "block": "(item # of [thing] in [my list v])",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list. item The item, a number or a text."
+    },
+    {
+     "name": "item",
+     "type": "",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "data_lengthoflist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "length_of_list",
+    "stage": "length_of_list"
+   },
+   "summary": "Gives the number of items in a list.",
+   "more": [],
+   "block": "(length of [my list v])",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list."
+    }
+   ]
+  },
+  {
+   "core": "data_listcontainsitem",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "list_contains",
+    "stage": "list_contains"
+   },
+   "summary": "Tells whether a list contains an item.",
+   "more": [],
+   "block": "<[my list v] contains [thing]?>",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list. item The item, a number or a text."
+    },
+    {
+     "name": "item",
+     "type": "",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "data_showlist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "show_list",
+    "stage": "show_list"
+   },
+   "summary": "Shows the list on the stage.",
+   "more": [],
+   "block": "show list [my list v]",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list."
+    }
+   ]
+  },
+  {
+   "core": "data_hidelist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "hide_list",
+    "stage": "hide_list"
+   },
+   "summary": "Hides the list from the stage.",
+   "more": [],
+   "block": "hide list [my list v]",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list."
+    }
+   ]
+  },
+  {
+   "core": "pen_clear",
+   "category": "pen",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "erase_all",
+    "stage": "erase_all"
+   },
+   "summary": "Erases everything that the pens of all sprites have drawn on the stage.",
+   "more": [],
+   "block": "erase all",
+   "params": []
+  },
+  {
+   "core": "pen_stamp",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "stamp"
+   },
+   "summary": "Stamps a copy of the sprite's costume onto the stage. The copy stays there, even when the sprite moves.",
+   "more": [],
+   "block": "stamp",
+   "params": []
+  },
+  {
+   "core": "pen_penDown",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "pen_down"
+   },
+   "summary": "Puts the pen down. From now on, the sprite draws a line on the stage while it moves.",
+   "more": [],
+   "block": "pen down",
+   "params": []
+  },
+  {
+   "core": "pen_penUp",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "pen_up"
+   },
+   "summary": "Lifts the pen up. The sprite no longer draws while it moves.",
+   "more": [],
+   "block": "pen up",
+   "params": []
+  },
+  {
+   "core": "pen_setPenColorToColor",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_pen_color"
+   },
+   "summary": "Sets the color of the pen.",
+   "more": [],
+   "block": "set pen color to [#ff0000]",
+   "params": [
+    {
+     "name": "color",
+     "type": "str or tuple",
+     "default": null,
+     "description": "The color, e.g. \"#ff0000\" for red, or a tuple of red, green and blue values from 0 to 255."
+    }
+   ]
+  },
+  {
+   "core": "pen_changePenColorParamBy_color",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "change_pen_hue_by"
+   },
+   "summary": "Changes the color (hue) of the pen by the given amount. The color goes from 0 to 100 and starts again at 0 after 100.",
+   "more": [],
+   "block": "change pen (color v) by (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the pen color."
+    }
+   ]
+  },
+  {
+   "core": "pen_changePenColorParamBy_saturation",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "change_pen_saturation_by"
+   },
+   "summary": "Changes the saturation of the pen color by the given amount. Higher saturation makes the color more colorful.",
+   "more": [],
+   "block": "change pen (saturation v) by (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the saturation, from 0 to 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_changePenColorParamBy_brightness",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "change_pen_brightness_by"
+   },
+   "summary": "Changes the brightness of the pen color by the given amount. 0 is black and 100 is the brightest color.",
+   "more": [],
+   "block": "change pen (brightness v) by (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the brightness, from 0 to 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_changePenColorParamBy_transparency",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "change_pen_transparency_by"
+   },
+   "summary": "Changes the transparency of the pen color by the given amount. 0 is not transparent, higher values make the lines more see-through.",
+   "more": [],
+   "block": "change pen (transparency v) by (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the transparency, from 0 to 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_setPenColorParamTo_color",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_pen_hue_to"
+   },
+   "summary": "Sets the color (hue) of the pen. The color goes from 0 to 100 and starts again at 0 after 100.",
+   "more": [],
+   "block": "set pen (color v) to (50)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new pen color, from 0 to 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_setPenColorParamTo_saturation",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_pen_saturation_to"
+   },
+   "summary": "Sets the saturation of the pen color. Higher saturation makes the color more colorful.",
+   "more": [],
+   "block": "set pen (saturation v) to (50)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new saturation, from 0 to 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_setPenColorParamTo_brightness",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_pen_brightness_to"
+   },
+   "summary": "Sets the brightness of the pen color. 0 is black and 100 is the brightest color.",
+   "more": [],
+   "block": "set pen (brightness v) to (50)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new brightness, from 0 to 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_setPenColorParamTo_transparency",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_pen_transparency_to"
+   },
+   "summary": "Sets the transparency of the pen color. 0 is not transparent, higher values make the lines more see-through.",
+   "more": [],
+   "block": "set pen (transparency v) to (50)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new transparency, from 0 to 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_changePenSizeBy",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "change_pen_size_by"
+   },
+   "summary": "Changes the thickness of the pen by the given amount. The pen is at least 1 thick.",
+   "more": [],
+   "block": "change pen size by (1)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The change of the pen thickness. Negative values make the pen thinner."
+    }
+   ]
+  },
+  {
+   "core": "pen_setPenSizeTo",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_pen_size_to"
+   },
+   "summary": "Sets the thickness of the pen. The pen is at least 1 thick.",
+   "more": [],
+   "block": "set pen size to (1)",
+   "params": [
+    {
+     "name": "value",
+     "type": "number",
+     "default": null,
+     "description": "The new pen thickness."
+    }
+   ]
+  },
+  {
+   "core": "pystage_addsound",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "add_sound",
+    "stage": "add_sound"
+   },
+   "summary": "Loads a sound file, so that the sprite or stage can play it.",
+   "more": [
+    "Sounds are also loaded automatically when they are played for the first time."
+   ],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the sound file, e.g. \"pop.wav\". The file must be in the project folder."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setname",
+   "category": "extras",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "set_name"
+   },
+   "summary": "Sets the name of the sprite. Other blocks can refer to the sprite by this name.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The new name of the sprite."
+    }
+   ]
+  },
+  {
+   "core": "pystage_createsprite",
+   "category": "extras",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "add_a_sprite"
+   },
+   "summary": "Adds a new sprite to the stage and returns it. The sprite is shown with the given costume.",
+   "more": [
+    "The name of the sprite is \"Sprite\" for the default costume, otherwise the name of the costume."
+   ],
+   "block": null,
+   "params": [
+    {
+     "name": "costume",
+     "type": "str",
+     "default": "'default'",
+     "description": "The name of the image file for the sprite's costume, e.g. \"cat.png\". \"default\" is the standard costume of pystage."
+    }
+   ]
+  },
+  {
+   "core": "pystage_makevariable",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "create_variable",
+    "stage": "create_variable"
+   },
+   "summary": "Creates a new variable. The variable can be used with the variable blocks and shown as a monitor.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the variable. It must not exist yet."
+    },
+    {
+     "name": "value",
+     "type": "object",
+     "default": "0",
+     "description": "The initial value of the variable. The default is 0."
+    },
+    {
+     "name": "all_sprites",
+     "type": "bool",
+     "default": "True",
+     "description": "If True, the variable is shared by the stage and all sprites. If False, it belongs to this sprite only."
+    }
+   ]
+  },
+  {
+   "core": "pystage_makelistvariable",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "create_list",
+    "stage": "create_list"
+   },
+   "summary": "Create a list.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list."
+    },
+    {
+     "name": "values",
+     "type": "list",
+     "default": "None",
+     "description": "The initial items of the list."
+    },
+    {
+     "name": "all_sprites",
+     "type": "bool",
+     "default": "True",
+     "description": "If True, the list can be used by the stage and all sprites. If False, it belongs to this sprite only."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setmonitorposition",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_monitor_position",
+    "stage": "set_monitor_position"
+   },
+   "summary": "Sets the position of the monitor of a variable on the stage.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the variable."
+    },
+    {
+     "name": "x",
+     "type": "number",
+     "default": null,
+     "description": "The horizontal position of the upper left corner of the monitor. The center of the stage is 0."
+    },
+    {
+     "name": "y",
+     "type": "number",
+     "default": null,
+     "description": "The vertical position of the upper left corner of the monitor. The center of the stage is 0."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setlistmonitorposition",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_list_monitor_position",
+    "stage": "set_list_monitor_position"
+   },
+   "summary": "Set position and size of the list shown on the stage.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the list."
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "default": null,
+     "description": "Left border."
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "default": null,
+     "description": "Upper border."
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "default": "None",
+     "description": "Width in pixels, automatic if not given."
+    },
+    {
+     "name": "height",
+     "type": "int",
+     "default": "None",
+     "description": "Height in pixels, automatic if not given."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setmonitorstyle_large",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_monitor_style_large",
+    "stage": "set_monitor_style_large"
+   },
+   "summary": "Shows the monitor of a variable in the large style, with a big display of its value.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the variable."
+    }
+   ]
+  },
+  {
+   "core": "pystage_addcostume",
+   "category": "extras",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "add_costume"
+   },
+   "summary": "Adds a costume (an image) to the sprite. The costume is added at the end of the costume list.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the image file, e.g. \"cat.png\". The file must be in the project folder."
+    },
+    {
+     "name": "center_x",
+     "type": "number",
+     "default": "None",
+     "description": "The horizontal position of the costume's center in the image, in pixels. If not given, the center of the image is used."
+    },
+    {
+     "name": "center_y",
+     "type": "number",
+     "default": "None",
+     "description": "The vertical position of the costume's center in the image, in pixels. If not given, the center of the image is used."
+    },
+    {
+     "name": "factor",
+     "type": "number",
+     "default": "1",
+     "description": "The scaling of the image. 1 keeps the original size, 2 shows it at double size."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setmonitorstyle_normal",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_monitor_style_normal",
+    "stage": "set_monitor_style_normal"
+   },
+   "summary": "Shows the monitor of a variable in the normal style, with a small display of its value.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the variable."
+    }
+   ]
+  },
+  {
+   "core": "pystage_replacecostume",
+   "category": "extras",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "replace_costume"
+   },
+   "summary": "Replaces an existing costume of the sprite with another image.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "index",
+     "type": "int",
+     "default": null,
+     "description": "The number of the costume to replace, starting with 1."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the new image file."
+    },
+    {
+     "name": "center_x",
+     "type": "number",
+     "default": "None",
+     "description": "The horizontal position of the costume's center in the image, in pixels. If not given, the center of the image is used."
+    },
+    {
+     "name": "center_y",
+     "type": "number",
+     "default": "None",
+     "description": "The vertical position of the costume's center in the image, in pixels. If not given, the center of the image is used."
+    },
+    {
+     "name": "factor",
+     "type": "number",
+     "default": "1",
+     "description": "The scaling of the image. 1 keeps the original size."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setmonitorstyle_slider",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_monitor_style_slider",
+    "stage": "set_monitor_style_slider"
+   },
+   "summary": "Shows the variable as a slider that can be dragged with the mouse.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the variable."
+    },
+    {
+     "name": "minimum",
+     "type": "number",
+     "default": "0",
+     "description": "The lowest value of the slider. Like in Scratch, the default is 0."
+    },
+    {
+     "name": "maximum",
+     "type": "number",
+     "default": "100",
+     "description": "The highest value of the slider. Like in Scratch, the default is 100."
+    },
+    {
+     "name": "integer",
+     "type": "bool",
+     "default": "True",
+     "description": "If True, the slider only sets whole numbers, otherwise numbers with two decimals."
+    }
+   ]
+  },
+  {
+   "core": "pystage_insertcostume",
+   "category": "extras",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "insert_costume"
+   },
+   "summary": "Inserts a costume (an image) into the sprite's costume list at the given position.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "index",
+     "type": "int",
+     "default": null,
+     "description": "The position where the costume is inserted, starting with 1."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the image file, e.g. \"cat.png\"."
+    },
+    {
+     "name": "center_x",
+     "type": "number",
+     "default": "None",
+     "description": "The horizontal position of the costume's center in the image, in pixels. If not given, the center of the image is used."
+    },
+    {
+     "name": "center_y",
+     "type": "number",
+     "default": "None",
+     "description": "The vertical position of the costume's center in the image, in pixels. If not given, the center of the image is used."
+    },
+    {
+     "name": "factor",
+     "type": "number",
+     "default": "1",
+     "description": "The scaling of the image. 1 keeps the original size."
+    }
+   ]
+  },
+  {
+   "core": "pystage_showmonitor",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "show_monitor",
+    "stage": "show_monitor"
+   },
+   "summary": "Show the monitor of a value, like the checkbox next to a block in Scratch.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "reporter",
+     "type": "str",
+     "default": null,
+     "description": "What to show: \"x position\", \"y position\", \"direction\", \"costume number\", \"costume name\", \"size\", \"volume\" (sprites and stage), \"backdrop number\", \"backdrop name\" (stage), \"answer\", \"loudness\", \"timer\", \"year\", \"month\", \"date\", \"day of week\", \"hour\", \"minute\", \"second\" or \"username\"."
+    }
+   ]
+  },
+  {
+   "core": "pystage_hidemonitor",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "hide_monitor",
+    "stage": "hide_monitor"
+   },
+   "summary": "Hides the monitor of a value.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "reporter",
+     "type": "str",
+     "default": null,
+     "description": "The value, e.g. \"x position\", \"size\", \"timer\" or \"year\". The same values as for show_monitor are allowed."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setreportermonitorposition",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_value_monitor_position",
+    "stage": "set_value_monitor_position"
+   },
+   "summary": "Set the position of the monitor of a value.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "reporter",
+     "type": "str",
+     "default": null,
+     "description": "The value, see show_monitor."
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "default": null,
+     "description": "Left border (Scratch coordinates)."
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "default": null,
+     "description": "Upper border (Scratch coordinates)."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setreportermonitorstyle",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "set_value_monitor_style",
+    "stage": "set_value_monitor_style"
+   },
+   "summary": "Set the style of the monitor of a value.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "reporter",
+     "type": "str",
+     "default": null,
+     "description": "The value, see show_monitor."
+    },
+    {
+     "name": "style",
+     "type": "str",
+     "default": "'normal'",
+     "description": "\"normal\" or \"large\"."
+    }
+   ]
+  },
+  {
+   "core": "pystage_addbackdrop",
+   "category": "extras",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "add_backdrop"
+   },
+   "summary": "Adds a backdrop (an image) to the stage. The backdrop is added at the end of the backdrop list.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the image file, e.g. \"forest.png\". The file must be in the project folder."
+    },
+    {
+     "name": "center_x",
+     "type": "number",
+     "default": "None",
+     "description": "The horizontal position of the image's center, in pixels. If not given, the center of the image is used."
+    },
+    {
+     "name": "center_y",
+     "type": "number",
+     "default": "None",
+     "description": "The vertical position of the image's center, in pixels. If not given, the center of the image is used."
+    },
+    {
+     "name": "factor",
+     "type": "number",
+     "default": "1",
+     "description": "The scaling of the image. 1 keeps the original size."
+    }
+   ]
+  },
+  {
+   "core": "pystage_play",
+   "category": "extras",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "play"
+   },
+   "summary": "Starts the program. The stage is shown and all scripts run until the window is closed.",
+   "more": [
+    "Call this once, at the end of the program."
+   ],
+   "block": null,
+   "params": []
+  },
+  {
+   "core": "pystage_replacebackdrop",
+   "category": "extras",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "replace_backdrop"
+   },
+   "summary": "Replaces an existing backdrop of the stage with another image.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "index",
+     "type": "int",
+     "default": null,
+     "description": "The number of the backdrop to replace, starting with 1."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the new image file."
+    },
+    {
+     "name": "center_x",
+     "type": "number",
+     "default": "None",
+     "description": "The horizontal position of the image's center, in pixels. If not given, the center of the image is used."
+    },
+    {
+     "name": "center_y",
+     "type": "number",
+     "default": "None",
+     "description": "The vertical position of the image's center, in pixels. If not given, the center of the image is used."
+    },
+    {
+     "name": "factor",
+     "type": "number",
+     "default": "1",
+     "description": "The scaling of the image. 1 keeps the original size."
+    }
+   ]
+  },
+  {
+   "core": "pystage_insertbackdrop",
+   "category": "extras",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "insert_backdrop"
+   },
+   "summary": "Inserts a backdrop (an image) into the stage's backdrop list at the given position.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "index",
+     "type": "int",
+     "default": null,
+     "description": "The position where the backdrop is inserted, starting with 1."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "The name of the image file, e.g. \"forest.png\"."
+    },
+    {
+     "name": "center_x",
+     "type": "number",
+     "default": "None",
+     "description": "The horizontal position of the image's center, in pixels. If not given, the center of the image is used."
+    },
+    {
+     "name": "center_y",
+     "type": "number",
+     "default": "None",
+     "description": "The vertical position of the image's center, in pixels. If not given, the center of the image is used."
+    },
+    {
+     "name": "factor",
+     "type": "number",
+     "default": "1",
+     "description": "The scaling of the image. 1 keeps the original size."
+    }
+   ]
+  }
+ ]
+}

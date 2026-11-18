@@ -43,3 +43,47 @@ other = "Coming soon"
 other = "Watch our quick intro to PyStage for ScratchCon 2021 (opens YouTube)"
 [logo_alt]
 other = ""
+[blocks_intro]
+other = "Each entry shows the Scratch block on the left and the Python command on the right. The commands are generated from PyStage itself, so they are always up to date."
+[blocks_categories]
+other = "Categories"
+[blocks_cat_motion]
+other = "Motion"
+[blocks_cat_looks]
+other = "Looks"
+[blocks_cat_sound]
+other = "Sound"
+[blocks_cat_events]
+other = "Events"
+[blocks_cat_control]
+other = "Control"
+[blocks_cat_sensing]
+other = "Sensing"
+[blocks_cat_operators]
+other = "Operators"
+[blocks_cat_variables]
+other = "Variables and lists"
+[blocks_cat_pen]
+other = "Pen"
+[blocks_cat_extras]
+other = "PyStage extras"
+[blocks_cat_extras_text]
+other = "Commands that Scratch does not have as blocks: loading costumes and sounds, creating variables, starting the program and more."
+[blocks_var_sprite]
+other = "sprite"
+[blocks_var_stage]
+other = "stage"
+[blocks_for_sprite]
+other = "Sprite"
+[blocks_for_stage]
+other = "Stage"
+[blocks_for_label]
+other = "Works for:"
+[blocks_parameters]
+other = "Parameters"
+[blocks_more]
+other = "More details"
+[blocks_top]
+other = "Back to the categories"
+[blocks_noscript]
+other = "The block pictures need JavaScript. Without it you see the block as text."

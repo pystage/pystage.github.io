@@ -1,0 +1,4550 @@
+{
+ "language": "de",
+ "classes": {
+  "sprite": "Figur",
+  "stage": "Bühne"
+ },
+ "blocks": [
+  {
+   "core": "motion_turnleft",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "drehe_dich_nach_links_um_grad"
+   },
+   "summary": "Dreht die Figur um die angegebene Anzahl Grad nach links (gegen den Uhrzeigersinn).",
+   "more": [],
+   "block": "drehe dich ↺ um (15) Grad",
+   "params": [
+    {
+     "name": "deg",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Anzahl Grad, um die gedreht wird. 90 ist eine Vierteldrehung."
+    }
+   ]
+  },
+  {
+   "core": "motion_turnright",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "drehe_dich_nach_rechts_um_grad"
+   },
+   "summary": "Dreht die Figur um die angegebene Anzahl Grad nach rechts (im Uhrzeigersinn).",
+   "more": [],
+   "block": "drehe dich ↻ um (15) Grad",
+   "params": [
+    {
+     "name": "deg",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Anzahl Grad, um die gedreht wird. 90 ist eine Vierteldrehung."
+    }
+   ]
+  },
+  {
+   "core": "motion_movesteps",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gehe_schritte"
+   },
+   "summary": "Bewegt die Figur um die angegebene Anzahl Schritte in die Richtung, in die sie zeigt.",
+   "more": [],
+   "block": "gehe (10) er Schritt",
+   "params": [
+    {
+     "name": "steps",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Anzahl Schritte. Negative Werte bewegen die Figur rückwärts."
+    }
+   ]
+  },
+  {
+   "core": "motion_goto_random",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gehe_zu_zufallsposition"
+   },
+   "summary": "Bewegt die Figur an eine zufällige Position auf der Bühne.",
+   "more": [],
+   "block": "gehe zu (Zufallsposition v)",
+   "params": []
+  },
+  {
+   "core": "motion_goto_pointer",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gehe_zu_mauszeiger"
+   },
+   "summary": "Bewegt die Figur an die Position des Mauszeigers.",
+   "more": [],
+   "block": "gehe zu (Mauszeiger v)",
+   "params": []
+  },
+  {
+   "core": "motion_goto_sprite",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gehe_zu"
+   },
+   "summary": "Bewegt die Figur an die Position einer anderen Figur.",
+   "more": [],
+   "block": "gehe zu (Figur v)",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Figur, zu der gegangen wird. \"_mouse_\" steht für den Mauszeiger, \"_random_\" für eine zufällige Position."
+    }
+   ]
+  },
+  {
+   "core": "motion_gotoxy",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gehe_zu_x_y"
+   },
+   "summary": "Bewegt die Figur an die angegebene x- und y-Position. Die Mitte der Bühne ist x = 0, y = 0.",
+   "more": [],
+   "block": "gehe zu x: (0) y: (0)",
+   "params": [
+    {
+     "name": "x",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die waagerechte Position. Auf der Standardbühne mit 480 mal 360 Pixeln reicht x von -240 (links) bis 240 (rechts)."
+    },
+    {
+     "name": "y",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die senkrechte Position. Auf der Standardbühne reicht y von -180 (unten) bis 180 (oben)."
+    }
+   ]
+  },
+  {
+   "core": "motion_glideto_random",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gleite_in_sek_zu_zufallsposition"
+   },
+   "summary": "Lässt die Figur innerhalb der angegebenen Anzahl Sekunden zu einer zufälligen Position gleiten.",
+   "more": [
+    "Das Skript wartet, bis das Gleiten beendet ist."
+   ],
+   "block": "gleite in (1) Sek. zu (Zufallsposition v)",
+   "params": [
+    {
+     "name": "secs",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Dauer des Gleitens in Sekunden. 0 bewegt die Figur sofort."
+    }
+   ]
+  },
+  {
+   "core": "motion_glideto_pointer",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gleite_in_sek_zu_mauszeiger"
+   },
+   "summary": "Lässt die Figur innerhalb der angegebenen Anzahl Sekunden zur Position des Mauszeigers gleiten.",
+   "more": [
+    "Das Skript wartet, bis das Gleiten beendet ist."
+   ],
+   "block": "gleite in (1) Sek. zu (Mauszeiger v)",
+   "params": [
+    {
+     "name": "secs",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Dauer des Gleitens in Sekunden. 0 bewegt die Figur sofort."
+    }
+   ]
+  },
+  {
+   "core": "motion_glideto_sprite",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gleite_in_sek_zu"
+   },
+   "summary": "Lässt die Figur innerhalb der angegebenen Anzahl Sekunden zur Position einer anderen Figur gleiten.",
+   "more": [
+    "Das Skript wartet, bis das Gleiten beendet ist."
+   ],
+   "block": "gleite in (1) Sek. zu (Figur v)",
+   "params": [
+    {
+     "name": "secs",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Dauer des Gleitens in Sekunden. 0 bewegt die Figur sofort."
+    },
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Figur, zu der die Figur gleitet. \"_mouse_\" steht für den Mauszeiger, \"_random_\" für eine zufällige Position."
+    }
+   ]
+  },
+  {
+   "core": "motion_glidesecstoxy",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gleite_in_sek_zu_x_y"
+   },
+   "summary": "Lässt die Figur innerhalb der angegebenen Anzahl Sekunden zur angegebenen x- und y-Position gleiten.",
+   "more": [
+    "Das Skript wartet, bis das Gleiten beendet ist."
+   ],
+   "block": "gleite in (1) Sek. zu x: (0) y: (0)",
+   "params": [
+    {
+     "name": "secs",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Dauer des Gleitens in Sekunden. 0 bewegt die Figur sofort."
+    },
+    {
+     "name": "x",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die waagerechte Zielposition."
+    },
+    {
+     "name": "y",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die senkrechte Zielposition."
+    }
+   ]
+  },
+  {
+   "core": "motion_pointindirection",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_richtung_auf_grad"
+   },
+   "summary": "Dreht die Figur in die angegebene Richtung.",
+   "more": [],
+   "block": "setze Richtung auf (90) Grad",
+   "params": [
+    {
+     "name": "direction",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Richtung in Grad. 0 ist oben, 90 ist rechts, 180 ist unten und -90 ist links."
+    }
+   ]
+  },
+  {
+   "core": "motion_pointtowards_pointer",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "drehe_dich_zu_mauszeiger"
+   },
+   "summary": "Dreht die Figur zum Mauszeiger.",
+   "more": [],
+   "block": "drehe dich zu (Mauszeiger v)",
+   "params": []
+  },
+  {
+   "core": "motion_pointtowards_random",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "drehe_dich_zu_zufallsrichtung"
+   },
+   "summary": "Dreht die Figur in eine zufällige Richtung.",
+   "more": [],
+   "block": "drehe dich zu (Zufallsrichtung v)",
+   "params": []
+  },
+  {
+   "core": "motion_pointtowards_sprite",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "drehe_dich_zu"
+   },
+   "summary": "Dreht die Figur zu einer anderen Figur.",
+   "more": [],
+   "block": "drehe dich zu (Figur v)",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Figur, zu der gedreht wird. \"_mouse_\" steht für den Mauszeiger, \"_random_\" für eine zufällige Richtung."
+    }
+   ]
+  },
+  {
+   "core": "motion_changexby",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "ändere_x_um"
+   },
+   "summary": "Bewegt die Figur waagerecht um den angegebenen Wert. Positive Werte bewegen sie nach rechts.",
+   "more": [],
+   "block": "ändere x um (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Anzahl Schritte, um die waagerecht bewegt wird."
+    }
+   ]
+  },
+  {
+   "core": "motion_setx",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_x_auf"
+   },
+   "summary": "Setzt die waagerechte Position der Figur. Die Mitte der Bühne ist x = 0.",
+   "more": [],
+   "block": "setze x auf (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die neue x-Position."
+    }
+   ]
+  },
+  {
+   "core": "motion_changeyby",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "ändere_y_um"
+   },
+   "summary": "Bewegt die Figur senkrecht um den angegebenen Wert. Positive Werte bewegen sie nach oben.",
+   "more": [],
+   "block": "ändere y um (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Anzahl Schritte, um die senkrecht bewegt wird."
+    }
+   ]
+  },
+  {
+   "core": "motion_sety",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_y_auf"
+   },
+   "summary": "Setzt die senkrechte Position der Figur. Die Mitte der Bühne ist y = 0.",
+   "more": [],
+   "block": "setze y auf (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die neue y-Position."
+    }
+   ]
+  },
+  {
+   "core": "motion_ifonedgebounce",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "pralle_vom_rand_ab"
+   },
+   "summary": "Wenn die Figur den Rand der Bühne berührt, prallt sie ab und bleibt auf der Bühne.",
+   "more": [],
+   "block": "pralle vom Rand ab",
+   "params": []
+  },
+  {
+   "core": "motion_setrotationstyle_leftright",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_drehtyp_auf_links_rechts"
+   },
+   "summary": "Setzt den Drehtyp auf \"links-rechts\": Das Kostüm dreht sich nur nach links oder rechts und steht nie auf dem Kopf.",
+   "more": [],
+   "block": "setze Drehtyp auf [links-rechts v]",
+   "params": []
+  },
+  {
+   "core": "motion_setrotationstyle_dontrotate",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_drehtyp_auf_nicht_drehen"
+   },
+   "summary": "Setzt den Drehtyp auf \"nicht drehen\": Das Kostüm sieht immer gleich aus, egal in welche Richtung die Figur zeigt.",
+   "more": [],
+   "block": "setze Drehtyp auf [nicht drehen v]",
+   "params": []
+  },
+  {
+   "core": "motion_setrotationstyle_allaround",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_drehtyp_auf_rundherum"
+   },
+   "summary": "Setzt den Drehtyp auf \"rundherum\": Das Kostüm dreht sich mit der Richtung der Figur.",
+   "more": [],
+   "block": "setze Drehtyp auf [rundherum v]",
+   "params": []
+  },
+  {
+   "core": "motion_xposition",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "x_position"
+   },
+   "summary": "Gibt die waagerechte Position der Figur zurück. Die Mitte der Bühne ist 0.",
+   "more": [],
+   "block": "(x-Position)",
+   "params": []
+  },
+  {
+   "core": "motion_yposition",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "y_position"
+   },
+   "summary": "Gibt die senkrechte Position der Figur zurück. Die Mitte der Bühne ist 0.",
+   "more": [],
+   "block": "(y-Position)",
+   "params": []
+  },
+  {
+   "core": "motion_direction",
+   "category": "motion",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "richtung"
+   },
+   "summary": "Gibt die Richtung der Figur in Grad zurück. 90 ist rechts, 0 ist oben, 180 ist unten und -90 ist links.",
+   "more": [],
+   "block": "(Richtung)",
+   "params": []
+  },
+  {
+   "core": "looks_switchbackdropto_next",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wechsle_zum_nächsten_bühnenbild",
+    "stage": "wechsle_zum_nächsten_bühnenbild"
+   },
+   "summary": "Wechselt zum nächsten Bühnenbild. Nach dem letzten Bühnenbild wird wieder das erste benutzt.",
+   "more": [],
+   "block": "wechsle zu Bühnenbild (nächstes Bühnenbild v)",
+   "params": []
+  },
+  {
+   "core": "looks_switchbackdropto_previous",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wechsle_zum_vorherigen_bühnenbild",
+    "stage": "wechsle_zum_vorherigen_bühnenbild"
+   },
+   "summary": "Wechselt zum vorherigen Bühnenbild. Vor dem ersten Bühnenbild wird das letzte benutzt.",
+   "more": [],
+   "block": "wechsle zu Bühnenbild (vorheriges Bühnenbild v)",
+   "params": []
+  },
+  {
+   "core": "looks_switchbackdropto_random",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wechsle_zu_zufälligem_bühnenbild",
+    "stage": "wechsle_zu_zufälligem_bühnenbild"
+   },
+   "summary": "Wechselt zu einem zufälligen Bühnenbild.",
+   "more": [],
+   "block": "wechsle zu Bühnenbild (zufälliges Bühnenbild v)",
+   "params": []
+  },
+  {
+   "core": "looks_switchbackdropto_backdrop",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wechsle_zu_bühnenbild",
+    "stage": "wechsle_zu_bühnenbild"
+   },
+   "summary": "Wechselt zu einem anderen Bühnenbild.",
+   "more": [],
+   "block": "wechsle zu Bühnenbild (Bühnenbild1 v)",
+   "params": [
+    {
+     "name": "backdrop",
+     "type": "str oder int",
+     "default": null,
+     "description": "Der Name des Bühnenbilds, seine Nummer (ab 1) oder eines von \"nächstes Bühnenbild\", \"vorheriges Bühnenbild\" und \"zufälliges Bühnenbild\"."
+    }
+   ]
+  },
+  {
+   "core": "looks_nextbackdrop",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "nächstes_bühnenbild",
+    "stage": "nächstes_bühnenbild"
+   },
+   "summary": "Wechselt zum nächsten Bühnenbild. Nach dem letzten Bühnenbild wird wieder das erste benutzt.",
+   "more": [],
+   "block": "wechsle zum nächsten Bühnenbild",
+   "params": []
+  },
+  {
+   "core": "looks_seteffectto_color",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_effekt_farbe_auf",
+    "stage": "setze_effekt_farbe_auf"
+   },
+   "summary": "Setzt den Farbeffekt der Figur. Der Farbeffekt verändert die Farben des Kostüms.",
+   "more": [],
+   "block": "setze Effekt [Farbe v] auf (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Der neue Wert des Effekts, von 0 bis 200. 0 bedeutet kein Effekt."
+    }
+   ]
+  },
+  {
+   "core": "looks_seteffectto_fisheye",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_effekt_fischauge_auf",
+    "stage": "setze_effekt_fischauge_auf"
+   },
+   "summary": "Setzt den Fischauge-Effekt der Figur. Das Kostüm wird wie durch eine Fischaugenlinse verzerrt.",
+   "more": [],
+   "block": "setze Effekt [Fischauge v] auf (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Der neue Wert des Effekts. 0 bedeutet kein Effekt."
+    }
+   ]
+  },
+  {
+   "core": "looks_seteffectto_whirl",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_effekt_wirbel_auf",
+    "stage": "setze_effekt_wirbel_auf"
+   },
+   "summary": "Setzt den Wirbel-Effekt der Figur. Das Kostüm wird verdreht.",
+   "more": [],
+   "block": "setze Effekt [Wirbel v] auf (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Der neue Wert des Effekts. 0 bedeutet kein Effekt."
+    }
+   ]
+  },
+  {
+   "core": "looks_seteffectto_pixelate",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_effekt_pixel_auf",
+    "stage": "setze_effekt_pixel_auf"
+   },
+   "summary": "Setzt den Pixel-Effekt der Figur. Das Kostüm sieht dann klotzig aus.",
+   "more": [],
+   "block": "setze Effekt [Pixel v] auf (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Der neue Wert des Effekts. 0 bedeutet kein Effekt."
+    }
+   ]
+  },
+  {
+   "core": "looks_seteffectto_mosaic",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_effekt_mosaik_auf",
+    "stage": "setze_effekt_mosaik_auf"
+   },
+   "summary": "Setzt den Mosaik-Effekt der Figur. Das Kostüm wird als kleine Kacheln wiederholt.",
+   "more": [],
+   "block": "setze Effekt [Mosaik v] auf (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Der neue Wert des Effekts. 0 bedeutet kein Effekt."
+    }
+   ]
+  },
+  {
+   "core": "looks_seteffectto_brightness",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_effekt_helligkeit_auf",
+    "stage": "setze_effekt_helligkeit_auf"
+   },
+   "summary": "Setzt den Helligkeit-Effekt der Figur. Negative Werte machen das Kostüm dunkler.",
+   "more": [],
+   "block": "setze Effekt [Helligkeit v] auf (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Der neue Wert des Effekts, von -100 (schwarz) bis 100 (weiß). 0 bedeutet kein Effekt."
+    }
+   ]
+  },
+  {
+   "core": "looks_seteffectto_ghost",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_effekt_durchsichtigkeit_auf",
+    "stage": "setze_effekt_durchsichtigkeit_auf"
+   },
+   "summary": "Setzt den Durchsichtigkeit-Effekt der Figur. Je höher der Effekt, desto durchsichtiger wird die Figur.",
+   "more": [],
+   "block": "setze Effekt [Durchsichtigkeit v] auf (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Der neue Wert des Effekts. 0 bedeutet sichtbar, 100 bedeutet unsichtbar."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_color",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ändere_effekt_farbe_um",
+    "stage": "ändere_effekt_farbe_um"
+   },
+   "summary": "Ändert den Farbeffekt der Figur um den angegebenen Wert. Der Farbeffekt verändert die Farben des Kostüms.",
+   "more": [],
+   "block": "ändere Effekt [Farbe v] um (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung des Effekts. Der Effekt geht von 0 bis 200 und beginnt nach 200 wieder bei 0."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_fisheye",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ändere_effekt_fischauge_um",
+    "stage": "ändere_effekt_fischauge_um"
+   },
+   "summary": "Ändert den Fischauge-Effekt der Figur um den angegebenen Wert. Das Kostüm wird wie durch eine Fischaugenlinse verzerrt.",
+   "more": [],
+   "block": "ändere Effekt [Fischauge v] um (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung des Effekts. 0 bedeutet kein Effekt."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_whirl",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ändere_effekt_wirbel_um",
+    "stage": "ändere_effekt_wirbel_um"
+   },
+   "summary": "Ändert den Wirbel-Effekt der Figur um den angegebenen Wert. Das Kostüm wird verdreht.",
+   "more": [],
+   "block": "ändere Effekt [Wirbel v] um (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung des Effekts. 0 bedeutet kein Effekt."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_pixelate",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ändere_effekt_pixel_um",
+    "stage": "ändere_effekt_pixel_um"
+   },
+   "summary": "Ändert den Pixel-Effekt der Figur um den angegebenen Wert. Das Kostüm sieht dann klotzig aus.",
+   "more": [],
+   "block": "ändere Effekt [Pixel v] um (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung des Effekts. 0 bedeutet kein Effekt."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_mosaic",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ändere_effekt_mosaik_um",
+    "stage": "ändere_effekt_mosaik_um"
+   },
+   "summary": "Ändert den Mosaik-Effekt der Figur um den angegebenen Wert. Das Kostüm wird als kleine Kacheln wiederholt.",
+   "more": [],
+   "block": "ändere Effekt [Mosaik v] um (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung des Effekts. 0 bedeutet kein Effekt."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_brightness",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ändere_effekt_helligkeit_um",
+    "stage": "ändere_effekt_helligkeit_um"
+   },
+   "summary": "Ändert den Helligkeit-Effekt der Figur um den angegebenen Wert. Negative Werte machen das Kostüm dunkler.",
+   "more": [],
+   "block": "ändere Effekt [Helligkeit v] um (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung des Effekts. Der Effekt geht von -100 (schwarz) bis 100 (weiß)."
+    }
+   ]
+  },
+  {
+   "core": "looks_changeeffectby_ghost",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ändere_effekt_durchsichtigkeit_um",
+    "stage": "ändere_effekt_durchsichtigkeit_um"
+   },
+   "summary": "Ändert den Durchsichtigkeit-Effekt der Figur um den angegebenen Wert. Je höher der Effekt, desto durchsichtiger wird die Figur.",
+   "more": [],
+   "block": "ändere Effekt [Durchsichtigkeit v] um (25)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung des Effekts. 0 bedeutet sichtbar, 100 bedeutet unsichtbar."
+    }
+   ]
+  },
+  {
+   "core": "looks_cleargraphiceffects",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "schalte_grafikeffekte_aus",
+    "stage": "schalte_grafikeffekte_aus"
+   },
+   "summary": "Entfernt alle Grafikeffekte (Farbe, Fischauge, Wirbel, Pixel, Mosaik, Helligkeit und Durchsichtigkeit) der Figur.",
+   "more": [],
+   "block": "schalte Grafikeffekte aus",
+   "params": []
+  },
+  {
+   "core": "looks_backdropnumbername_number",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "bühnenbild_nummer",
+    "stage": "bühnenbild_nummer"
+   },
+   "summary": "Gibt die Nummer des aktuellen Bühnenbilds zurück (ab 1).",
+   "more": [],
+   "block": "(Bühnenbild [Nummer v])",
+   "params": []
+  },
+  {
+   "core": "looks_backdropnumbername_name",
+   "category": "looks",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "bühnenbild_name",
+    "stage": "bühnenbild_name"
+   },
+   "summary": "Gibt den Namen des aktuellen Bühnenbilds zurück.",
+   "more": [],
+   "block": "(Bühnenbild [Name v])",
+   "params": []
+  },
+  {
+   "core": "looks_sayforsecs",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "sage_für_sekunden"
+   },
+   "summary": "Zeigt eine Sprechblase mit dem angegebenen Text neben der Figur für eine bestimmte Anzahl Sekunden.",
+   "more": [
+    "Das Skript wartet, bis die Zeit vorbei ist."
+   ],
+   "block": "sage (Hallo!) für (2) Sekunden",
+   "params": [
+    {
+     "name": "text",
+     "type": "str",
+     "default": null,
+     "description": "Der Text, der in der Sprechblase steht."
+    },
+    {
+     "name": "secs",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Anzahl Sekunden, für die die Sprechblase angezeigt wird."
+    }
+   ]
+  },
+  {
+   "core": "looks_say",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "sage"
+   },
+   "summary": "Zeigt eine Sprechblase mit dem angegebenen Text neben der Figur.",
+   "more": [],
+   "block": "sage (Hallo!)",
+   "params": [
+    {
+     "name": "text",
+     "type": "str",
+     "default": null,
+     "description": "Der Text, der in der Sprechblase steht."
+    }
+   ]
+  },
+  {
+   "core": "looks_thinkforsecs",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "denke_für_sekunden"
+   },
+   "summary": "Zeigt eine Denkblase mit dem angegebenen Text neben der Figur für eine bestimmte Anzahl Sekunden.",
+   "more": [
+    "Das Skript wartet, bis die Zeit vorbei ist."
+   ],
+   "block": "denke (Hmm...) für (2) Sekunden",
+   "params": [
+    {
+     "name": "text",
+     "type": "str",
+     "default": null,
+     "description": "Der Text, der in der Denkblase steht."
+    },
+    {
+     "name": "secs",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Anzahl Sekunden, für die die Denkblase angezeigt wird."
+    }
+   ]
+  },
+  {
+   "core": "looks_think",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "denke"
+   },
+   "summary": "Zeigt eine Denkblase mit dem angegebenen Text neben der Figur.",
+   "more": [],
+   "block": "denke (Hmm...)",
+   "params": [
+    {
+     "name": "text",
+     "type": "str",
+     "default": null,
+     "description": "Der Text, der in der Denkblase steht."
+    }
+   ]
+  },
+  {
+   "core": "looks_switchcostumeto",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "wechsle_zu_kostüm"
+   },
+   "summary": "Wechselt zu einem anderen Kostüm der Figur.",
+   "more": [],
+   "block": "wechsle zu Kostüm (Kostüm2)",
+   "params": [
+    {
+     "name": "costume",
+     "type": "str oder int",
+     "default": null,
+     "description": "Der Name des Kostüms oder seine Nummer (ab 1)."
+    }
+   ]
+  },
+  {
+   "core": "looks_nextcostume",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "wechsle_zum_nächsten_kostüm"
+   },
+   "summary": "Wechselt zum nächsten Kostüm der Figur. Nach dem letzten Kostüm wird wieder das erste benutzt.",
+   "more": [],
+   "block": "wechsle zum nächsten Kostüm",
+   "params": []
+  },
+  {
+   "core": "looks_changesizeby",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "ändere_größe_um"
+   },
+   "summary": "Ändert die Größe der Figur um den angegebenen Prozentwert. Negative Werte machen sie kleiner.",
+   "more": [],
+   "block": "ändere Größe um (10)",
+   "params": [
+    {
+     "name": "percent",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung in Prozent. Mit 10 wird die Figur 10 Prozent größer."
+    }
+   ]
+  },
+  {
+   "core": "looks_setsizeto",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_größe_auf"
+   },
+   "summary": "Setzt die Größe der Figur in Prozent. 100 ist die normale Größe.",
+   "more": [],
+   "block": "setze Größe auf (100) %",
+   "params": [
+    {
+     "name": "percent",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die neue Größe in Prozent. 100 ist die normale Größe, 50 ist halb so groß."
+    }
+   ]
+  },
+  {
+   "core": "looks_show",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "zeige_dich"
+   },
+   "summary": "Zeigt die Figur auf der Bühne.",
+   "more": [],
+   "block": "zeige dich",
+   "params": []
+  },
+  {
+   "core": "looks_hide",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "verstecke_dich"
+   },
+   "summary": "Versteckt die Figur. Sie wird erst wieder auf der Bühne gezeigt, wenn sie erneut angezeigt wird.",
+   "more": [],
+   "block": "verstecke dich",
+   "params": []
+  },
+  {
+   "core": "looks_gotofrontback_front",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gehe_zu_vorderster_ebene"
+   },
+   "summary": "Bringt die Figur vor alle anderen Figuren.",
+   "more": [],
+   "block": "gehe zu [vorderster v] Ebene",
+   "params": []
+  },
+  {
+   "core": "looks_gotofrontback_back",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gehe_zu_hinterster_ebene"
+   },
+   "summary": "Bringt die Figur hinter alle anderen Figuren.",
+   "more": [],
+   "block": "gehe zu [hinterster v] Ebene",
+   "params": []
+  },
+  {
+   "core": "looks_goforwardbackwardlayers_forward",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gehe_ebenen_nach_vorne"
+   },
+   "summary": "Bringt die Figur um die angegebene Anzahl Ebenen nach vorne, also vor andere Figuren.",
+   "more": [],
+   "block": "gehe (1) Ebenen [nach vorne v]",
+   "params": [
+    {
+     "name": "value",
+     "type": "int",
+     "default": null,
+     "description": "Die Anzahl Ebenen, um die nach vorne gegangen wird."
+    }
+   ]
+  },
+  {
+   "core": "looks_goforwardbackwardlayers_backward",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "gehe_ebenen_nach_hinten"
+   },
+   "summary": "Bringt die Figur um die angegebene Anzahl Ebenen nach hinten, also hinter andere Figuren.",
+   "more": [],
+   "block": "gehe (1) Ebenen [nach hinten v]",
+   "params": [
+    {
+     "name": "value",
+     "type": "int",
+     "default": null,
+     "description": "Die Anzahl Ebenen, um die nach hinten gegangen wird."
+    }
+   ]
+  },
+  {
+   "core": "looks_costumenumbername_number",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "kostüm_nummer"
+   },
+   "summary": "Gibt die Nummer des aktuellen Kostüms der Figur zurück (ab 1).",
+   "more": [],
+   "block": "(Kostüm [Nummer v])",
+   "params": []
+  },
+  {
+   "core": "looks_costumenumbername_name",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "kostüm_name"
+   },
+   "summary": "Gibt den Namen des aktuellen Kostüms der Figur zurück.",
+   "more": [],
+   "block": "(Kostüm [Name v])",
+   "params": []
+  },
+  {
+   "core": "looks_size",
+   "category": "looks",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "größe"
+   },
+   "summary": "Gibt die Größe der Figur in Prozent zurück. 100 ist die normale Größe.",
+   "more": [],
+   "block": "(Größe)",
+   "params": []
+  },
+  {
+   "core": "looks_switchbackdroptoandwait",
+   "category": "looks",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "wechsle_zu_bühnenbild_und_warte"
+   },
+   "summary": "Wechselt zu einem anderen Bühnenbild und wartet, bis alle Skripte fertig sind, die mit \"Wenn das Bühnenbild wechselt\" gestartet wurden.",
+   "more": [],
+   "block": "wechsle zu Bühnenbild (Bühnenbild1) und warte",
+   "params": [
+    {
+     "name": "backdrop",
+     "type": "str oder int",
+     "default": null,
+     "description": "Der Name des Bühnenbilds, seine Nummer (ab 1) oder eines von \"nächstes Bühnenbild\", \"vorheriges Bühnenbild\" und \"zufälliges Bühnenbild\"."
+    }
+   ]
+  },
+  {
+   "core": "sound_play",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "spiele_klang",
+    "stage": "spiele_klang"
+   },
+   "summary": "Startet das Abspielen eines Klangs. Das Skript wartet nicht, bis der Klang zu Ende ist.",
+   "more": [],
+   "block": "spiele Klang (Pop v)",
+   "params": [
+    {
+     "name": "name",
+     "type": "str oder int",
+     "default": null,
+     "description": "Der Name der Klangdatei, z. B. \"pop.wav\", oder die Nummer des Klangs (ab 1)."
+    },
+    {
+     "name": "loop",
+     "type": "int",
+     "default": "0",
+     "description": "Wie oft der Klang nach dem ersten Mal wiederholt wird. 0 spielt ihn einmal, -1 wiederholt ihn immer."
+    }
+   ]
+  },
+  {
+   "core": "sound_playuntildone",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "spiele_klang_ganz",
+    "stage": "spiele_klang_ganz"
+   },
+   "summary": "Spielt einen Klang ab und wartet, bis er zu Ende ist.",
+   "more": [],
+   "block": "spiele Klang (Pop v) ganz",
+   "params": [
+    {
+     "name": "name",
+     "type": "str oder int",
+     "default": null,
+     "description": "Der Name der Klangdatei, z. B. \"pop.wav\", oder die Nummer des Klangs (ab 1)."
+    }
+   ]
+  },
+  {
+   "core": "sound_stopallsounds",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "stoppe_alle_klänge",
+    "stage": "stoppe_alle_klänge"
+   },
+   "summary": "Stoppt alle gerade spielenden Klänge, von allen Figuren und der Bühne.",
+   "more": [],
+   "block": "stoppe alle Klänge",
+   "params": []
+  },
+  {
+   "core": "sound_changeeffectby_pitch",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ändere_effekt_höhe_um",
+    "stage": "ändere_effekt_höhe_um"
+   },
+   "summary": "Ändert den Höhe-Effekt des Klangs um den angegebenen Wert. Positive Werte machen den Klang höher.",
+   "more": [],
+   "block": "ändere Effekt [Höhe v] um (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung des Höhe-Effekts. Der Effekt geht von -360 bis 360, 0 ist die normale Höhe."
+    }
+   ]
+  },
+  {
+   "core": "sound_changeeffectby_pan",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ändere_effekt_aussteuern_links_rechts_um",
+    "stage": "ändere_effekt_aussteuern_links_rechts_um"
+   },
+   "summary": "Ändert den Aussteuern-Effekt des Klangs um den angegebenen Wert. Der Effekt verschiebt den Klang zwischen linkem und rechtem Lautsprecher.",
+   "more": [],
+   "block": "ändere Effekt [Aussteuern links/rechts v] um (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung des Aussteuern-Effekts. -100 ist ganz links, 0 die Mitte und 100 ganz rechts."
+    }
+   ]
+  },
+  {
+   "core": "sound_seteffectto_pitch",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_effekt_höhe_auf",
+    "stage": "setze_effekt_höhe_auf"
+   },
+   "summary": "Setzt den Höhe-Effekt des Klangs. Höhere Werte machen den Klang höher.",
+   "more": [],
+   "block": "setze Effekt [Höhe v] auf (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Der neue Höhe-Effekt, von -360 bis 360. 0 ist die normale Höhe."
+    }
+   ]
+  },
+  {
+   "core": "sound_seteffectto_pan",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_effekt_aussteuern_links_rechts_auf",
+    "stage": "setze_effekt_aussteuern_links_rechts_auf"
+   },
+   "summary": "Setzt den Aussteuern-Effekt des Klangs. Der Effekt verschiebt den Klang zwischen linkem und rechtem Lautsprecher.",
+   "more": [],
+   "block": "setze Effekt [Aussteuern links/rechts v] auf (0)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Der neue Aussteuern-Effekt. -100 ist ganz links, 0 die Mitte und 100 ganz rechts."
+    }
+   ]
+  },
+  {
+   "core": "sound_cleareffects",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "schalte_klangeffekte_aus",
+    "stage": "schalte_klangeffekte_aus"
+   },
+   "summary": "Entfernt alle Klangeffekte (Höhe und Aussteuern) der Figur.",
+   "more": [],
+   "block": "schalte Klangeffekte aus",
+   "params": []
+  },
+  {
+   "core": "sound_changevolumeby",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ändere_lautstärke_um",
+    "stage": "ändere_lautstärke_um"
+   },
+   "summary": "Ändert die Lautstärke der Klänge der Figur um den angegebenen Wert. Negative Werte machen den Klang leiser.",
+   "more": [],
+   "block": "ändere Lautstärke um (-10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung der Lautstärke. Die Lautstärke geht von 0 bis 100."
+    }
+   ]
+  },
+  {
+   "core": "sound_setvolumeto",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_lautstärke_auf",
+    "stage": "setze_lautstärke_auf"
+   },
+   "summary": "Setzt die Lautstärke der Klänge der Figur. 100 ist am lautesten, 0 ist still.",
+   "more": [],
+   "block": "setze Lautstärke auf (100)%",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die neue Lautstärke, von 0 bis 100 Prozent. Werte außerhalb dieses Bereichs werden auf ihn begrenzt."
+    }
+   ]
+  },
+  {
+   "core": "sound_volume",
+   "category": "sound",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "lautstärke",
+    "stage": "lautstärke"
+   },
+   "summary": "Gibt die Lautstärke der Klänge der Figur zurück, von 0 bis 100.",
+   "more": [],
+   "block": "(Lautstärke)",
+   "params": []
+  },
+  {
+   "core": "event_whenflagclicked",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wenn_programm_startet",
+    "stage": "wenn_programm_startet"
+   },
+   "summary": "Führt den Code aus, wenn die grüne Flagge angeklickt wird, also wenn das Programm startet.",
+   "more": [],
+   "block": "Wenn @greenFlag angeklickt wird",
+   "params": [
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "Die Funktion mit dem Code, der ausgeführt werden soll."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "Ein Name, um Skripte zu unterscheiden, die dieselbe Funktion verwenden."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "Wenn True, wird der Code in einem Durchgang ohne Bildschirmaktualisierung ausgeführt."
+    }
+   ]
+  },
+  {
+   "core": "event_whenkeypressed",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wenn_taste_gedrückt_wird",
+    "stage": "wenn_taste_gedrückt_wird"
+   },
+   "summary": "Führt den Code aus, wenn eine Taste gedrückt wird.",
+   "more": [],
+   "block": "Wenn Taste [Leertaste v] gedrückt wird",
+   "params": [
+    {
+     "name": "key",
+     "type": "str",
+     "default": null,
+     "description": "Die Taste, z. B. \"a\", \"1\", \"Leertaste\", \"Pfeil nach links\", \"Pfeil nach rechts\", \"Pfeil nach oben\", \"Pfeil nach unten\" oder \"beliebiges\" (jede Taste). Groß- und Kleinschreibung spielen keine Rolle."
+    },
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "Die Funktion mit dem Code, der ausgeführt werden soll."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "Ein Name, um Skripte zu unterscheiden, die dieselbe Funktion verwenden."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "Wenn True, wird der Code in einem Durchgang ohne Bildschirmaktualisierung ausgeführt."
+    }
+   ]
+  },
+  {
+   "core": "event_whenthisspriteclicked",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wenn_diese_figur_angeklickt_wird",
+    "stage": "wenn_diese_figur_angeklickt_wird"
+   },
+   "summary": "Führt den Code aus, wenn die Figur mit der Maus angeklickt wird.",
+   "more": [],
+   "block": "Wenn diese Figur angeklickt wird",
+   "params": [
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "Die Funktion mit dem Code, der ausgeführt werden soll."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "Ein Name, um Skripte zu unterscheiden, die dieselbe Funktion verwenden."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "Wenn True, wird der Code in einem Durchgang ohne Bildschirmaktualisierung ausgeführt."
+    }
+   ]
+  },
+  {
+   "core": "event_whenbackdropswitchesto",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wenn_das_bühnenbild_wechselt_zu",
+    "stage": "wenn_das_bühnenbild_wechselt_zu"
+   },
+   "summary": "Führt den Code aus, wenn die Bühne zu dem angegebenen Bühnenbild wechselt.",
+   "more": [],
+   "block": "Wenn das Bühnenbild zu [Bühnenbild1 v] wechselt",
+   "params": [
+    {
+     "name": "backdrop",
+     "type": "str",
+     "default": null,
+     "description": "Der Name des Bühnenbilds. Groß- und Kleinschreibung spielen keine Rolle."
+    },
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "Die Funktion mit dem Code, der ausgeführt werden soll."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "Ein Name, um Skripte zu unterscheiden, die dieselbe Funktion verwenden."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "Wenn True, wird der Code in einem Durchgang ohne Bildschirmaktualisierung ausgeführt."
+    }
+   ]
+  },
+  {
+   "core": "event_whengreaterthan_loudness",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wenn_lautstärke_größer_als",
+    "stage": "wenn_lautstärke_größer_als"
+   },
+   "summary": "Führt den Code aus, wenn die Lautstärke des Mikrofons größer als der angegebene Wert ist.",
+   "more": [
+    "Dies ist nur ein Platzhalter: Das Mikrofon wird nicht unterstützt, die Lautstärke ist immer -1 und der Code wird nie ausgeführt."
+   ],
+   "block": "Wenn [Lautstärke v] > (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Der Lautstärkewert, der überschritten werden muss."
+    },
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "Die Funktion mit dem Code, der ausgeführt werden soll."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "Ein Name, um Skripte zu unterscheiden, die dieselbe Funktion verwenden."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "Wenn True, wird der Code in einem Durchgang ohne Bildschirmaktualisierung ausgeführt."
+    }
+   ]
+  },
+  {
+   "core": "event_whengreaterthan_timer",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wenn_stoppuhr_größer_als",
+    "stage": "wenn_stoppuhr_größer_als"
+   },
+   "summary": "Führt den Code aus, wenn die Stoppuhr größer als der angegebene Wert ist.",
+   "more": [
+    "Der Code wird jedes Mal einmal ausgeführt, wenn die Stoppuhr den Wert überschreitet. Er wird erneut ausgeführt, nachdem die Stoppuhr zurückgesetzt wurde."
+   ],
+   "block": "Wenn [Stoppuhr v] > (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Anzahl Sekunden, die die Stoppuhr überschreiten muss."
+    },
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "Die Funktion mit dem Code, der ausgeführt werden soll."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "Ein Name, um Skripte zu unterscheiden, die dieselbe Funktion verwenden."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "Wenn True, wird der Code in einem Durchgang ohne Bildschirmaktualisierung ausgeführt."
+    }
+   ]
+  },
+  {
+   "core": "event_whenbroadcastreceived",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wenn_ich_empfange",
+    "stage": "wenn_ich_empfange"
+   },
+   "summary": "Führt den Code aus, wenn die angegebene Nachricht gesendet wird.",
+   "more": [],
+   "block": "Wenn ich (Nachricht1) empfange",
+   "params": [
+    {
+     "name": "message",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Nachricht. Groß- und Kleinschreibung spielen keine Rolle."
+    },
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "Die Funktion mit dem Code, der ausgeführt werden soll."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "Ein Name, um Skripte zu unterscheiden, die dieselbe Funktion verwenden."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "Wenn True, wird der Code in einem Durchgang ohne Bildschirmaktualisierung ausgeführt."
+    }
+   ]
+  },
+  {
+   "core": "event_broadcast",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "sende_an_alle",
+    "stage": "sende_an_alle"
+   },
+   "summary": "Sendet eine Nachricht an alle Figuren und die Bühne. Jeder Block \"Wenn ich ... empfange\" mit dieser Nachricht startet. Das Skript wartet nicht auf sie.",
+   "more": [],
+   "block": "sende (Nachricht1) an alle",
+   "params": [
+    {
+     "name": "message",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Nachricht. Groß- und Kleinschreibung spielen keine Rolle."
+    }
+   ]
+  },
+  {
+   "core": "event_broadcastandwait",
+   "category": "events",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "sende_an_alle_und_warte",
+    "stage": "sende_an_alle_und_warte"
+   },
+   "summary": "Sendet eine Nachricht an alle Figuren und die Bühne und wartet, bis alle Skripte fertig sind, die sie empfangen.",
+   "more": [],
+   "block": "sende (Nachricht1) an alle und warte",
+   "params": [
+    {
+     "name": "message",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Nachricht. Groß- und Kleinschreibung spielen keine Rolle."
+    }
+   ]
+  },
+  {
+   "core": "event_whenstageclicked",
+   "category": "events",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "wenn_bühne_angeklickt_wird"
+   },
+   "summary": "Führt den Code jedes Mal aus, wenn die Bühne angeklickt wird.",
+   "more": [],
+   "block": "Wenn die Bühne angeklickt wird",
+   "params": [
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "Die Funktion mit dem Code, der ausgeführt werden soll."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "Ein Name, um Skripte zu unterscheiden, die dieselbe Funktion verwenden."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "Wenn True, wird der Code in einem Durchgang ohne Bildschirmaktualisierung ausgeführt."
+    }
+   ]
+  },
+  {
+   "core": "control_wait",
+   "category": "control",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "warte_sekunden",
+    "stage": "warte_sekunden"
+   },
+   "summary": "Wartet die angegebene Anzahl Sekunden, bevor das Skript weitermacht. Andere Skripte laufen währenddessen weiter.",
+   "more": [],
+   "block": "warte (1) Sekunden",
+   "params": [
+    {
+     "name": "secs",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Anzahl Sekunden, die gewartet wird. Negative Werte zählen als 0."
+    }
+   ]
+  },
+  {
+   "core": "control_stop_all",
+   "category": "control",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "stoppe_alles",
+    "stage": "stoppe_alles"
+   },
+   "summary": "Stoppt alle Skripte aller Figuren und der Bühne, löscht alle Klone und stoppt alle Klänge.",
+   "more": [],
+   "block": "stoppe [alles v]",
+   "params": []
+  },
+  {
+   "core": "control_stop_this",
+   "category": "control",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "stoppe_dieses_skript",
+    "stage": "stoppe_dieses_skript"
+   },
+   "summary": "Stoppt das Skript, in dem dieser Block steht. Die anderen Skripte laufen weiter.",
+   "more": [],
+   "block": "stoppe [dieses Skript v]",
+   "params": []
+  },
+  {
+   "core": "control_create_clone_of_sprite",
+   "category": "control",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "erzeuge_klon_von_sprite",
+    "stage": "erzeuge_klon_von_sprite"
+   },
+   "summary": "Erzeugt einen Klon einer Figur. Ein Klon ist eine Kopie, die an derselben Position mit demselben Kostüm und denselben Variablen startet.",
+   "more": [
+    "Es können höchstens 300 Klone gleichzeitig existieren. Weitere Klone werden nicht erzeugt."
+   ],
+   "block": "erzeuge Klon von (Figur v)",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Figur, von der ein Klon erzeugt wird. \"_myself_\" steht für die Figur, in der dieser Block steht."
+    }
+   ]
+  },
+  {
+   "core": "control_stop_other",
+   "category": "control",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "stoppe_andere_skripte_der_figur",
+    "stage": "stoppe_andere_skripte_der_bühne"
+   },
+   "summary": "Stoppt alle anderen Skripte dieser Figur. Das Skript, in dem dieser Block steht, läuft weiter.",
+   "more": [],
+   "block": "stoppe [andere Skripte der Figur v]",
+   "params": []
+  },
+  {
+   "core": "control_create_clone_of_myself",
+   "category": "control",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "erzeuge_klon_von_mir"
+   },
+   "summary": "Erzeugt einen Klon dieser Figur. Ein Klon ist eine Kopie, die an derselben Position mit demselben Kostüm und denselben Variablen startet.",
+   "more": [
+    "Es können höchstens 300 Klone gleichzeitig existieren. Weitere Klone werden nicht erzeugt."
+   ],
+   "block": "erzeuge Klon von (mir selbst v)",
+   "params": []
+  },
+  {
+   "core": "control_delete_this_clone",
+   "category": "control",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "lösche_diesen_klon"
+   },
+   "summary": "Löscht den Klon, in dem dieser Block steht. Eine Figur, die kein Klon ist, wird nicht gelöscht.",
+   "more": [],
+   "block": "lösche diesen Klon",
+   "params": []
+  },
+  {
+   "core": "control_start_as_clone",
+   "category": "control",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "wenn_ich_als_klon_entstehe"
+   },
+   "summary": "Führt den Code jedes Mal aus, wenn ein Klon dieser Figur entsteht.",
+   "more": [],
+   "block": "Wenn ich als Klon entstehe",
+   "params": [
+    {
+     "name": "generator_function",
+     "type": "function",
+     "default": null,
+     "description": "Die Funktion mit dem Code, der ausgeführt werden soll."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": "''",
+     "description": "Ein Name, um Skripte zu unterscheiden, die dieselbe Funktion verwenden."
+    },
+    {
+     "name": "no_refresh",
+     "type": "bool",
+     "default": "False",
+     "description": "Wenn True, wird der Code in einem Durchgang ohne Bildschirmaktualisierung ausgeführt."
+    }
+   ]
+  },
+  {
+   "core": "sensing_askandwait",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "frage_und_warte",
+    "stage": "frage_und_warte"
+   },
+   "summary": "Zeigt eine Frage auf der Bühne in einem Textfeld und wartet, bis der Benutzer sie beantwortet hat.",
+   "more": [
+    "Die Antwort kann mit dem Block Antwort gelesen werden."
+   ],
+   "block": "frage (Wie heißt du?) und warte",
+   "params": [
+    {
+     "name": "question",
+     "type": "str",
+     "default": null,
+     "description": "Die Frage, die dem Benutzer gezeigt wird."
+    }
+   ]
+  },
+  {
+   "core": "sensing_answer",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "antwort",
+    "stage": "antwort"
+   },
+   "summary": "Gibt die letzte Antwort zurück, die der Benutzer bei einem Frage-Block eingegeben hat.",
+   "more": [],
+   "block": "(Antwort)",
+   "params": []
+  },
+  {
+   "core": "sensing_keypressed",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "taste_gedrückt",
+    "stage": "taste_gedrückt"
+   },
+   "summary": "Prüft, ob im Moment eine Taste gedrückt ist.",
+   "more": [],
+   "block": "Taste (Leertaste v) gedrückt?",
+   "params": [
+    {
+     "name": "key",
+     "type": "str",
+     "default": null,
+     "description": "Die Taste, z. B. \"a\", \"1\", \"Leertaste\", \"Pfeil nach links\", \"Pfeil nach rechts\", \"Pfeil nach oben\", \"Pfeil nach unten\" oder \"beliebiges\" (jede Taste). Groß- und Kleinschreibung spielen keine Rolle."
+    }
+   ]
+  },
+  {
+   "core": "sensing_mousedown",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "maustaste_gedrückt",
+    "stage": "maustaste_gedrückt"
+   },
+   "summary": "Prüft, ob im Moment eine Maustaste gedrückt ist.",
+   "more": [],
+   "block": "Maustaste gedrückt?",
+   "params": []
+  },
+  {
+   "core": "sensing_mousex",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "maus_x_position",
+    "stage": "maus_x_position"
+   },
+   "summary": "Gibt die waagerechte Position des Mauszeigers auf der Bühne zurück. Die Mitte der Bühne ist 0.",
+   "more": [],
+   "block": "(Maus x-Position)",
+   "params": []
+  },
+  {
+   "core": "sensing_mousey",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "maus_y_position",
+    "stage": "maus_y_position"
+   },
+   "summary": "Gibt die senkrechte Position des Mauszeigers auf der Bühne zurück. Die Mitte der Bühne ist 0.",
+   "more": [],
+   "block": "(Maus y-Position)",
+   "params": []
+  },
+  {
+   "core": "sensing_loudness",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "lautstärke_mikrofon",
+    "stage": "lautstärke_mikrofon"
+   },
+   "summary": "Gibt die Lautstärke des Mikrofons zurück.",
+   "more": [
+    "Dies ist nur ein Platzhalter: Das Mikrofon wird nicht unterstützt, deshalb ist der Wert immer -1."
+   ],
+   "block": "(Lautstärke::sensing)",
+   "params": []
+  },
+  {
+   "core": "sensing_timer",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "stoppuhr",
+    "stage": "stoppuhr"
+   },
+   "summary": "Gibt die Zeit in Sekunden zurück, die seit dem Start des Programms oder seit dem letzten Zurücksetzen der Stoppuhr vergangen ist.",
+   "more": [],
+   "block": "(Stoppuhr)",
+   "params": []
+  },
+  {
+   "core": "sensing_resettimer",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_stoppuhr_zurück",
+    "stage": "setze_stoppuhr_zurück"
+   },
+   "summary": "Setzt die Stoppuhr auf 0 zurück.",
+   "more": [],
+   "block": "setze Stoppuhr zurück",
+   "params": []
+  },
+  {
+   "core": "sensing_setdragmode_draggable",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_ziehbarkeit_auf_ziehbar",
+    "stage": "setze_ziehbarkeit_auf_ziehbar"
+   },
+   "summary": "Macht die Figur ziehbar: Der Benutzer kann sie während des Programms mit der Maus verschieben.",
+   "more": [],
+   "block": "setze Ziehbarkeit auf [ziehbar v]",
+   "params": []
+  },
+  {
+   "core": "sensing_setdragmode_notdraggable",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_ziehbarkeit_auf_nicht_ziehbar",
+    "stage": "setze_ziehbarkeit_auf_nicht_ziehbar"
+   },
+   "summary": "Macht die Figur nicht ziehbar: Der Benutzer kann sie nicht mit der Maus verschieben.",
+   "more": [],
+   "block": "setze Ziehbarkeit auf [nicht ziehbar v]",
+   "params": []
+  },
+  {
+   "core": "sensing_of_xposition",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "x_position_von",
+    "stage": "x_position_von"
+   },
+   "summary": "Gibt die x-Position einer anderen Figur zurück.",
+   "more": [],
+   "block": "([x-Position v] von (Figur v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Figur. Gibt es keine solche Figur, wird 0 zurückgegeben."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_yposition",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "y_position_von",
+    "stage": "y_position_von"
+   },
+   "summary": "Gibt die y-Position einer anderen Figur zurück.",
+   "more": [],
+   "block": "([y-Position v] von (Figur v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Figur. Gibt es keine solche Figur, wird 0 zurückgegeben."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_direction",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "richtung_von",
+    "stage": "richtung_von"
+   },
+   "summary": "Gibt die Richtung einer anderen Figur in Grad zurück. 90 ist rechts, 0 ist oben.",
+   "more": [],
+   "block": "([Richtung v] von (Figur v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Figur. Gibt es keine solche Figur, wird 0 zurückgegeben."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_costumenumber",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "kostümnummer_von",
+    "stage": "kostümnummer_von"
+   },
+   "summary": "Gibt die Nummer des aktuellen Kostüms einer anderen Figur zurück (ab 1).",
+   "more": [],
+   "block": "([Kostümnummer v] von (Figur v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Figur. Gibt es keine solche Figur, wird 0 zurückgegeben."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_costumename",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "kostümname_von",
+    "stage": "kostümname_von"
+   },
+   "summary": "Gibt den Namen des aktuellen Kostüms einer anderen Figur zurück.",
+   "more": [],
+   "block": "([Kostümname v] von (Figur v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Figur. Gibt es keine solche Figur, wird 0 zurückgegeben."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_size",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "größe_von",
+    "stage": "größe_von"
+   },
+   "summary": "Gibt die Größe einer anderen Figur in Prozent zurück. 100 ist die normale Größe.",
+   "more": [],
+   "block": "([Größe v] von (Figur v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Figur. Gibt es keine solche Figur, wird 0 zurückgegeben."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_volume",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "lautstärke_von",
+    "stage": "lautstärke_von"
+   },
+   "summary": "Gibt die Lautstärke der Klänge einer Figur oder der Bühne zurück, von 0 bis 100.",
+   "more": [],
+   "block": "([Lautstärke v] von (Figur v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": "'_stage_'",
+     "description": "Der Name der Figur oder \"_stage_\" für die Bühne. Standardmäßig wird die Bühne genommen."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_variable",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "gib_variable_von",
+    "stage": "gib_variable_von"
+   },
+   "summary": "Gibt den Wert einer Variable einer Figur oder der Bühne zurück.",
+   "more": [],
+   "block": "([Variable v] von (Figur v))",
+   "params": [
+    {
+     "name": "variable",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Variable."
+    },
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": "'_stage_'",
+     "description": "Der Name der Figur oder \"_stage_\" für die Bühne. Standardmäßig wird die Bühne genommen."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_backdropnumber",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "bühnenbildnummer_von",
+    "stage": "bühnenbildnummer_von"
+   },
+   "summary": "Gibt die Nummer des aktuellen Bühnenbilds zurück (ab 1). Nur die Bühne hat Bühnenbilder.",
+   "more": [],
+   "block": "([Bühnenbildnummer v] von (Bühne v))",
+   "params": [
+    {
+     "name": "stage",
+     "type": "str",
+     "default": "'_stage_'",
+     "description": "Der Name der Bühne, standardmäßig \"_stage_\". Bei einer Figur wird 0 zurückgegeben."
+    }
+   ]
+  },
+  {
+   "core": "sensing_of_backdropname",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "bühnenbildname_von",
+    "stage": "bühnenbildname_von"
+   },
+   "summary": "Gibt den Namen des aktuellen Bühnenbilds zurück. Nur die Bühne hat Bühnenbilder.",
+   "more": [],
+   "block": "([Bühnenbildname v] von (Bühne v))",
+   "params": [
+    {
+     "name": "stage",
+     "type": "str",
+     "default": "'_stage_'",
+     "description": "Der Name der Bühne, standardmäßig \"_stage_\". Bei einer Figur wird 0 zurückgegeben."
+    }
+   ]
+  },
+  {
+   "core": "sensing_current_year",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "jahr_im_moment",
+    "stage": "jahr_im_moment"
+   },
+   "summary": "Gibt das aktuelle Jahr zurück.",
+   "more": [],
+   "block": "([Jahr v] im Moment)",
+   "params": []
+  },
+  {
+   "core": "sensing_current_month",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "monat_im_moment",
+    "stage": "monat_im_moment"
+   },
+   "summary": "Gibt den aktuellen Monat als Zahl zurück, von 1 (Januar) bis 12 (Dezember).",
+   "more": [],
+   "block": "([Monat v] im Moment)",
+   "params": []
+  },
+  {
+   "core": "sensing_current_date",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "datum_im_moment",
+    "stage": "datum_im_moment"
+   },
+   "summary": "Gibt den aktuellen Tag des Monats zurück, von 1 bis 31.",
+   "more": [],
+   "block": "([Datum v] im Moment)",
+   "params": []
+  },
+  {
+   "core": "sensing_current_dayofweek",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "wochentag_im_moment",
+    "stage": "wochentag_im_moment"
+   },
+   "summary": "Gibt den aktuellen Wochentag als Zahl zurück. 1 ist Sonntag, 2 ist Montag und 7 ist Samstag.",
+   "more": [],
+   "block": "([Wochentag v] im Moment)",
+   "params": []
+  },
+  {
+   "core": "sensing_current_hour",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "stunde_im_moment",
+    "stage": "stunde_im_moment"
+   },
+   "summary": "Gibt die aktuelle Stunde zurück, von 0 bis 23.",
+   "more": [],
+   "block": "([Stunde v] im Moment)",
+   "params": []
+  },
+  {
+   "core": "sensing_current_minute",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "minute_im_moment",
+    "stage": "minute_im_moment"
+   },
+   "summary": "Gibt die aktuelle Minute zurück, von 0 bis 59.",
+   "more": [],
+   "block": "([Minute v] im Moment)",
+   "params": []
+  },
+  {
+   "core": "sensing_current_second",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "sekunde_im_moment",
+    "stage": "sekunde_im_moment"
+   },
+   "summary": "Gibt die aktuelle Sekunde zurück, von 0 bis 59.",
+   "more": [],
+   "block": "([Sekunde v] im Moment)",
+   "params": []
+  },
+  {
+   "core": "sensing_dayssince2000",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "tage_seit",
+    "stage": "tage_seit"
+   },
+   "summary": "Gibt die Anzahl Tage seit dem 1. Januar 2000 (in UTC) zurück, mit dem Bruchteil des aktuellen Tages.",
+   "more": [],
+   "block": "(Tage seit 2000)",
+   "params": []
+  },
+  {
+   "core": "sensing_username",
+   "category": "sensing",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "benutzername",
+    "stage": "benutzername"
+   },
+   "summary": "Gibt den Benutzernamen zurück. pystage kennt den Benutzernamen nicht, deshalb ist das Ergebnis immer ein leerer Text.",
+   "more": [],
+   "block": "(Benutzername)",
+   "params": []
+  },
+  {
+   "core": "sensing_touchingobject_pointer",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "wird_mauszeiger_berührt"
+   },
+   "summary": "Prüft, ob die Figur den Mauszeiger berührt.",
+   "more": [],
+   "block": "wird (Mauszeiger v) berührt?",
+   "params": []
+  },
+  {
+   "core": "sensing_touchingobject_edge",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "wird_rand_berührt"
+   },
+   "summary": "Prüft, ob die Figur den Rand der Bühne berührt.",
+   "more": [],
+   "block": "wird (Rand v) berührt?",
+   "params": []
+  },
+  {
+   "core": "sensing_touchingobject_sprite",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "wird_berührt"
+   },
+   "summary": "Prüft, ob die Figur eine andere Figur, den Mauszeiger oder den Rand berührt.",
+   "more": [],
+   "block": "wird (Figur v) berührt?",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Figur. \"_mouse_\" steht für den Mauszeiger, \"_edge_\" für den Rand der Bühne."
+    }
+   ]
+  },
+  {
+   "core": "sensing_touchingcolor",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "wird_farbe_berührt"
+   },
+   "summary": "Prüft, ob die Figur eine Farbe auf der Bühne berührt.",
+   "more": [],
+   "block": "wird Farbe (Farbe) berührt?",
+   "params": [
+    {
+     "name": "color",
+     "type": "str oder Tupel",
+     "default": null,
+     "description": "Die Farbe, z. B. \"#ff0000\" für Rot, oder ein Tupel aus Rot-, Grün- und Blauwert von 0 bis 255."
+    }
+   ]
+  },
+  {
+   "core": "sensing_coloristouchingcolor",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "farbe_berührt"
+   },
+   "summary": "Prüft, ob eine Farbe der Figur eine andere Farbe auf der Bühne berührt.",
+   "more": [],
+   "block": "Farbe (Farbe) berührt (Farbe)?",
+   "params": [
+    {
+     "name": "sprite_color",
+     "type": "str oder Tupel",
+     "default": null,
+     "description": "Die Farbe der Figur, z. B. \"#ff0000\" für Rot, oder ein Tupel aus Rot-, Grün- und Blauwert von 0 bis 255."
+    },
+    {
+     "name": "color",
+     "type": "str oder Tupel",
+     "default": null,
+     "description": "Die Farbe auf der Bühne, nach der gesucht wird, im gleichen Format."
+    }
+   ]
+  },
+  {
+   "core": "sensing_distanceto_pointer",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "entfernung_von_mauszeiger"
+   },
+   "summary": "Gibt den Abstand zwischen der Figur und dem Mauszeiger in Pixeln zurück.",
+   "more": [],
+   "block": "(Entfernung von (Mauszeiger v))",
+   "params": []
+  },
+  {
+   "core": "sensing_distanceto_sprite",
+   "category": "sensing",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "entfernung_von"
+   },
+   "summary": "Gibt den Abstand zwischen der Figur und einer anderen Figur in Pixeln zurück.",
+   "more": [],
+   "block": "(Entfernung von (Figur v))",
+   "params": [
+    {
+     "name": "sprite",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Figur. \"_mouse_\" steht für den Mauszeiger. Gibt es keine solche Figur, wird 10000 zurückgegeben."
+    }
+   ]
+  },
+  {
+   "core": "operator_random",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "zufallszahl_von_bis",
+    "stage": "zufallszahl_von_bis"
+   },
+   "summary": "Gibt eine Zufallszahl zwischen zwei Zahlen zurück, die Grenzen eingeschlossen. Sind beide Zahlen ganze Zahlen, ist das Ergebnis auch eine ganze Zahl.",
+   "more": [],
+   "block": "Zufallszahl von (1) bis (10)",
+   "params": [
+    {
+     "name": "start",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die kleinste mögliche Zahl."
+    },
+    {
+     "name": "end",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die größte mögliche Zahl. Ist sie kleiner als start, werden beide vertauscht."
+    }
+   ]
+  },
+  {
+   "core": "operator_divide",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "geteilt_durch",
+    "stage": "geteilt_durch"
+   },
+   "summary": "Teilt a durch b.",
+   "more": [
+    "Wie in Scratch ergibt die Division durch 0 Infinity, -Infinity oder NaN statt eines Fehlers."
+   ],
+   "block": "((10) / (2))",
+   "params": [
+    {
+     "name": "a",
+     "type": "float",
+     "default": null,
+     "description": ""
+    },
+    {
+     "name": "b",
+     "type": "float",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "operator_mod",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "modulo",
+    "stage": "modulo"
+   },
+   "summary": "Gibt den Rest der Division von a durch b zurück.",
+   "more": [
+    "Der Rest einer Division, mit dem Vorzeichen des Teilers wie in Scratch. Modulo 0 ergibt NaN."
+   ],
+   "block": "((10) mod (3))",
+   "params": [
+    {
+     "name": "a",
+     "type": "float",
+     "default": null,
+     "description": ""
+    },
+    {
+     "name": "b",
+     "type": "float",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "operator_join",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "verbinde",
+    "stage": "verbinde"
+   },
+   "summary": "Verbindet zwei Texte zu einem.",
+   "more": [],
+   "block": "(verbinde [Apfel] und [Birne])",
+   "params": [
+    {
+     "name": "string1",
+     "type": "",
+     "default": null,
+     "description": ""
+    },
+    {
+     "name": "string2",
+     "type": "",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "operator_letter_of",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "zeichen_von",
+    "stage": "zeichen_von"
+   },
+   "summary": "Gibt einen Buchstaben eines Textes zurück.",
+   "more": [],
+   "block": "(Zeichen (1) von [Welt])",
+   "params": [
+    {
+     "name": "letter",
+     "type": "int",
+     "default": null,
+     "description": "Die Position des Zeichens, beginnend mit 1."
+    },
+    {
+     "name": "string",
+     "type": "str",
+     "default": null,
+     "description": "Der Text."
+    }
+   ]
+  },
+  {
+   "core": "operator_length",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "länge_von",
+    "stage": "länge_von"
+   },
+   "summary": "Gibt die Anzahl der Buchstaben eines Textes zurück.",
+   "more": [],
+   "block": "(Länge von [Welt])",
+   "params": [
+    {
+     "name": "string",
+     "type": "str",
+     "default": null,
+     "description": "Der Text."
+    }
+   ]
+  },
+  {
+   "core": "operator_gt",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "größer_als",
+    "stage": "größer_als"
+   },
+   "summary": "Prüft, ob der erste Wert größer als der zweite ist. Zahlen werden als Zahlen verglichen, Texte alphabetisch ohne Beachtung von Groß- und Kleinschreibung.",
+   "more": [],
+   "block": "<(a) > (b)>",
+   "params": [
+    {
+     "name": "operand1",
+     "type": "Zahl oder str",
+     "default": null,
+     "description": "Der erste Wert."
+    },
+    {
+     "name": "operand2",
+     "type": "Zahl oder str",
+     "default": null,
+     "description": "Der zweite Wert."
+    }
+   ]
+  },
+  {
+   "core": "operator_lt",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "kleiner_als",
+    "stage": "kleiner_als"
+   },
+   "summary": "Prüft, ob der erste Wert kleiner als der zweite ist. Zahlen werden als Zahlen verglichen, Texte alphabetisch ohne Beachtung von Groß- und Kleinschreibung.",
+   "more": [],
+   "block": "<(a) < (b)>",
+   "params": [
+    {
+     "name": "operand1",
+     "type": "Zahl oder str",
+     "default": null,
+     "description": "Der erste Wert."
+    },
+    {
+     "name": "operand2",
+     "type": "Zahl oder str",
+     "default": null,
+     "description": "Der zweite Wert."
+    }
+   ]
+  },
+  {
+   "core": "operator_equals",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "gleich",
+    "stage": "gleich"
+   },
+   "summary": "Prüft, ob zwei Werte gleich sind. Zahlen werden als Zahlen verglichen, Texte ohne Beachtung von Groß- und Kleinschreibung.",
+   "more": [],
+   "block": "<(a) = (b)>",
+   "params": [
+    {
+     "name": "operand1",
+     "type": "Zahl oder str",
+     "default": null,
+     "description": "Der erste Wert."
+    },
+    {
+     "name": "operand2",
+     "type": "Zahl oder str",
+     "default": null,
+     "description": "Der zweite Wert."
+    }
+   ]
+  },
+  {
+   "core": "operator_contains",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "enthält",
+    "stage": "enthält"
+   },
+   "summary": "Prüft, ob ein Text einen anderen Text enthält.",
+   "more": [
+    "Groß- und Kleinschreibung wird ignoriert."
+   ],
+   "block": "<[Apfel] enthält [A]?>",
+   "params": [
+    {
+     "name": "string1",
+     "type": "str",
+     "default": null,
+     "description": "Der Text, in dem gesucht wird."
+    },
+    {
+     "name": "string2",
+     "type": "str",
+     "default": null,
+     "description": "Der Text, nach dem gesucht wird."
+    }
+   ]
+  },
+  {
+   "core": "operator_round",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "runde",
+    "stage": "runde"
+   },
+   "summary": "Rundet eine Zahl auf die nächste ganze Zahl.",
+   "more": [
+    "Wie in Scratch wird .5 immer aufgerundet."
+   ],
+   "block": "((3.5) gerundet)",
+   "params": [
+    {
+     "name": "number",
+     "type": "float",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "operator_mathop",
+   "category": "operators",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "mathematische_funktion",
+    "stage": "mathematische_funktion"
+   },
+   "summary": "Berechnet eine mathematische Funktion einer Zahl.",
+   "more": [],
+   "block": "([Betrag v] von (-1))",
+   "params": [
+    {
+     "name": "operator",
+     "type": "str",
+     "default": null,
+     "description": "Die Funktion: \"abs\", \"floor\", \"ceiling\", \"sqrt\", \"sin\", \"cos\", \"tan\", \"asin\", \"acos\", \"atan\", \"ln\", \"log\", \"e ^\" oder \"10 ^\". Sinus, Kosinus und Tangens rechnen mit Grad."
+    },
+    {
+     "name": "number",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Zahl, von der die Funktion berechnet wird."
+    }
+   ]
+  },
+  {
+   "core": "data_setvariableto",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_variable",
+    "stage": "setze_variable"
+   },
+   "summary": "Setzt eine Variable auf einen neuen Wert.",
+   "more": [],
+   "block": "setze (Variable) auf (0)",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Variable."
+    },
+    {
+     "name": "value",
+     "type": "object",
+     "default": null,
+     "description": "Der neue Wert, eine Zahl oder ein Text."
+    }
+   ]
+  },
+  {
+   "core": "data_variable",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "gib_variable",
+    "stage": "gib_variable"
+   },
+   "summary": "Gibt den Wert einer Variable zurück.",
+   "more": [],
+   "block": "(Variable)",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Variable."
+    }
+   ]
+  },
+  {
+   "core": "data_changevariableby",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ändere_variable_um",
+    "stage": "ändere_variable_um"
+   },
+   "summary": "Ändert den Wert einer Variable um die angegebene Zahl. Die Variable muss eine Zahl enthalten.",
+   "more": [],
+   "block": "ändere (Variable) um (1)",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Variable."
+    },
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Zahl, die addiert wird. Negative Werte machen die Variable kleiner."
+    }
+   ]
+  },
+  {
+   "core": "data_showvariable",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "zeige_variable",
+    "stage": "zeige_variable"
+   },
+   "summary": "Zeigt den Monitor einer Variable auf der Bühne, damit ihr Wert zu sehen ist.",
+   "more": [],
+   "block": "zeige Variable (Variable)",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Variable."
+    }
+   ]
+  },
+  {
+   "core": "data_hidevariable",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "verstecke_variable",
+    "stage": "verstecke_variable"
+   },
+   "summary": "Versteckt den Monitor einer Variable auf der Bühne.",
+   "more": [],
+   "block": "verstecke Variable (Variable)",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Variable."
+    }
+   ]
+  },
+  {
+   "core": "data_listvariable",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "gib_liste",
+    "stage": "gib_liste"
+   },
+   "summary": "Die Liste selbst.",
+   "more": [
+    "Das ist die echte Python-Liste, sie kann wie jede andere Liste benutzt werden."
+   ],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste."
+    }
+   ]
+  },
+  {
+   "core": "data_addtolist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "füge_zu_liste_hinzu",
+    "stage": "füge_zu_liste_hinzu"
+   },
+   "summary": "Fügt ein Element am Ende einer Liste hinzu.",
+   "more": [],
+   "block": "füge [Ding] zu [meine Liste v] hinzu",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste. item Das Element, eine Zahl oder ein Text."
+    },
+    {
+     "name": "item",
+     "type": "",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "data_deleteoflist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "lösche_element_aus_liste",
+    "stage": "lösche_element_aus_liste"
+   },
+   "summary": "Löscht ein Element einer Liste.",
+   "more": [],
+   "block": "lösche (1) aus [meine Liste v]",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste."
+    },
+    {
+     "name": "index",
+     "type": "int or str",
+     "default": null,
+     "description": "Die Position, beginnend mit 1. Auch möglich: \"last\" und \"random\". Mit \"all\" werden alle Elemente gelöscht."
+    }
+   ]
+  },
+  {
+   "core": "data_deletealloflist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "lösche_alles_aus_liste",
+    "stage": "lösche_alles_aus_liste"
+   },
+   "summary": "Löscht alle Elemente einer Liste.",
+   "more": [],
+   "block": "lösche alles aus [meine Liste v]",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste."
+    }
+   ]
+  },
+  {
+   "core": "data_insertatlist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "füge_in_liste_ein",
+    "stage": "füge_in_liste_ein"
+   },
+   "summary": "Fügt ein Element an einer Stelle in eine Liste ein.",
+   "more": [],
+   "block": "füge [Ding] bei (1) in [meine Liste v] ein",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste. item Das Element, eine Zahl oder ein Text."
+    },
+    {
+     "name": "item",
+     "type": "",
+     "default": null,
+     "description": ""
+    },
+    {
+     "name": "index",
+     "type": "int or str",
+     "default": null,
+     "description": "Die Position, beginnend mit 1. Auch möglich: \"last\" und \"random\"."
+    }
+   ]
+  },
+  {
+   "core": "data_replaceitemoflist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "ersetze_element_von_liste",
+    "stage": "ersetze_element_von_liste"
+   },
+   "summary": "Ersetzt ein Element einer Liste durch ein anderes.",
+   "more": [],
+   "block": "ersetze Element (1) von [meine Liste v] durch [Ding]",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste."
+    },
+    {
+     "name": "index",
+     "type": "int or str",
+     "default": null,
+     "description": "Die Position, beginnend mit 1. Auch möglich: \"last\" und \"random\". item Das Element, eine Zahl oder ein Text."
+    },
+    {
+     "name": "item",
+     "type": "",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "data_itemoflist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "element_von_liste",
+    "stage": "element_von_liste"
+   },
+   "summary": "Gibt ein Element einer Liste zurück.",
+   "more": [],
+   "block": "(Element (1) von [meine Liste v])",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste."
+    },
+    {
+     "name": "index",
+     "type": "int or str",
+     "default": null,
+     "description": "Die Position, beginnend mit 1. Auch möglich: \"last\" und \"random\"."
+    }
+   ]
+  },
+  {
+   "core": "data_itemnumoflist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "nummer_in_liste",
+    "stage": "nummer_in_liste"
+   },
+   "summary": "Gibt die Stelle eines Elements in einer Liste zurück.",
+   "more": [],
+   "block": "(Nummer von [Ding] in [meine Liste v])",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste. item Das Element, eine Zahl oder ein Text."
+    },
+    {
+     "name": "item",
+     "type": "",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "data_lengthoflist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "länge_von_liste",
+    "stage": "länge_von_liste"
+   },
+   "summary": "Gibt die Anzahl der Elemente einer Liste zurück.",
+   "more": [],
+   "block": "(Länge von [meine Liste v])",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste."
+    }
+   ]
+  },
+  {
+   "core": "data_listcontainsitem",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "liste_enthält",
+    "stage": "liste_enthält"
+   },
+   "summary": "Prüft, ob eine Liste ein Element enthält.",
+   "more": [],
+   "block": "<[meine Liste v] enthält [Ding]?>",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste. item Das Element, eine Zahl oder ein Text."
+    },
+    {
+     "name": "item",
+     "type": "",
+     "default": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "core": "data_showlist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "zeige_liste",
+    "stage": "zeige_liste"
+   },
+   "summary": "Zeigt die Liste auf der Bühne an.",
+   "more": [],
+   "block": "zeige Liste [meine Liste v]",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste."
+    }
+   ]
+  },
+  {
+   "core": "data_hidelist",
+   "category": "variables",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "verstecke_liste",
+    "stage": "verstecke_liste"
+   },
+   "summary": "Versteckt die Liste auf der Bühne.",
+   "more": [],
+   "block": "verstecke Liste [meine Liste v]",
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste."
+    }
+   ]
+  },
+  {
+   "core": "pen_clear",
+   "category": "pen",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "lösche_alles",
+    "stage": "lösche_alles"
+   },
+   "summary": "Löscht alles, was die Stifte aller Figuren auf der Bühne gezeichnet haben.",
+   "more": [],
+   "block": "lösche alles",
+   "params": []
+  },
+  {
+   "core": "pen_stamp",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "hinterlasse_abdruck"
+   },
+   "summary": "Stempelt eine Kopie des Kostüms der Figur auf die Bühne. Die Kopie bleibt dort, auch wenn sich die Figur bewegt.",
+   "more": [],
+   "block": "hinterlasse Abdruck",
+   "params": []
+  },
+  {
+   "core": "pen_penDown",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "schalte_stift_ein"
+   },
+   "summary": "Setzt den Stift auf die Bühne. Ab jetzt zeichnet die Figur beim Bewegen eine Linie.",
+   "more": [],
+   "block": "schalte Stift ein",
+   "params": []
+  },
+  {
+   "core": "pen_penUp",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "schalte_stift_aus"
+   },
+   "summary": "Hebt den Stift ab. Die Figur zeichnet beim Bewegen nicht mehr.",
+   "more": [],
+   "block": "schalte Stift aus",
+   "params": []
+  },
+  {
+   "core": "pen_setPenColorToColor",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_stiftfarbe_auf"
+   },
+   "summary": "Setzt die Farbe des Stifts.",
+   "more": [],
+   "block": "setze Stiftfarbe auf [#ff0000]",
+   "params": [
+    {
+     "name": "color",
+     "type": "str oder Tupel",
+     "default": null,
+     "description": "Die Farbe, z. B. \"#ff0000\" für Rot, oder ein Tupel aus Rot-, Grün- und Blauwert von 0 bis 255."
+    }
+   ]
+  },
+  {
+   "core": "pen_changePenColorParamBy_color",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "ändere_stift_farbe_um"
+   },
+   "summary": "Ändert die Farbe (den Farbton) des Stifts um den angegebenen Wert. Die Farbe geht von 0 bis 100 und beginnt nach 100 wieder bei 0.",
+   "more": [],
+   "block": "ändere Stift (Farbe v) um (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung der Stiftfarbe."
+    }
+   ]
+  },
+  {
+   "core": "pen_changePenColorParamBy_saturation",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "ändere_stift_sättigung_um"
+   },
+   "summary": "Ändert die Sättigung der Stiftfarbe um den angegebenen Wert. Eine höhere Sättigung macht die Farbe kräftiger.",
+   "more": [],
+   "block": "ändere Stift (Sättigung v) um (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung der Sättigung, von 0 bis 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_changePenColorParamBy_brightness",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "ändere_stift_helligkeit_um"
+   },
+   "summary": "Ändert die Helligkeit der Stiftfarbe um den angegebenen Wert. 0 ist schwarz, 100 ist am hellsten.",
+   "more": [],
+   "block": "ändere Stift (Helligkeit v) um (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung der Helligkeit, von 0 bis 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_changePenColorParamBy_transparency",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "ändere_stift_transparenz_um"
+   },
+   "summary": "Ändert die Transparenz der Stiftfarbe um den angegebenen Wert. 0 ist nicht transparent, höhere Werte machen die Linien durchsichtiger.",
+   "more": [],
+   "block": "ändere Stift (Transparenz v) um (10)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung der Transparenz, von 0 bis 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_setPenColorParamTo_color",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_stift_farbe_auf"
+   },
+   "summary": "Setzt die Farbe (den Farbton) des Stifts. Die Farbe geht von 0 bis 100 und beginnt nach 100 wieder bei 0.",
+   "more": [],
+   "block": "setze Stift (Farbe v) auf (50)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die neue Stiftfarbe, von 0 bis 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_setPenColorParamTo_saturation",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_stift_sättigung_auf"
+   },
+   "summary": "Setzt die Sättigung der Stiftfarbe. Eine höhere Sättigung macht die Farbe kräftiger.",
+   "more": [],
+   "block": "setze Stift (Sättigung v) auf (50)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die neue Sättigung, von 0 bis 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_setPenColorParamTo_brightness",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_stift_helligkeit_auf"
+   },
+   "summary": "Setzt die Helligkeit der Stiftfarbe. 0 ist schwarz, 100 ist am hellsten.",
+   "more": [],
+   "block": "setze Stift (Helligkeit v) auf (50)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die neue Helligkeit, von 0 bis 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_setPenColorParamTo_transparency",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_stift_transparenz_auf"
+   },
+   "summary": "Setzt die Transparenz der Stiftfarbe. 0 ist nicht transparent, höhere Werte machen die Linien durchsichtiger.",
+   "more": [],
+   "block": "setze Stift (Transparenz v) auf (50)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die neue Transparenz, von 0 bis 100."
+    }
+   ]
+  },
+  {
+   "core": "pen_changePenSizeBy",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "ändere_stiftdicke_um"
+   },
+   "summary": "Ändert die Dicke des Stifts um den angegebenen Wert. Der Stift ist mindestens 1 dick.",
+   "more": [],
+   "block": "ändere Stiftdicke um (1)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die Änderung der Stiftdicke. Negative Werte machen den Stift dünner."
+    }
+   ]
+  },
+  {
+   "core": "pen_setPenSizeTo",
+   "category": "pen",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_stiftdicke_auf"
+   },
+   "summary": "Setzt die Dicke des Stifts. Der Stift ist mindestens 1 dick.",
+   "more": [],
+   "block": "setze Stiftdicke auf (1)",
+   "params": [
+    {
+     "name": "value",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die neue Stiftdicke."
+    }
+   ]
+  },
+  {
+   "core": "pystage_addsound",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "füge_klang_hinzu",
+    "stage": "füge_klang_hinzu"
+   },
+   "summary": "Lädt eine Klangdatei, damit die Figur oder die Bühne sie abspielen kann.",
+   "more": [
+    "Klänge werden auch automatisch geladen, wenn sie zum ersten Mal abgespielt werden."
+   ],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Klangdatei, z. B. \"pop.wav\". Die Datei muss im Projektordner liegen."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setname",
+   "category": "extras",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "setze_name"
+   },
+   "summary": "Setzt den Namen der Figur. Andere Blöcke können die Figur über diesen Namen ansprechen.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der neue Name der Figur."
+    }
+   ]
+  },
+  {
+   "core": "pystage_createsprite",
+   "category": "extras",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "füge_eine_figur_hinzu"
+   },
+   "summary": "Fügt der Bühne eine neue Figur hinzu und gibt sie zurück. Die Figur wird mit dem angegebenen Kostüm gezeigt.",
+   "more": [
+    "Der Name der Figur ist \"Sprite\" beim Standardkostüm, sonst der Name des Kostüms."
+   ],
+   "block": null,
+   "params": [
+    {
+     "name": "costume",
+     "type": "str",
+     "default": "'default'",
+     "description": "Der Name der Bilddatei für das Kostüm der Figur, z. B. \"katze.png\". \"default\" ist das Standardkostüm von pystage."
+    }
+   ]
+  },
+  {
+   "core": "pystage_makevariable",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "erzeuge_variable",
+    "stage": "erzeuge_variable"
+   },
+   "summary": "Erzeugt eine neue Variable. Die Variable kann mit den Variablen-Blöcken verwendet und als Monitor angezeigt werden.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Variable. Er darf noch nicht existieren."
+    },
+    {
+     "name": "value",
+     "type": "object",
+     "default": "0",
+     "description": "Der Anfangswert der Variable. Standardmäßig 0."
+    },
+    {
+     "name": "all_sprites",
+     "type": "bool",
+     "default": "True",
+     "description": "Wenn True, wird die Variable von der Bühne und allen Figuren gemeinsam genutzt. Wenn False, gehört sie nur dieser Figur."
+    }
+   ]
+  },
+  {
+   "core": "pystage_makelistvariable",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "erzeuge_liste",
+    "stage": "erzeuge_liste"
+   },
+   "summary": "Erzeuge eine Liste.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste."
+    },
+    {
+     "name": "values",
+     "type": "list",
+     "default": "None",
+     "description": "Die anfänglichen Elemente der Liste."
+    },
+    {
+     "name": "all_sprites",
+     "type": "bool",
+     "default": "True",
+     "description": "Wenn True, kann die Liste von der Bühne und allen Figuren benutzt werden. Wenn False, gehört sie nur zu dieser Figur."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setmonitorposition",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_monitor_position",
+    "stage": "setze_monitor_position"
+   },
+   "summary": "Setzt die Position des Monitors einer Variable auf der Bühne.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Variable."
+    },
+    {
+     "name": "x",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die waagerechte Position der oberen linken Ecke des Monitors. Die Mitte der Bühne ist 0."
+    },
+    {
+     "name": "y",
+     "type": "Zahl",
+     "default": null,
+     "description": "Die senkrechte Position der oberen linken Ecke des Monitors. Die Mitte der Bühne ist 0."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setlistmonitorposition",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_listenmonitor_position",
+    "stage": "setze_listenmonitor_position"
+   },
+   "summary": "Setze Position und Größe der auf der Bühne angezeigten Liste.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Liste."
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "default": null,
+     "description": "Linker Rand."
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "default": null,
+     "description": "Oberer Rand."
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "default": "None",
+     "description": "Breite in Pixeln, automatisch wenn nicht angegeben."
+    },
+    {
+     "name": "height",
+     "type": "int",
+     "default": "None",
+     "description": "Höhe in Pixeln, automatisch wenn nicht angegeben."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setmonitorstyle_large",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_monitor_stil_groß",
+    "stage": "setze_monitor_stil_groß"
+   },
+   "summary": "Zeigt den Monitor einer Variable im großen Stil, mit einer großen Anzeige ihres Werts.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Variable."
+    }
+   ]
+  },
+  {
+   "core": "pystage_addcostume",
+   "category": "extras",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "füge_kostüm_hinzu"
+   },
+   "summary": "Fügt der Figur ein Kostüm (ein Bild) hinzu. Das Kostüm kommt ans Ende der Kostümliste.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Bilddatei, z. B. \"katze.png\". Die Datei muss im Projektordner liegen."
+    },
+    {
+     "name": "center_x",
+     "type": "Zahl",
+     "default": "None",
+     "description": "Die waagerechte Position des Mittelpunkts des Kostüms im Bild in Pixeln. Ohne Angabe wird die Bildmitte genommen."
+    },
+    {
+     "name": "center_y",
+     "type": "Zahl",
+     "default": "None",
+     "description": "Die senkrechte Position des Mittelpunkts des Kostüms im Bild in Pixeln. Ohne Angabe wird die Bildmitte genommen."
+    },
+    {
+     "name": "factor",
+     "type": "Zahl",
+     "default": "1",
+     "description": "Die Skalierung des Bildes. 1 lässt die Originalgröße, 2 zeigt das Bild doppelt so groß."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setmonitorstyle_normal",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_monitor_stil_normal",
+    "stage": "setze_monitor_stil_normal"
+   },
+   "summary": "Zeigt den Monitor einer Variable im normalen Stil, mit einer kleinen Anzeige ihres Werts.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Variable."
+    }
+   ]
+  },
+  {
+   "core": "pystage_replacecostume",
+   "category": "extras",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "ersetze_kostüm"
+   },
+   "summary": "Ersetzt ein vorhandenes Kostüm der Figur durch ein anderes Bild.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "index",
+     "type": "int",
+     "default": null,
+     "description": "Die Nummer des Kostüms, das ersetzt wird, ab 1."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der neuen Bilddatei."
+    },
+    {
+     "name": "center_x",
+     "type": "Zahl",
+     "default": "None",
+     "description": "Die waagerechte Position des Mittelpunkts des Kostüms im Bild in Pixeln. Ohne Angabe wird die Bildmitte genommen."
+    },
+    {
+     "name": "center_y",
+     "type": "Zahl",
+     "default": "None",
+     "description": "Die senkrechte Position des Mittelpunkts des Kostüms im Bild in Pixeln. Ohne Angabe wird die Bildmitte genommen."
+    },
+    {
+     "name": "factor",
+     "type": "Zahl",
+     "default": "1",
+     "description": "Die Skalierung des Bildes. 1 lässt die Originalgröße."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setmonitorstyle_slider",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_monitor_stil_regler",
+    "stage": "setze_monitor_stil_regler"
+   },
+   "summary": "Zeigt die Variable als Regler, den man mit der Maus ziehen kann.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Variable."
+    },
+    {
+     "name": "minimum",
+     "type": "Zahl",
+     "default": "0",
+     "description": "Der kleinste Wert des Reglers. Wie in Scratch ist der Standardwert 0."
+    },
+    {
+     "name": "maximum",
+     "type": "Zahl",
+     "default": "100",
+     "description": "Der größte Wert des Reglers. Wie in Scratch ist der Standardwert 100."
+    },
+    {
+     "name": "integer",
+     "type": "bool",
+     "default": "True",
+     "description": "Wenn True, stellt der Regler nur ganze Zahlen ein, sonst Zahlen mit zwei Nachkommastellen."
+    }
+   ]
+  },
+  {
+   "core": "pystage_insertcostume",
+   "category": "extras",
+   "available": [
+    "sprite"
+   ],
+   "names": {
+    "sprite": "füge_kostüm_ein"
+   },
+   "summary": "Fügt ein Kostüm (ein Bild) an der angegebenen Stelle in die Kostümliste der Figur ein.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "index",
+     "type": "int",
+     "default": null,
+     "description": "Die Stelle, an der das Kostüm eingefügt wird, ab 1."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Bilddatei, z. B. \"katze.png\"."
+    },
+    {
+     "name": "center_x",
+     "type": "Zahl",
+     "default": "None",
+     "description": "Die waagerechte Position des Mittelpunkts des Kostüms im Bild in Pixeln. Ohne Angabe wird die Bildmitte genommen."
+    },
+    {
+     "name": "center_y",
+     "type": "Zahl",
+     "default": "None",
+     "description": "Die senkrechte Position des Mittelpunkts des Kostüms im Bild in Pixeln. Ohne Angabe wird die Bildmitte genommen."
+    },
+    {
+     "name": "factor",
+     "type": "Zahl",
+     "default": "1",
+     "description": "Die Skalierung des Bildes. 1 lässt die Originalgröße."
+    }
+   ]
+  },
+  {
+   "core": "pystage_showmonitor",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "zeige_monitor",
+    "stage": "zeige_monitor"
+   },
+   "summary": "Zeigt den Monitor eines Werts, wie das Kästchen neben einem Block in Scratch.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "reporter",
+     "type": "str",
+     "default": null,
+     "description": "Was gezeigt wird: \"x-Position\", \"y-Position\", \"Richtung\", \"Kostümnummer\", \"Kostümname\", \"Größe\", \"Lautstärke\" (Figuren und Bühne), \"Bühnenbildnummer\", \"Bühnenbildname\" (Bühne), \"Antwort\", \"Mikrofon-Lautstärke\", \"Stoppuhr\", \"Jahr\", \"Monat\", \"Datum\", \"Wochentag\", \"Stunde\", \"Minute\", \"Sekunde\" oder \"Benutzername\"."
+    }
+   ]
+  },
+  {
+   "core": "pystage_hidemonitor",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "verstecke_monitor",
+    "stage": "verstecke_monitor"
+   },
+   "summary": "Versteckt den Monitor eines Werts.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "reporter",
+     "type": "str",
+     "default": null,
+     "description": "Der Wert, z. B. \"x-Position\", \"Größe\", \"Stoppuhr\" oder \"Jahr\". Dieselben Werte wie bei zeige_monitor sind erlaubt."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setreportermonitorposition",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_wertemonitor_position",
+    "stage": "setze_wertemonitor_position"
+   },
+   "summary": "Setzt die Position des Monitors eines Werts.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "reporter",
+     "type": "str",
+     "default": null,
+     "description": "Der Wert, siehe zeige_monitor."
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "default": null,
+     "description": "Linker Rand (Scratch-Koordinaten)."
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "default": null,
+     "description": "Oberer Rand (Scratch-Koordinaten)."
+    }
+   ]
+  },
+  {
+   "core": "pystage_setreportermonitorstyle",
+   "category": "extras",
+   "available": [
+    "sprite",
+    "stage"
+   ],
+   "names": {
+    "sprite": "setze_wertemonitor_stil",
+    "stage": "setze_wertemonitor_stil"
+   },
+   "summary": "Setzt den Stil des Monitors eines Werts.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "reporter",
+     "type": "str",
+     "default": null,
+     "description": "Der Wert, siehe zeige_monitor."
+    },
+    {
+     "name": "stil",
+     "type": "str",
+     "default": "'normal'",
+     "description": "\"normal\" oder \"groß\" (auch \"large\")."
+    }
+   ]
+  },
+  {
+   "core": "pystage_addbackdrop",
+   "category": "extras",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "füge_bühnenbild_hinzu"
+   },
+   "summary": "Fügt der Bühne ein Bühnenbild (ein Bild) hinzu. Das Bühnenbild kommt ans Ende der Bühnenbildliste.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Bilddatei, z. B. \"wald.png\". Die Datei muss im Projektordner liegen."
+    },
+    {
+     "name": "center_x",
+     "type": "Zahl",
+     "default": "None",
+     "description": "Die waagerechte Position des Mittelpunkts des Bildes in Pixeln. Ohne Angabe wird die Bildmitte genommen."
+    },
+    {
+     "name": "center_y",
+     "type": "Zahl",
+     "default": "None",
+     "description": "Die senkrechte Position des Mittelpunkts des Bildes in Pixeln. Ohne Angabe wird die Bildmitte genommen."
+    },
+    {
+     "name": "factor",
+     "type": "Zahl",
+     "default": "1",
+     "description": "Die Skalierung des Bildes. 1 lässt die Originalgröße."
+    }
+   ]
+  },
+  {
+   "core": "pystage_play",
+   "category": "extras",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "abspielen"
+   },
+   "summary": "Startet das Programm. Die Bühne wird gezeigt und alle Skripte laufen, bis das Fenster geschlossen wird.",
+   "more": [
+    "Dies wird einmal am Ende des Programms aufgerufen."
+   ],
+   "block": null,
+   "params": []
+  },
+  {
+   "core": "pystage_replacebackdrop",
+   "category": "extras",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "ersetze_bühnenbild"
+   },
+   "summary": "Ersetzt ein vorhandenes Bühnenbild durch ein anderes Bild.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "index",
+     "type": "int",
+     "default": null,
+     "description": "Die Nummer des Bühnenbilds, das ersetzt wird, ab 1."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der neuen Bilddatei."
+    },
+    {
+     "name": "center_x",
+     "type": "Zahl",
+     "default": "None",
+     "description": "Die waagerechte Position des Mittelpunkts des Bildes in Pixeln. Ohne Angabe wird die Bildmitte genommen."
+    },
+    {
+     "name": "center_y",
+     "type": "Zahl",
+     "default": "None",
+     "description": "Die senkrechte Position des Mittelpunkts des Bildes in Pixeln. Ohne Angabe wird die Bildmitte genommen."
+    },
+    {
+     "name": "factor",
+     "type": "Zahl",
+     "default": "1",
+     "description": "Die Skalierung des Bildes. 1 lässt die Originalgröße."
+    }
+   ]
+  },
+  {
+   "core": "pystage_insertbackdrop",
+   "category": "extras",
+   "available": [
+    "stage"
+   ],
+   "names": {
+    "stage": "füge_bühnenbild_ein"
+   },
+   "summary": "Fügt ein Bühnenbild (ein Bild) an der angegebenen Stelle in die Bühnenbildliste ein.",
+   "more": [],
+   "block": null,
+   "params": [
+    {
+     "name": "index",
+     "type": "int",
+     "default": null,
+     "description": "Die Stelle, an der das Bühnenbild eingefügt wird, ab 1."
+    },
+    {
+     "name": "name",
+     "type": "str",
+     "default": null,
+     "description": "Der Name der Bilddatei, z. B. \"wald.png\"."
+    },
+    {
+     "name": "center_x",
+     "type": "Zahl",
+     "default": "None",
+     "description": "Die waagerechte Position des Mittelpunkts des Bildes in Pixeln. Ohne Angabe wird die Bildmitte genommen."
+    },
+    {
+     "name": "center_y",
+     "type": "Zahl",
+     "default": "None",
+     "description": "Die senkrechte Position des Mittelpunkts des Bildes in Pixeln. Ohne Angabe wird die Bildmitte genommen."
+    },
+    {
+     "name": "factor",
+     "type": "Zahl",
+     "default": "1",
+     "description": "Die Skalierung des Bildes. 1 lässt die Originalgröße."
+    }
+   ]
+  }
+ ]
+}

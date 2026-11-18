@@ -130,3 +130,23 @@ nav .grp:first-child { margin-left: 0; padding-left: 0; border-left: 0; }
 .chroma .c, .chroma .c1, .chroma .cm, .chroma .cs, .chroma .ch { color: var(--c-com); font-style: italic; }
 .chroma .nf, .chroma .fm { color: var(--c-fn); }
 .chroma .nd { color: var(--c-kw); }
+
+/* Blocks reference */
+.catnav ul { flex-wrap: wrap; gap: .4rem; }
+.catnav a { border: 1px solid var(--border); background: var(--surface); }
+.blockcat { scroll-margin-top: 1rem; }
+.totop { font-size: .8em; text-decoration: none; margin-left: .3rem; }
+.blk { display: grid; grid-template-columns: 1fr; gap: .5rem 1.5rem; padding: 1rem 0; border-top: 1px solid var(--border); scroll-margin-top: 1rem; }
+@media (min-width: 46rem) { .blk { grid-template-columns: minmax(16rem, 22rem) 1fr; } }
+.blk > * { min-width: 0; }
+.blk .pic { background: #fff; border: 1px solid var(--border); border-radius: .5rem; padding: .6rem .8rem; overflow-x: auto; align-self: start; }
+.blk pre.blocks { background: none; border: 0; padding: 0; margin: 0; color: #1c2230; overflow: visible; white-space: pre-wrap; }
+.blk p { margin: .25rem 0; }
+.blk .call code { font-size: 1rem; word-break: break-word; }
+.badge { display: inline-block; font-size: .8rem; padding: .05rem .5rem; margin-right: .3rem; border: 1px solid var(--border); border-radius: 1rem; background: var(--surface); color: var(--muted); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.params { margin: .4rem 0 0; font-size: .95rem; }
+.params dt { margin-top: .3rem; }
+.params dd { margin: 0 0 0 1rem; color: var(--muted); }
+.ptype { color: var(--muted); font-size: .85em; }
+.blk details { margin: .25rem 0; }
